@@ -1,5 +1,7 @@
 // BRANDS
 export const BRANDS_GET_BRANDS = '@brands/GET_BRANDS';
+export const BRANDS_POST_BRAND = '@brands/POST_BRAND';
+export const BRANDS_DELETE_BRAND = '@brands/DELETE_BRAND';
 export const BRANDS_RESET = '@brands/BRANDS_RESET';
 
 // TYPES

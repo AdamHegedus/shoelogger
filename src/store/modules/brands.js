@@ -16,6 +16,8 @@ const mutations = {
             };
         });
     },
+    [types.BRANDS_DELETE_BRAND]: () => {
+    },
     [types.BRANDS_RESET]: () => {
         state.brands = [];
     }
@@ -24,11 +26,21 @@ const mutations = {
 const actions = {
     getBrands: ({ commit }) => {
         axios.get('/brands/get-brands.php')
-            .then(
-                (response) => {
-                    commit(types.BRANDS_GET_BRANDS, response.data);
-                }
-            );
+            .then((response) => {
+                commit(types.BRANDS_GET_BRANDS, response.data);
+            });
+    },
+    addBrand: ({ commit }, payload) => {
+        axios.post('brands/post-brand.php', payload)
+            .then((response) => {
+                commit(types.BRANDS_POST_BRAND, response.data);
+            });
+    },
+    deleteBrand: ({ commit }, payload) => {
+        axios.post('brands/delete-brand.php', payload)
+            .then((response) => {
+                commit(types.BRANDS_DELETE_BRAND, response.data);
+            });
     },
     reset: ({ commit }) => {
         commit(types.BRANDS_RESET);
