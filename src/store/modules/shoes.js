@@ -33,11 +33,9 @@ const actions = {
     },
     addShoe: ({ commit }, payload) => {
         axios.post('/shoes/post-shoe.php', payload)
-            .then(
-                (response) => {
-                    commit(types.SHOES_POST_SHOES, response.data);
-                }
-            );
+            .then((response) => {
+                commit(types.SHOES_POST_SHOES, response.data);
+            });
     },
     reset: ({ commit }) => {
         commit(types.SHOES_RESET);

@@ -14,13 +14,20 @@
                         <b-nav-item to="/logs">
                             Logs
                         </b-nav-item>
+                        <b-nav-item to="/brands">
+                            Brands
+                        </b-nav-item>
                     </b-navbar-nav>
                 </b-navbar>
             </div>
         </div>
 
+        <div class="row m-0">
+            <div class="col-md-12 p-0">
+            </div>
+        </div>
         <div class="row m-0 mt-5">
-            <div class="col-md-12 p-0 pt-2">
+            <div class="col-md-12 pt-2">
                 <transition name="slide" mode="out-in">
                     <router-view />
                 </transition>
@@ -103,6 +110,16 @@ export default {};
             transform: translateY(-30px);
             opacity: 0;
         }
+    }
+
+    .fade-enter-active {
+        opacity: 1;
+        animation: opacity 400ms ease-out forwards;
+    }
+
+    .fade-leave-active {
+        opacity: 0;
+        animation: opacity 400ms ease-out forwards;
     }
 
 </style>

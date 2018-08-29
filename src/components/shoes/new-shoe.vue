@@ -11,6 +11,7 @@
                             <b-dropdown
                                     id="type"
                                     size="lg"
+                                    :no-flip="true"
                                     :text="selectedType !== null ?
                                     selectedType.type :
                                     'Select Type'"
@@ -31,6 +32,7 @@
                         <b-dropdown
                                 id="brandName"
                                 size="lg"
+                                :no-flip="true"
                                 :text="selectedBrand !== null ?
                                 selectedBrand.brand :
                                 'Select Brand'"

@@ -11,6 +11,7 @@
                             <b-dropdown
                                     id="type"
                                     size="lg"
+                                    :no-flip="true"
                                     :text="selectedShoe !== null ?
                                     `${selectedShoe.brand} ${selectedShoe.product}` :
                                     'Select Shoe'"
