@@ -26,6 +26,9 @@
                     </button>
 
                 </form>
+                <p class="alert alert-danger mt-3" v-if="status === false">
+                    Error adding brand to database.
+                </p>
             </div>
 
         </div>
@@ -34,6 +37,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     computed: {
         getBrand() {
@@ -43,7 +48,10 @@ export default {
         },
         isValid() {
             return this.brand.length > 0;
-        }
+        },
+        ...mapGetters({
+            status: 'brands/getStatus'
+        })
     },
     data() {
         return {
@@ -53,6 +61,15 @@ export default {
     methods: {
         addBrand(brand) {
             this.$store.dispatch('brands/addBrand', brand);
+        }
+    },
+    watch: {
+        status(actual) {
+            if (actual) {
+                this.$router.push('/brands');
+            } else {
+                // this.$store.dispatch('brands/reset');
+            }
         }
     },
     destroyed() {
