@@ -24,12 +24,15 @@
                     <transition name="slide">
                         <button
                                 class="btn btn-danger float-right brand-action"
-                                @click="deleteBrand(item.id)"
+                                @click.stop="deleteBrand(item.id)"
                         >
                             Delete
                         </button>
                     </transition>
                 </div>
+                <p class="alert alert-danger mt-3" v-if="status === false && isSelected(index)">
+                    Error deleting brand from database.
+                </p>
 
             </div>
         </div>
@@ -37,11 +40,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     computed: {
         brands() {
             return this.$store.state.brands.brands;
-        }
+        },
+        ...mapGetters({
+            status: 'brands/getStatusDelete'
+        })
     },
     data() {
         return {
@@ -63,9 +71,21 @@ export default {
         },
         selectBrand(index) {
             this.selectedIndex = this.isSelected(index) ? null : index;
+
+            if (this.status === false) {
+                this.$store.dispatch('brands/resetMeta');
+            }
         },
         isSelected(index) {
             return this.selectedIndex === index;
+        }
+    },
+    watch: {
+        status(actual) {
+            if (actual) {
+                this.selectBrand(null);
+                this.$store.dispatch('brands/getBrands');
+            }
         }
     },
     destroyed() {
@@ -105,6 +125,7 @@ export default {
             .brand-action {
                 display: block;
             }
+
         }
     }
 </style>

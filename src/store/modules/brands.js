@@ -2,10 +2,19 @@ import axios from 'axios';
 import * as types from '../types';
 
 const state = {
-    brands: []
+    brands: [],
+    status: null,
+    statusDelete: null
 };
 
-const getters = {};
+const getters = {
+    getStatus: (innerState) => {
+        return innerState.status;
+    },
+    getStatusDelete: (innerState) => {
+        return innerState.statusDelete;
+    }
+};
 
 const mutations = {
     [types.BRANDS_GET_BRANDS]: (innerState, payload) => {
@@ -15,11 +24,23 @@ const mutations = {
                 brand: data.brand
             };
         });
+        state.status = null;
+        state.statusDelete = null;
     },
-    [types.BRANDS_DELETE_BRAND]: () => {
+    [types.BRANDS_POST_BRAND]: (innerState, payload) => {
+        state.status = typeof payload.data === 'object' && payload.data !== null;
+    },
+    [types.BRANDS_DELETE_BRAND]: (innerState, payload) => {
+        state.statusDelete = typeof payload.data === 'object' && payload.data !== null;
     },
     [types.BRANDS_RESET]: () => {
         state.brands = [];
+        state.status = null;
+        state.statusDelete = null;
+    },
+    [types.BRANDS_RESET_META]: () => {
+        state.status = null;
+        state.statusDelete = null;
     }
 };
 
@@ -44,6 +65,9 @@ const actions = {
     },
     reset: ({ commit }) => {
         commit(types.BRANDS_RESET);
+    },
+    resetMeta: ({ commit }) => {
+        commit(types.BRANDS_RESET_META);
     }
 };
 
