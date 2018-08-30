@@ -79,6 +79,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     computed: {
         brands() {
@@ -98,7 +100,10 @@ export default {
             return this.selectedBrand !== null &&
                 this.selectedType !== null &&
                 this.product.length > 0;
-        }
+        },
+        ...mapGetters({
+            meta: 'shoes/getMeta'
+        })
     },
     data() {
         return {
@@ -121,6 +126,15 @@ export default {
     created() {
         this.$store.dispatch('brands/getBrands');
         this.$store.dispatch('types/getTypes');
+    },
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.$router.push('/shoes');
+            } else {
+                // console.log(actual.message);
+            }
+        }
     },
     destroyed() {
         this.$store.dispatch('shoes/reset');

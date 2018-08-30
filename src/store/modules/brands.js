@@ -1,18 +1,21 @@
 import axios from 'axios';
 import * as types from '../types';
 
+function success(data) {
+    return typeof data === 'object' && data !== null;
+}
+
 const state = {
     brands: [],
-    status: null,
-    statusDelete: null
+    meta: {
+        message: null,
+        status: false
+    }
 };
 
 const getters = {
-    getStatus: (innerState) => {
-        return innerState.status;
-    },
-    getStatusDelete: (innerState) => {
-        return innerState.statusDelete;
+    getMeta: (innerState) => {
+        return innerState.meta;
     }
 };
 
@@ -28,19 +31,37 @@ const mutations = {
         state.statusDelete = null;
     },
     [types.BRANDS_POST_BRAND]: (innerState, payload) => {
-        state.status = typeof payload.data === 'object' && payload.data !== null;
+        state.meta = success(payload.data) ?
+            {
+                status: true,
+                message: null
+            } : {
+                status: false,
+                message: payload.meta
+            };
     },
     [types.BRANDS_DELETE_BRAND]: (innerState, payload) => {
-        state.statusDelete = typeof payload.data === 'object' && payload.data !== null;
+        state.meta = success(payload.data) ?
+            {
+                status: true,
+                message: null
+            } : {
+                status: false,
+                message: payload
+            };
     },
     [types.BRANDS_RESET]: () => {
         state.brands = [];
-        state.status = null;
-        state.statusDelete = null;
+        state.meta = {
+            message: null,
+            status: false
+        };
     },
     [types.BRANDS_RESET_META]: () => {
-        state.status = null;
-        state.statusDelete = null;
+        state.meta = {
+            message: null,
+            status: false
+        };
     }
 };
 

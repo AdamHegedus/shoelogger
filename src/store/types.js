@@ -13,6 +13,7 @@ export const TYPES_RESET = '@brands/TYPES_RESET';
 export const SHOES_GET_SHOES = '@shoes/GET_SHOES';
 export const SHOES_POST_SHOES = '@shoes/POST_SHOES';
 export const SHOES_RESET = '@shoes/SHOES_RESET';
+export const SHOES_RESET_META = '@bshoess/RESET_META';
 
 // LOGS
 export const LOGS_GET_LOGS = '@shoe-log/GET_LOGS';

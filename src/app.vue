@@ -112,14 +112,4 @@ export default {};
         }
     }
 
-    .fade-enter-active {
-        opacity: 1;
-        animation: opacity 400ms ease-out forwards;
-    }
-
-    .fade-leave-active {
-        opacity: 0;
-        animation: opacity 400ms ease-out forwards;
-    }
-
 </style>
