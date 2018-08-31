@@ -1,6 +1,6 @@
 # shoe-log
 
-> A Vue.js project
+> A shoe wear management and logging tool.
 
 ## Build Setup
 
