@@ -50,6 +50,11 @@ export default {};
         color: #2c3e50;
         padding: 0 0 20px 0;
 
+        h2,
+        label {
+            text-shadow: 0 0 2px whitesmoke;
+        }
+
         .navbar {
             padding: 0;
         }
