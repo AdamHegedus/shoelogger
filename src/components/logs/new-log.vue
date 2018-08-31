@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     computed: {
         shoes() {
@@ -84,7 +86,10 @@ export default {
         },
         isValid() {
             return this.selectedShoe !== null && this.distance.length > 0;
-        }
+        },
+        ...mapGetters({
+            meta: 'logs/getMeta'
+        })
     },
     data() {
         return {
@@ -99,6 +104,15 @@ export default {
         },
         addLog(shoe) {
             this.$store.dispatch('logs/addLog', shoe);
+        }
+    },
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.$router.push('/logs');
+            } else {
+                // console.log(actual.message);
+            }
         }
     },
     created() {
