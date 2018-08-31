@@ -1,11 +1,23 @@
 import axios from 'axios';
 import * as types from '../types';
 
+function success(data) {
+    return typeof data === 'object' && data !== null;
+}
+
 const state = {
-    shoes: []
+    shoes: [],
+    meta: {
+        message: null,
+        status: false
+    }
 };
 
-const getters = {};
+const getters = {
+    getMeta: (innerState) => {
+        return innerState.meta;
+    }
+};
 
 const mutations = {
     [types.SHOES_GET_SHOES]: (innerState, payload) => {
@@ -19,8 +31,34 @@ const mutations = {
             };
         });
     },
+    [types.SHOES_POST_SHOES]: (innerState, payload) => {
+        state.meta = success(payload.data) ?
+            {
+                status: true,
+                message: null
+            } : {
+                status: false,
+                message: payload.meta
+            };
+    },
+    [types.SHOES_DELETE_SHOE]: (innerState, payload) => {
+        state.meta = success(payload.data) ?
+            {
+                status: true,
+                message: null
+            } : {
+                status: false,
+                message: payload.meta
+            };
+    },
     [types.SHOES_RESET]: () => {
         state.shoes = [];
+    },
+    [types.SHOES_RESET_META]: () => {
+        state.meta = {
+            message: null,
+            status: false
+        };
     }
 };
 
@@ -37,8 +75,17 @@ const actions = {
                 commit(types.SHOES_POST_SHOES, response.data);
             });
     },
+    deleteShoe: ({ commit }, payload) => {
+        axios.post('shoes/delete-shoe.php', payload)
+            .then((response) => {
+                commit(types.SHOES_DELETE_SHOE, response.data);
+            });
+    },
     reset: ({ commit }) => {
         commit(types.SHOES_RESET);
+    },
+    resetMeta: ({ commit }) => {
+        commit(types.SHOES_RESET_META);
     }
 };
 

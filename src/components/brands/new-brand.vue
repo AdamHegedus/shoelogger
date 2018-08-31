@@ -26,8 +26,8 @@
                     </button>
 
                 </form>
-                <p class="alert alert-danger mt-3" v-if="status === false">
-                    Error adding brand to database.
+                <p class="alert alert-danger mt-3" v-if="!meta.status && meta.message !== null">
+                    {{ meta.message }}
                 </p>
             </div>
 
@@ -50,7 +50,7 @@ export default {
             return this.brand.length > 0;
         },
         ...mapGetters({
-            status: 'brands/getStatus'
+            meta: 'brands/getMeta'
         })
     },
     data() {
@@ -64,11 +64,11 @@ export default {
         }
     },
     watch: {
-        status(actual) {
-            if (actual) {
+        meta(actual) {
+            if (actual.status) {
                 this.$router.push('/brands');
             } else {
-                // this.$store.dispatch('brands/reset');
+                // console.log(actual.message);
             }
         }
     },
