@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index.vue should match snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h1>
+        Shoe Logger
+      </h1>
+       
+      <p>
+        A shoe wear management tool.
+      </p>
+    </div>
+  </div>
+</div>
+`;

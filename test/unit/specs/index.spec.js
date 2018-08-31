@@ -2,16 +2,16 @@ import Vue from 'vue';
 import Index from '@/components/index';
 
 describe('index.vue', () => {
-    it('should render correct contents', () => {
+    const Constructor = Vue.extend(Index);
+    const vm = new Constructor().$mount();
+
+    it('should match snapshot', () => {
         // ASSIGN
-        const Constructor = Vue.extend(Index);
-        const vm = new Constructor().$mount();
-        const expected = 'Shoe Logger';
 
         // ACT
-        const actual = vm.$el.querySelector('h1').textContent;
+        const actual = vm.$el;
 
         // ASSERT
-        expect(actual).toEqual(expected);
+        expect(actual).toMatchSnapshot();
     });
 });
