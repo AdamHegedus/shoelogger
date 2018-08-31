@@ -65,6 +65,21 @@ export default {};
                 }
             }
         }
+
+        .dropdown-menu {
+            width: 100%;
+            background-color: $body-bg;
+            border: 1px solid $secondary;
+
+            .dropdown-item {
+                &:hover,
+                &:focus {
+                    background-color: $primary;
+                    color: $white;
+                    outline: none;
+                }
+            }
+        }
     }
 
     table.table-bordered {
