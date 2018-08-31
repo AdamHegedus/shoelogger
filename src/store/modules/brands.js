@@ -47,7 +47,7 @@ const mutations = {
                 message: null
             } : {
                 status: false,
-                message: payload
+                message: payload.meta
             };
     },
     [types.BRANDS_RESET]: () => {

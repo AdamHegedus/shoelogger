@@ -12,6 +12,7 @@ export const TYPES_RESET = '@brands/TYPES_RESET';
 // SHOES
 export const SHOES_GET_SHOES = '@shoes/GET_SHOES';
 export const SHOES_POST_SHOES = '@shoes/POST_SHOES';
+export const SHOES_DELETE_SHOE = '@shoes/DELETE_SHOE';
 export const SHOES_RESET = '@shoes/SHOES_RESET';
 export const SHOES_RESET_META = '@bshoess/RESET_META';
 

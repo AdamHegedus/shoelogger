@@ -112,4 +112,21 @@ export default {};
         }
     }
 
+    .fade-enter {
+        opacity: 0;
+    }
+
+    .fade-enter-active {
+        transition: opacity 0.2s ease;
+    }
+
+    .fade-leave {
+        opacity: 1;
+    }
+
+    .fade-leave-active {
+        opacity: 0;
+        transition: opacity 0.2s ease
+    }
+
 </style>

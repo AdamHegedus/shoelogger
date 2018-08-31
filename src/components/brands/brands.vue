@@ -60,7 +60,6 @@ export default {
     },
     data() {
         return {
-            brand: '',
             selectedIndex: null
         };
     },
@@ -144,14 +143,14 @@ export default {
     }
 
     .animation-slide-bottom-and-fade-enter-active {
-        animation: bounce-and-fade 0.5s;
+        animation: slide-bottom-and-fade 0.5s;
     }
 
     .animation-slide-bottom-and-fade-leave-active {
-        animation: bounce-and-fade 0.2s reverse;
+        animation: slide-bottom-and-fade 0.2s reverse;
     }
 
-    @keyframes bounce-and-fade {
+    @keyframes slide-bottom-and-fade {
         0% {
             opacity: 0;
             transform: translateY(30px);
