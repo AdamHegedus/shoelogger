@@ -11,6 +11,7 @@
                             <b-dropdown
                                     id="type"
                                     size="lg"
+                                    :no-flip="true"
                                     :text="selectedShoe !== null ?
                                     `${selectedShoe.brand} ${selectedShoe.product}` :
                                     'Select Shoe'"
@@ -18,6 +19,7 @@
                                     toggle-class="btn btn-secondary btn-lg btn-block shadow"
                             >
                                 <b-dropdown-item
+                                        :class="{ active: isSelected(shoe, selectedShoe) }"
                                         :key="shoe.product"
                                         v-for="shoe in shoes"
                                         @click="selectShoe(shoe)"
@@ -68,6 +70,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import matchItem from '@/utils/match-item';
+
 export default {
     computed: {
         shoes() {
@@ -83,7 +88,10 @@ export default {
         },
         isValid() {
             return this.selectedShoe !== null && this.distance.length > 0;
-        }
+        },
+        ...mapGetters({
+            meta: 'logs/getMeta'
+        })
     },
     data() {
         return {
@@ -93,11 +101,23 @@ export default {
         };
     },
     methods: {
+        isSelected(currentItem, selectedItem) {
+            return matchItem(currentItem, selectedItem);
+        },
         selectShoe(shoe) {
             this.selectedShoe = shoe;
         },
         addLog(shoe) {
             this.$store.dispatch('logs/addLog', shoe);
+        }
+    },
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.$router.push('/logs');
+            } else {
+                // console.log(actual.message);
+            }
         }
     },
     created() {

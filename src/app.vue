@@ -14,13 +14,20 @@
                         <b-nav-item to="/logs">
                             Logs
                         </b-nav-item>
+                        <b-nav-item to="/brands">
+                            Brands
+                        </b-nav-item>
                     </b-navbar-nav>
                 </b-navbar>
             </div>
         </div>
 
+        <div class="row m-0">
+            <div class="col-md-12 p-0">
+            </div>
+        </div>
         <div class="row m-0 mt-5">
-            <div class="col-md-12 p-0 pt-2">
+            <div class="col-md-12 pt-2">
                 <transition name="slide" mode="out-in">
                     <router-view />
                 </transition>
@@ -43,6 +50,11 @@ export default {};
         color: #2c3e50;
         padding: 0 0 20px 0;
 
+        h2,
+        label {
+            text-shadow: 0 0 2px whitesmoke;
+        }
+
         .navbar {
             padding: 0;
         }
@@ -55,6 +67,25 @@ export default {};
 
                 &.active {
                     background-color: $primary;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            width: 100%;
+            background-color: $body-bg;
+            border: 1px solid $secondary;
+
+            .dropdown-item {
+                &:hover,
+                .active {
+                    background-color: $primary !important;
+                    color: $white;
+                    outline: none;
+                }
+                &:focus {
+                    background-color: transparent;
+                    outline: none;
                 }
             }
         }
@@ -103,6 +134,23 @@ export default {};
             transform: translateY(-30px);
             opacity: 0;
         }
+    }
+
+    .fade-enter {
+        opacity: 0;
+    }
+
+    .fade-enter-active {
+        transition: opacity 0.2s ease;
+    }
+
+    .fade-leave {
+        opacity: 1;
+    }
+
+    .fade-leave-active {
+        opacity: 0;
+        transition: opacity 0.2s ease
     }
 
 </style>

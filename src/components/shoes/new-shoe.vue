@@ -11,6 +11,7 @@
                             <b-dropdown
                                     id="type"
                                     size="lg"
+                                    :no-flip="true"
                                     :text="selectedType !== null ?
                                     selectedType.type :
                                     'Select Type'"
@@ -18,6 +19,7 @@
                                     toggle-class="btn btn-secondary btn-lg btn-block shadow"
                             >
                                 <b-dropdown-item
+                                        :class="{ active: isSelected(type, selectedType) }"
                                         :key="type.type"
                                         v-for="type in types"
                                         @click="selectType(type)"
@@ -31,6 +33,7 @@
                         <b-dropdown
                                 id="brandName"
                                 size="lg"
+                                :no-flip="true"
                                 :text="selectedBrand !== null ?
                                 selectedBrand.brand :
                                 'Select Brand'"
@@ -38,6 +41,7 @@
                                 toggle-class="btn btn-secondary btn-lg btn-block shadow"
                         >
                             <b-dropdown-item
+                                    :class="{ active: isSelected(brand, selectedBrand) }"
                                     :key="brand.brand"
                                     v-for="brand in brands"
                                     @click="selectBrand(brand)"
@@ -77,6 +81,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import matchItem from '@/utils/match-item';
+
 export default {
     computed: {
         brands() {
@@ -96,7 +103,10 @@ export default {
             return this.selectedBrand !== null &&
                 this.selectedType !== null &&
                 this.product.length > 0;
-        }
+        },
+        ...mapGetters({
+            meta: 'shoes/getMeta'
+        })
     },
     data() {
         return {
@@ -106,6 +116,9 @@ export default {
         };
     },
     methods: {
+        isSelected(currentItem, selectedItem) {
+            return matchItem(currentItem, selectedItem);
+        },
         selectBrand(brand) {
             this.selectedBrand = brand;
         },
@@ -119,6 +132,15 @@ export default {
     created() {
         this.$store.dispatch('brands/getBrands');
         this.$store.dispatch('types/getTypes');
+    },
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.$router.push('/shoes');
+            } else {
+                // console.log(actual.message);
+            }
+        }
     },
     destroyed() {
         this.$store.dispatch('shoes/reset');
