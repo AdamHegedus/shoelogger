@@ -19,6 +19,7 @@
                                     toggle-class="btn btn-secondary btn-lg btn-block shadow"
                             >
                                 <b-dropdown-item
+                                        :class="{ active: isSelected(shoe, selectedShoe) }"
                                         :key="shoe.product"
                                         v-for="shoe in shoes"
                                         @click="selectShoe(shoe)"
@@ -99,6 +100,13 @@ export default {
         };
     },
     methods: {
+        isSelected(currentItem, selectedItem) {
+            return typeof currentItem === 'object' && currentItem !== null &&
+                typeof selectedItem === 'object' && selectedItem !== null &&
+                Object.prototype.hasOwnProperty.call(currentItem, 'id') &&
+                Object.prototype.hasOwnProperty.call(selectedItem, 'id') &&
+                currentItem.id === selectedItem.id;
+        },
         selectShoe(shoe) {
             this.selectedShoe = shoe;
         },
