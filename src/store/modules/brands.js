@@ -21,14 +21,14 @@ const getters = {
 
 const mutations = {
     [types.BRANDS_GET_BRANDS]: (innerState, payload) => {
-        state.brands = payload.map((data) => {
-            return {
-                id: data.id - 0,
-                brand: data.brand
-            };
-        });
-        state.status = null;
-        state.statusDelete = null;
+        state.brands = Array.isArray(payload) ?
+            payload.map((data) => {
+                return {
+                    id: data.id - 0,
+                    brand: data.brand
+                };
+            }) :
+            [];
     },
     [types.BRANDS_POST_BRAND]: (innerState, payload) => {
         state.meta = success(payload.data) ?
@@ -73,13 +73,13 @@ const actions = {
             });
     },
     addBrand: ({ commit }, payload) => {
-        axios.post('brands/post-brand.php', payload)
+        axios.post('/brands/post-brand.php', payload)
             .then((response) => {
                 commit(types.BRANDS_POST_BRAND, response.data);
             });
     },
     deleteBrand: ({ commit }, payload) => {
-        axios.post('brands/delete-brand.php', payload)
+        axios.post('/brands/delete-brand.php', payload)
             .then((response) => {
                 commit(types.BRANDS_DELETE_BRAND, response.data);
             });

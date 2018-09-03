@@ -21,17 +21,19 @@ const getters = {
 
 const mutations = {
     [types.SHOES_GET_SHOES]: (innerState, payload) => {
-        state.shoes = payload.map((data) => {
-            return {
-                id: data.id - 0,
-                type: data.type,
-                brand: data.brand,
-                product: data.product,
-                distance: data.distance - 0
-            };
-        });
+        state.shoes = Array.isArray(payload) ?
+            payload.map((data) => {
+                return {
+                    id: data.id - 0,
+                    type: data.type,
+                    brand: data.brand,
+                    product: data.product,
+                    distance: data.distance - 0
+                };
+            }) :
+            [];
     },
-    [types.SHOES_POST_SHOES]: (innerState, payload) => {
+    [types.SHOES_POST_SHOE]: (innerState, payload) => {
         state.meta = success(payload.data) ?
             {
                 status: true,
@@ -53,6 +55,10 @@ const mutations = {
     },
     [types.SHOES_RESET]: () => {
         state.shoes = [];
+        state.meta = {
+            message: null,
+            status: false
+        };
     },
     [types.SHOES_RESET_META]: () => {
         state.meta = {
@@ -72,11 +78,11 @@ const actions = {
     addShoe: ({ commit }, payload) => {
         axios.post('/shoes/post-shoe.php', payload)
             .then((response) => {
-                commit(types.SHOES_POST_SHOES, response.data);
+                commit(types.SHOES_POST_SHOE, response.data);
             });
     },
     deleteShoe: ({ commit }, payload) => {
-        axios.post('shoes/delete-shoe.php', payload)
+        axios.post('/shoes/delete-shoe.php', payload)
             .then((response) => {
                 commit(types.SHOES_DELETE_SHOE, response.data);
             });

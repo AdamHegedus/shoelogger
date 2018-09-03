@@ -5,12 +5,12 @@ jest.mock('axios', () => {
     };
 });
 import axios from 'axios';
-import Brands from './brands';
+import Logs from './logs';
 import * as types from '../types';
 
-describe('store > modules > brands', () => {
+describe('store > modules > logs', () => {
 
-    const component = Brands;
+    const component = Logs;
 
     describe('namespaced', () => {
 
@@ -61,7 +61,7 @@ describe('store > modules > brands', () => {
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
-                brands: [],
+                logs: [],
                 meta: {
                     status: false,
                     message: null
@@ -73,7 +73,7 @@ describe('store > modules > brands', () => {
 
             // ASSERT
             expect(actual).toEqual(expected);
-            expect(actual.brands).toEqual(expected.brands);
+            expect(actual.logs).toEqual(expected.logs);
             expect(actual.meta).toEqual(expected.meta);
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
@@ -90,7 +90,7 @@ describe('store > modules > brands', () => {
                 const expected = {
                     mock: {
                         calls: [
-                            [types.BRANDS_RESET]
+                            [types.LOGS_RESET]
                         ]
                     }
                 };
@@ -114,7 +114,7 @@ describe('store > modules > brands', () => {
                 const expected = {
                     mock: {
                         calls: [
-                            [types.BRANDS_RESET_META]
+                            [types.LOGS_RESET_META]
                         ]
                     }
                 };
@@ -131,15 +131,15 @@ describe('store > modules > brands', () => {
 
         });
 
-        describe('getBrands', () => {
+        describe('getLogs', () => {
 
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
-                const expected = '/brands/get-brands.php';
+                const expected = '/logs/get-logs.php';
                 const commit = jest.fn();
 
                 // ACT
-                component.actions.getBrands({ commit });
+                component.actions.getLogs({ commit });
 
                 // ASSERT
                 expect(axios.get).toBeCalledWith(expected);
@@ -148,11 +148,11 @@ describe('store > modules > brands', () => {
 
         });
 
-        describe('addBrand', () => {
+        describe('addLog', () => {
 
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
-                const expectedUrl = '/brands/post-brand.php';
+                const expectedUrl = '/logs/post-log.php';
                 const expectedPayload = {
                     foo: 'bar'
                 };
@@ -162,7 +162,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.actions.addBrand({ commit }, payload);
+                component.actions.addLog({ commit }, payload);
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
@@ -171,11 +171,11 @@ describe('store > modules > brands', () => {
 
         });
 
-        describe('deleteBrand', () => {
+        describe('deleteLog', () => {
 
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
-                const expectedUrl = '/brands/delete-brand.php';
+                const expectedUrl = '/logs/delete-log.php';
                 const expectedPayload = {
                     foo: 'bar'
                 };
@@ -185,7 +185,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.actions.deleteBrand({ commit }, payload);
+                component.actions.deleteLog({ commit }, payload);
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
@@ -198,19 +198,19 @@ describe('store > modules > brands', () => {
 
     describe('mutations', () => {
 
-        describe(`${types.BRANDS_RESET}`, () => {
+        describe(`${types.LOGS_RESET}`, () => {
 
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
-                    brands: [],
+                    logs: [],
                     meta: {
                         message: null,
                         status: false
                     }
                 };
 
-                component.state.brands = [
+                component.state.logs = [
                     {
                         foo: 'bar'
                     }
@@ -221,17 +221,17 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_RESET]();
+                component.mutations[types.LOGS_RESET]();
 
                 // ASSERT
-                expect(component.state.brands).toEqual(expected.brands);
+                expect(component.state.logs).toEqual(expected.logs);
                 expect(component.state.meta).toEqual(expected.meta);
 
             });
 
         });
 
-        describe(`${types.BRANDS_RESET_META}`, () => {
+        describe(`${types.LOGS_RESET_META}`, () => {
 
             it('should set state', () => {
                 // ASSIGN
@@ -241,7 +241,7 @@ describe('store > modules > brands', () => {
                         status: false
                     }
                 };
-                component.state.brands = [
+                component.state.logs = [
                     {
                         foo: 'bar'
                     }
@@ -252,7 +252,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_RESET_META]();
+                component.mutations[types.LOGS_RESET_META]();
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -261,23 +261,35 @@ describe('store > modules > brands', () => {
 
         });
 
-        describe(`${types.BRANDS_GET_BRANDS}`, () => {
+        describe(`${types.LOGS_GET_LOGS}`, () => {
 
             it('should set state when payload returns array', () => {
                 // ASSIGN
                 const expected = {
-                    brands: [
+                    logs: [
                         {
                             id: 1,
-                            brand: 'foo'
+                            brand: 'foo',
+                            type: 'running',
+                            product: 'FOO',
+                            distance: 100,
+                            date: '2000-01-01'
                         },
                         {
                             id: 2,
-                            brand: 'bar'
+                            brand: 'bar',
+                            type: 'walking',
+                            product: 'BAR',
+                            distance: 10,
+                            date: '2000-01-01'
                         },
                         {
                             id: 3,
-                            brand: null
+                            brand: null,
+                            type: 'running',
+                            product: 'foo-bar',
+                            distance: 0,
+                            date: '2000-01-01'
                         }
                     ]
                 };
@@ -285,61 +297,73 @@ describe('store > modules > brands', () => {
                 const payload = [
                     {
                         id: '1',
-                        brand: 'foo'
+                        brand: 'foo',
+                        type: 'running',
+                        product: 'FOO',
+                        distance: '100',
+                        date: '2000-01-01'
                     },
                     {
                         id: '2',
-                        brand: 'bar'
+                        brand: 'bar',
+                        type: 'walking',
+                        product: 'BAR',
+                        distance: '10',
+                        date: '2000-01-01'
                     },
                     {
                         id: '3',
-                        brand: null
+                        brand: null,
+                        type: 'running',
+                        product: 'foo-bar',
+                        distance: null,
+                        date: '2000-01-01'
                     }
                 ];
 
                 // ACT
-                component.mutations[types.BRANDS_GET_BRANDS](mockState, payload);
+                component.mutations[types.LOGS_GET_LOGS](mockState, payload);
 
                 // ASSERT
-                expect(component.state.brands).toEqual(expected.brands);
+                expect(component.state.logs).toEqual(expected.logs);
 
             });
 
             it('should set state when payload returns null', () => {
                 // ASSIGN
                 const expected = {
-                    brands: []
+                    logs: []
                 };
                 const mockState = {};
                 const payload = null;
 
                 // ACT
-                component.mutations[types.BRANDS_GET_BRANDS](mockState, payload);
+                component.mutations[types.LOGS_GET_LOGS](mockState, payload);
 
                 // ASSERT
-                expect(component.state.brands).toEqual(expected.brands);
+                expect(component.state.logs).toEqual(expected.logs);
 
             });
 
             it('should set state when payload returns undefined', () => {
                 // ASSIGN
                 const expected = {
-                    brands: []
+                    logs: []
                 };
                 const mockState = {};
                 const payload = undefined;
 
                 // ACT
-                component.mutations[types.BRANDS_GET_BRANDS](mockState, payload);
+                component.mutations[types.LOGS_GET_LOGS](mockState, payload);
 
                 // ASSERT
-                expect(component.state.brands).toEqual(expected.brands);
+                expect(component.state.logs).toEqual(expected.logs);
 
             });
 
         });
 
-        describe(`${types.BRANDS_POST_BRAND}`, () => {
+        describe(`${types.LOGS_POST_LOGS}`, () => {
 
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
@@ -355,7 +379,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_POST_BRAND](mockState, payload);
+                component.mutations[types.LOGS_POST_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -378,7 +402,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_POST_BRAND](mockState, payload);
+                component.mutations[types.LOGS_POST_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -401,7 +425,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_POST_BRAND](mockState, payload);
+                component.mutations[types.LOGS_POST_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -410,7 +434,7 @@ describe('store > modules > brands', () => {
 
         });
 
-        describe(`${types.BRANDS_DELETE_BRAND}`, () => {
+        describe(`${types.LOGS_DELETE_LOGS}`, () => {
 
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
@@ -426,7 +450,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_DELETE_BRAND](mockState, payload);
+                component.mutations[types.LOGS_DELETE_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -449,7 +473,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_DELETE_BRAND](mockState, payload);
+                component.mutations[types.LOGS_DELETE_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
@@ -472,7 +496,7 @@ describe('store > modules > brands', () => {
                 };
 
                 // ACT
-                component.mutations[types.BRANDS_DELETE_BRAND](mockState, payload);
+                component.mutations[types.LOGS_DELETE_LOG](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
