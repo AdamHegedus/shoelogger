@@ -71,6 +71,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import matchItem from '@/utils/match-item';
 
 export default {
     computed: {
@@ -101,11 +102,7 @@ export default {
     },
     methods: {
         isSelected(currentItem, selectedItem) {
-            return typeof currentItem === 'object' && currentItem !== null &&
-                typeof selectedItem === 'object' && selectedItem !== null &&
-                Object.prototype.hasOwnProperty.call(currentItem, 'id') &&
-                Object.prototype.hasOwnProperty.call(selectedItem, 'id') &&
-                currentItem.id === selectedItem.id;
+            return matchItem(currentItem, selectedItem);
         },
         selectShoe(shoe) {
             this.selectedShoe = shoe;
