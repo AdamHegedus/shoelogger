@@ -1,9 +1,9 @@
-import Shoes from './shoes';
+import Logs from './logs';
 import * as types from '../types';
 
-describe('store > modules > shoes', () => {
+describe('store > modules > logs', () => {
 
-    const component = Shoes;
+    const component = Logs;
 
     describe('namespaced', () => {
 
@@ -54,7 +54,7 @@ describe('store > modules > shoes', () => {
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
-                shoes: [],
+                logs: [],
                 meta: {
                     status: false,
                     message: null
@@ -66,7 +66,7 @@ describe('store > modules > shoes', () => {
 
             // ASSERT
             expect(actual).toEqual(expected);
-            expect(actual.shoes).toEqual(expected.shoes);
+            expect(actual.logs).toEqual(expected.logs);
             expect(actual.meta).toEqual(expected.meta);
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
@@ -83,7 +83,7 @@ describe('store > modules > shoes', () => {
                 const expected = {
                     mock: {
                         calls: [
-                            [types.SHOES_RESET]
+                            [types.LOGS_RESET]
                         ]
                     }
                 };
@@ -108,7 +108,7 @@ describe('store > modules > shoes', () => {
                 const expected = {
                     mock: {
                         calls: [
-                            [types.SHOES_RESET_META]
+                            [types.LOGS_RESET_META]
                         ]
                     }
                 };
