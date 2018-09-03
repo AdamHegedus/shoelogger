@@ -101,7 +101,6 @@ describe('store > modules > brands', () => {
                 component.actions.reset({ commit });
 
                 // ASSERT
-                // expect(actual).toEqual(expected);
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
@@ -126,7 +125,6 @@ describe('store > modules > brands', () => {
                 component.actions.resetMeta({ commit });
 
                 // ASSERT
-                // expect(actual).toEqual(expected);
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
@@ -314,6 +312,22 @@ describe('store > modules > brands', () => {
                 };
                 const mockState = {};
                 const payload = null;
+
+                // ACT
+                component.mutations[types.BRANDS_GET_BRANDS](mockState, payload);
+
+                // ASSERT
+                expect(component.state.brands).toEqual(expected.brands);
+
+            });
+
+            it('should set state when payload returns undefined', () => {
+                // ASSIGN
+                const expected = {
+                    brands: []
+                };
+                const mockState = {};
+                const payload = undefined;
 
                 // ACT
                 component.mutations[types.BRANDS_GET_BRANDS](mockState, payload);

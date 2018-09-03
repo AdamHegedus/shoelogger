@@ -9,12 +9,14 @@ const getters = {};
 
 const mutations = {
     [types.TYPES_GET_TYPES]: (innerState, payload) => {
-        state.types = payload.map((data) => {
-            return {
-                id: data.id - 0,
-                type: data.type
-            };
-        });
+        state.types = Array.isArray(payload) ?
+            payload.map((data) => {
+                return {
+                    id: data.id - 0,
+                    type: data.type
+                };
+            }) :
+            [];
     },
     [types.TYPES_RESET]: () => {
         state.types = [];
