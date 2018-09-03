@@ -1,3 +1,10 @@
+jest.mock('axios', () => {
+    return {
+        get: jest.fn(() => Promise.resolve({})),
+        post: jest.fn(() => Promise.resolve({}))
+    };
+});
+import axios from 'axios';
 import Logs from './logs';
 import * as types from '../types';
 
