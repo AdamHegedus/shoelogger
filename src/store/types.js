@@ -19,5 +19,6 @@ export const SHOES_RESET_META = '@bshoess/RESET_META';
 // LOGS
 export const LOGS_GET_LOGS = '@logs/GET_LOGS';
 export const LOGS_POST_LOG = '@logs/POST_LOG';
+export const LOGS_DELETE_LOG = '@logs/DELETE_LOG';
 export const LOGS_RESET = '@logs/RESET';
 export const LOGS_RESET_META = '@logs/RESET_META';

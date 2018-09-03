@@ -501,5 +501,4 @@ describe('store > modules > shoes', () => {
 
     });
 
-
 });
