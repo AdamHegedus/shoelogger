@@ -78,9 +78,13 @@ export default {};
 
             .dropdown-item {
                 &:hover,
-                &:focus {
-                    background-color: $primary;
+                .active {
+                    background-color: $primary !important;
                     color: $white;
+                    outline: none;
+                }
+                &:focus {
+                    background-color: transparent;
                     outline: none;
                 }
             }

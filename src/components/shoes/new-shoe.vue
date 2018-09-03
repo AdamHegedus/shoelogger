@@ -19,6 +19,7 @@
                                     toggle-class="btn btn-secondary btn-lg btn-block shadow"
                             >
                                 <b-dropdown-item
+                                        :class="{ active: isSelected(type, selectedType) }"
                                         :key="type.type"
                                         v-for="type in types"
                                         @click="selectType(type)"
@@ -40,6 +41,7 @@
                                 toggle-class="btn btn-secondary btn-lg btn-block shadow"
                         >
                             <b-dropdown-item
+                                    :class="{ active: isSelected(brand, selectedBrand) }"
                                     :key="brand.brand"
                                     v-for="brand in brands"
                                     @click="selectBrand(brand)"
@@ -113,6 +115,13 @@ export default {
         };
     },
     methods: {
+        isSelected(currentItem, selectedItem) {
+            return typeof currentItem === 'object' && currentItem !== null &&
+                typeof selectedItem === 'object' && selectedItem !== null &&
+                Object.prototype.hasOwnProperty.call(currentItem, 'id') &&
+                Object.prototype.hasOwnProperty.call(selectedItem, 'id') &&
+                currentItem.id === selectedItem.id;
+        },
         selectBrand(brand) {
             this.selectedBrand = brand;
         },
