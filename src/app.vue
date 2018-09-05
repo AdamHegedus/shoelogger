@@ -6,6 +6,7 @@
                         :toggleable="false"
                         type="dark"
                         variant="secondary"
+                        style="main-navbar"
                 >
                     <b-navbar-nav>
                         <b-nav-item to="/shoes">
@@ -55,22 +56,6 @@ export default {};
             text-shadow: 0 0 2px whitesmoke;
         }
 
-        .navbar {
-            padding: 0;
-        }
-
-        .navbar-nav {
-            flex-direction: row;
-
-            .nav-link {
-                padding: 0.75rem 0.75rem;
-
-                &.active {
-                    background-color: $primary;
-                }
-            }
-        }
-
         .dropdown-menu {
             width: 100%;
             background-color: $body-bg;
@@ -87,6 +72,28 @@ export default {};
                     background-color: transparent;
                     outline: none;
                 }
+            }
+        }
+
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+
+            .nav-link {
+                padding: 0.75rem 0.75rem;
+            }
+        }
+    }
+
+    .main-navbar {
+        .nav-link {
+            padding: 0.75rem 0.75rem;
+
+            &.active {
+                background-color: $primary;
             }
         }
     }

@@ -3,10 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col-sm col-lg-6">
-                <h2>Overview</h2>
+                <h3>Overview</h3>
 
                 <bar
-                        style="height: 200px"
+                        style="height: 400px"
                         :data="shoes"
                         v-if="shoes.length > 0"
                 >
