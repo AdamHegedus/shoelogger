@@ -23,7 +23,7 @@
                 <b-nav-item to="/logs/overview">
                     Overview
                 </b-nav-item>
-                <b-nav-item to="/shoes">
+                <b-nav-item to="/logs/by-shoes">
                     By Shoes
                 </b-nav-item>
                 <b-nav-item to="/types">
@@ -47,13 +47,13 @@
         <!--</template>-->
         <!--</b-table>-->
 
-        <div class="row">
-            <div class="col-12">
+        <!-- <div class="row">
+            <div class="col-12"> -->
                 <transition name="slide" mode="out-in">
                     <router-view />
                 </transition>
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
     </div>
 </template>
 
@@ -112,15 +112,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
-    .sub-navbar {
-        .nav-link {
-            font-size: 14px;
-
-            &.active {
-                background-color: transparent;
-            }
-        }
-    }
-
 </style>
