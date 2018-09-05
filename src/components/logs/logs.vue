@@ -8,17 +8,16 @@
         <h2>Logs</h2>
 
         <!--<button-->
-                <!--type="submit"-->
-                <!--class="btn btn-primary btn-lg btn-block shadow"-->
-                <!--@click="showOverview()"-->
+        <!--type="submit"-->
+        <!--class="btn btn-primary btn-lg btn-block shadow"-->
+        <!--@click="showOverview()"-->
         <!--&gt;-->
-            <!--Overview-->
+        <!--Overview-->
         <!--</button>-->
 
         <b-navbar
                 :toggleable="false"
-                type="dark"
-                variant="secondary"
+                class="sub-navbar"
         >
             <b-navbar-nav>
                 <b-nav-item to="/logs/overview">
@@ -113,5 +112,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+
+    .sub-navbar {
+        .nav-link {
+            font-size: 14px;
+
+            &.active {
+                background-color: transparent;
+            }
+        }
+    }
 
 </style>

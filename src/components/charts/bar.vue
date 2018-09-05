@@ -5,14 +5,14 @@
 <script>
 import * as d3 from 'd3';
 
-const barWidth = 20;
-
 export default {
     name: 'bar-chart',
     props: {
         data: {
             type: Array,
-            default: () => []
+            default: () => {
+                return [];
+            }
         },
         margin: {
             type: Object,
@@ -21,7 +21,7 @@ export default {
                     top: 20,
                     right: 20,
                     bottom: 30,
-                    left: 50
+                    left: 100
                 };
             }
         }
@@ -49,6 +49,9 @@ export default {
         },
         calculatedHeight() {
             return this.height - (this.margin.top + this.margin.bottom);
+        },
+        barWidth() {
+            return 20;
         }
     },
     methods: {
@@ -73,35 +76,53 @@ export default {
             svg.append('g')
                 .attr('class', 'axis axis-x')
                 .attr('transform', `translate(0, ${this.calculatedHeight})`)
-                .call(d3.axisBottom(x));
-
-            svg.append('g')
-                .attr('class', 'axis axis-y')
-                .call(d3.axisLeft(y).ticks(5))
+                .call(d3.axisBottom(x).ticks(6))
                 .append('text')
                 .attr('class', 'axis-label')
                 .attr('transform', 'rotate(-90)')
                 .attr('x', -this.calculatedHeight / 2)
                 .attr('y', -this.margin.left * 0.75)
                 .text('Distance (km)');
+
+            svg.append('g')
+                .attr('class', 'axis axis-y')
+                .call(d3.axisLeft(y));
         },
         appendBars(svg, x, y) {
-            svg.selectAll('.bar')
+            svg
+                .append('g')
+                .attr('class', 'bars')
+                .selectAll('.bar')
                 .data(this.data)
                 .enter()
                 .append('rect')
                 .attr('class', (d) => {
                     return `bar product-${d.product.replace(/\s+/g, '-').toLowerCase()}`;
                 })
-                .attr('x', (d) => {
-                    return x(d.product) + ((x.bandwidth() - barWidth) / 2);
-                })
+                .attr('x', 0)
                 .attr('y', (d) => {
-                    return y(d.distance);
+                    return y(d.product) + ((y.bandwidth() - this.barWidth) / 2);
                 })
-                .attr('width', barWidth)
-                .attr('height', (d) => {
-                    return this.calculatedHeight - y(d.distance);
+                .attr('height', this.barWidth)
+                .attr('width', (d) => {
+                    return x(d.distance);
+                });
+
+            svg
+                .append('g')
+                .attr('class', 'data-labels')
+                .selectAll('.data-label')
+                .data(this.data)
+                .enter()
+                .append('text')
+                .attr('class', 'data-label')
+                .attr('x', 10)
+                .attr('y', (d) => {
+                    return y(d.product);
+                })
+                .attr('dy', '1.05em')
+                .text((d) => {
+                    return `${d.distance} km`;
                 });
         },
         clearAxes() {
@@ -109,7 +130,7 @@ export default {
                 .remove();
         },
         clearBars() {
-            d3.selectAll('.bar')
+            d3.selectAll('.bars')
                 .remove();
         },
         update() {
@@ -125,18 +146,17 @@ export default {
         },
         calculateScales() {
             this.scaled.x = d3
-                .scaleBand()
-                .rangeRound([0, this.calculatedWidth])
-                .padding(0.5);
+                .scaleLinear()
+                .rangeRound([0, this.calculatedWidth]);
 
             this.scaled.y = d3
-                .scaleLinear()
+                .scaleBand()
                 .rangeRound([this.calculatedHeight, 0]);
 
-            this.scaled.x.domain(this.data.map((d) => {
+            this.scaled.y.domain(this.data.map((d) => {
                 return d.product;
             }));
-            this.scaled.y.domain([0, d3.max(this.data, (d) => {
+            this.scaled.x.domain([0, d3.max(this.data, (d) => {
                 return d.distance;
             })]);
         }
@@ -152,7 +172,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
     @import '../../assets/scss/app.scss';
 
@@ -173,6 +192,12 @@ export default {
             .axis-label {
                 fill: $primary;
                 text-anchor: middle;
+                dominant-baseline: middle;
+            }
+
+            .data-label {
+                fill: $card-bg;
+                text-anchor: start;
                 dominant-baseline: middle;
             }
         }
