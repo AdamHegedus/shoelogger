@@ -5,7 +5,12 @@
             <div class="col-sm col-lg-6">
                 <h2>Overview</h2>
 
-                <bar :data="shoes" v-if="shoes.length > 0"></bar>
+                <bar
+                        style="height: 200px"
+                        :data="shoes"
+                        v-if="shoes.length > 0"
+                >
+                </bar>
             </div>
         </div>
     </div>
