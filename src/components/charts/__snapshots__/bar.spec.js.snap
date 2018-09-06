@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index.vue should match snapshot 1`] = `
+<div
+  class="bar-chart"
+>
+  <svg
+    height="0"
+    width="0"
+  >
+    <g
+      transform="translate(20, 20)"
+    >
+      <g
+        class="axis axis-x"
+        fill="none"
+        font-family="sans-serif"
+        font-size="10"
+        text-anchor="middle"
+        transform="translate(0, -70)"
+      >
+        <path
+          class="domain"
+          d="M0.5,6V0.5H-39.5V6"
+          stroke="currentColor"
+        />
+        <text
+          class="axis-label"
+          x="-40"
+          y="25"
+        >
+          Distance (km)
+        </text>
+      </g>
+      <g
+        class="bars"
+      />
+      <g
+        class="data-labels"
+      />
+      <g
+        class="data-labels"
+      />
+    </g>
+  </svg>
+</div>
+`;
