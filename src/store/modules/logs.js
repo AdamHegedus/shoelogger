@@ -72,11 +72,9 @@ const mutations = {
 const actions = {
     getLogs: ({ commit }) => {
         axios.get('/logs/get-logs.php')
-            .then(
-                (response) => {
-                    commit(types.LOGS_GET_LOGS, response.data);
-                }
-            );
+            .then((response) => {
+                commit(types.LOGS_GET_LOGS, response.data);
+            });
     },
     addLog: ({ commit }, payload) => {
         axios.post('/logs/post-log.php', payload)

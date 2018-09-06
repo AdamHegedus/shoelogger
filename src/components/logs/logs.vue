@@ -7,14 +7,6 @@
         </div>
         <h2>Logs</h2>
 
-        <!--<button-->
-        <!--type="submit"-->
-        <!--class="btn btn-primary btn-lg btn-block shadow"-->
-        <!--@click="showOverview()"-->
-        <!--&gt;-->
-        <!--Overview-->
-        <!--</button>-->
-
         <b-navbar
                 :toggleable="false"
                 class="sub-navbar"
@@ -111,7 +103,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
     .sub-navbar {
