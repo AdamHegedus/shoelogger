@@ -61,7 +61,7 @@ export default {
             return this.$store.state.logs.logs;
         },
         ...mapGetters({
-            meta: 'shoes/getMeta'
+            meta: 'logs/getMeta'
         })
     },
     data() {
@@ -101,7 +101,6 @@ export default {
         this.$store.dispatch('logs/getLogs');
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
     }
 };
 </script>

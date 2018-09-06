@@ -114,7 +114,7 @@ export default {
     watch: {
         meta(actual) {
             if (actual.status) {
-                this.$router.push('/logs');
+                this.$router.push('/logs/recent');
             } else {
                 // console.log(actual.message);
             }
