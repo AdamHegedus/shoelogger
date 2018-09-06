@@ -86,6 +86,17 @@ export default {
             return this.selectedIndex === index;
         }
     },
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.selectLog(null);
+                this.$store.dispatch('logs/getLogs');
+                this.$store.dispatch('shoes/getShoes');
+            } else {
+                // console.log(actual.message);
+            }
+        }
+    },
     created() {
         this.$store.dispatch('logs/getLogs');
     },
