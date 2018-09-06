@@ -1,22 +1,17 @@
 <template>
-    <div class="container">
-        <div class="float-right">
-            <button class="btn btn-primary" @click="newShoe">
-                New
-            </button>
-        </div>
-        <h2>Shoes</h2>
+    <div>
+        <h3>Recent logs</h3>
 
         <transition-group name="list" tag="div" class="row">
             <div
                     class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
-                    v-for="(item, index) in shoes"
-                    :key="item.product"
+                    v-for="(item, index) in logs"
+                    :key="index"
             >
                 <div
                         class="card"
                         :class="{selected: isSelected(index)}"
-                        @click.stop="selectShoe(index)"
+                        @click.stop="selectLog(index)"
                 >
                     <div class="card-body">
                         <h5 class="card-title">
@@ -24,13 +19,19 @@
                             <br>
                             <small>{{ item.brand }}</small>
                         </h5>
-                        <p class="card-text">Distance: {{ item.distance }} km</p>
+
+                        <span class="card-text">
+                            Distance: <strong>{{ item.distance }}</strong> km
+                        </span>
+                        <span class="card-text float-right">
+                            Date: <strong>{{ item.date }}</strong>
+                        </span>
 
                         <transition name="fade" appear mode="out-in">
                             <button
                                     v-show="isSelected(index)"
-                                    class="btn btn-danger shoe-action"
-                                    @click.stop="deleteShoe(item.id)"
+                                    class="btn btn-danger log-action"
+                                    @click.stop="deleteLog(item.id)"
                             >
                                 Delete
                             </button>
@@ -56,15 +57,12 @@ import { mapGetters } from 'vuex';
 
 export default {
     computed: {
-        shoes() {
-            return this.$store.state.shoes.shoes;
+        logs() {
+            return this.$store.state.logs.logs;
         },
         ...mapGetters({
             meta: 'shoes/getMeta'
         })
-    },
-    created() {
-        this.$store.dispatch('shoes/getShoes');
     },
     data() {
         return {
@@ -72,42 +70,32 @@ export default {
         };
     },
     methods: {
-        newShoe() {
-            this.$router.push('shoes/new');
-        },
-        deleteShoe(brandId) {
-            this.$store.dispatch('shoes/deleteShoe', {
-                id: brandId
+        deleteLog(logId) {
+            this.$store.dispatch('logs/deleteLog', {
+                id: logId
             });
         },
-        selectShoe(index) {
+        selectLog(index) {
             this.selectedIndex = this.isSelected(index) ? null : index;
 
             if (!this.meta.status) {
-                this.$store.dispatch('shoes/resetMeta');
+                this.$store.dispatch('logs/resetMeta');
             }
         },
         isSelected(index) {
             return this.selectedIndex === index;
         }
     },
-    watch: {
-        meta(actual) {
-            if (actual.status) {
-                this.selectShoe(null);
-                this.$store.dispatch('shoes/getShoes');
-            } else {
-                // console.log(actual.message);
-            }
-        }
+    created() {
+        this.$store.dispatch('logs/getLogs');
     },
     destroyed() {
-        this.$store.dispatch('shoes/reset');
+        this.$store.dispatch('logs/reset');
     }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
     @import '../../assets/scss/app.scss';
 
     .card {
@@ -121,7 +109,7 @@ export default {
         }
     }
 
-    .shoe-action {
+    .log-action {
         position: absolute;
         top: 10px;
         right: 10px;

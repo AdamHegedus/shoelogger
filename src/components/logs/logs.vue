@@ -23,12 +23,13 @@
                 <b-nav-item to="/logs/overview">
                     Overview
                 </b-nav-item>
+                <b-nav-item to="/logs/recent">
+                    Recent
+                </b-nav-item>
                 <b-nav-item to="/shoes">
                     By Shoes
                 </b-nav-item>
-                <b-nav-item to="/types">
-                    By Types
-                </b-nav-item>
+
             </b-navbar-nav>
         </b-navbar>
 
