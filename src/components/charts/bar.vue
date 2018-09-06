@@ -20,8 +20,8 @@ export default {
                 return {
                     top: 20,
                     right: 20,
-                    bottom: 30,
-                    left: 100
+                    bottom: 50,
+                    left: 20
                 };
             }
         }
@@ -51,7 +51,7 @@ export default {
             return this.height - (this.margin.top + this.margin.bottom);
         },
         barWidth() {
-            return 20;
+            return 16;
         }
     },
     methods: {
@@ -72,21 +72,16 @@ export default {
 
             this.update();
         },
-        appendAxes(svg, x, y) {
+        appendAxes(svg, x) {
             svg.append('g')
                 .attr('class', 'axis axis-x')
                 .attr('transform', `translate(0, ${this.calculatedHeight})`)
                 .call(d3.axisBottom(x).ticks(6))
                 .append('text')
                 .attr('class', 'axis-label')
-                .attr('transform', 'rotate(-90)')
-                .attr('x', -this.calculatedHeight / 2)
-                .attr('y', -this.margin.left * 0.75)
+                .attr('x', this.calculatedWidth)
+                .attr('y', this.margin.top * 1.25)
                 .text('Distance (km)');
-
-            svg.append('g')
-                .attr('class', 'axis axis-y')
-                .call(d3.axisLeft(y));
         },
         appendBars(svg, x, y) {
             svg
@@ -111,16 +106,33 @@ export default {
             svg
                 .append('g')
                 .attr('class', 'data-labels')
+                .selectAll('.product-label')
+                .data(this.data)
+                .enter()
+                .append('text')
+                .attr('class', 'product-label')
+                .attr('x', 0)
+                .attr('y', (d) => {
+                    return y(d.product);
+                })
+                .attr('dy', '0.5em')
+                .text((d) => {
+                    return `${d.product}`;
+                });
+
+            svg
+                .append('g')
+                .attr('class', 'data-labels')
                 .selectAll('.data-label')
                 .data(this.data)
                 .enter()
                 .append('text')
                 .attr('class', 'data-label')
-                .attr('x', 10)
+                .attr('x', this.calculatedWidth)
                 .attr('y', (d) => {
                     return y(d.product);
                 })
-                .attr('dy', '1.05em')
+                .attr('dy', '0.5em')
                 .text((d) => {
                     return `${d.distance} km`;
                 });
@@ -141,7 +153,7 @@ export default {
             this.calculateScales();
             this.clearAxes();
             this.clearBars();
-            this.appendAxes(this.svg, this.scaled.x, this.scaled.y);
+            this.appendAxes(this.svg, this.scaled.x);
             this.appendBars(this.svg, this.scaled.x, this.scaled.y);
         },
         calculateScales() {
@@ -180,6 +192,15 @@ export default {
 
             border: 1px solid $secondary;
 
+            .axis {
+                line {
+                    stroke: $secondary;
+                }
+                text {
+                    fill: $secondary;
+                }
+            }
+
             .bar {
                 fill: $secondary;
 
@@ -191,14 +212,20 @@ export default {
 
             .axis-label {
                 fill: $primary;
-                text-anchor: middle;
+                text-anchor: end;
                 dominant-baseline: middle;
             }
 
-            .data-label {
-                fill: $card-bg;
+            .product-label {
+                fill: $primary;
                 text-anchor: start;
-                dominant-baseline: middle;
+                font-size: 12px;
+            }
+
+            .data-label {
+                fill: $secondary;
+                text-anchor: end;
+                font-size: 12px;
             }
         }
     }
