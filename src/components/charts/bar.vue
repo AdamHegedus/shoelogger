@@ -145,6 +145,12 @@ export default {
             d3.selectAll('.bars')
                 .remove();
         },
+        clearLabels() {
+            d3.selectAll('.data-labels')
+                .remove();
+            d3.selectAll('.product-labels')
+                .remove();
+        },
         update() {
             d3.select('svg')
                 .attr('width', this.width)
@@ -153,6 +159,7 @@ export default {
             this.calculateScales();
             this.clearAxes();
             this.clearBars();
+            this.clearLabels();
             this.appendAxes(this.svg, this.scaled.x);
             this.appendBars(this.svg, this.scaled.x, this.scaled.y);
         },
