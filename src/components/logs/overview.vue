@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-sm col-lg-6">
                 <h3>Overview</h3>

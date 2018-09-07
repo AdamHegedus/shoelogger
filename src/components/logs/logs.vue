@@ -18,35 +18,16 @@
                 <b-nav-item to="/logs/recent">
                     Recent
                 </b-nav-item>
-                <b-nav-item to="/shoes">
+                <b-nav-item to="/logs/by-shoes">
                     By Shoes
                 </b-nav-item>
-
             </b-navbar-nav>
         </b-navbar>
 
-        <!--<b-table-->
-        <!--hover-->
-        <!--bordered-->
-        <!--:responsive="true"-->
-        <!--:items="logs"-->
-        <!--:fields="columnDefinitions"-->
-        <!--&gt;-->
-        <!--<template-->
-        <!--slot="distance"-->
-        <!--slot-scope="data"-->
-        <!--&gt;-->
-        <!--{{ data.item.distance }} km-->
-        <!--</template>-->
-        <!--</b-table>-->
+        <transition name="slide" mode="out-in">
+            <router-view />
+        </transition>
 
-        <div class="row">
-            <div class="col-12">
-                <transition name="slide" mode="out-in">
-                    <router-view />
-                </transition>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -55,43 +36,11 @@ export default {
     computed: {
         logs() {
             return this.$store.state.logs.logs;
-        },
-        columnDefinitions() {
-            return [
-                {
-                    key: 'product',
-                    label: 'Product Name',
-                    sortable: true
-                },
-                {
-                    key: 'brand',
-                    label: 'Brand Name',
-                    sortable: true
-                },
-                {
-                    key: 'type',
-                    label: 'Type',
-                    sortable: true
-                },
-                {
-                    key: 'distance',
-                    label: 'Distance',
-                    sortable: false
-                },
-                {
-                    key: 'date',
-                    label: 'Date',
-                    sortable: true
-                }
-            ];
         }
     },
     methods: {
         newLog() {
             this.$router.push('/logs/new');
-        },
-        showOverview() {
-            this.$router.push('/logs/overview');
         }
     },
     created() {
@@ -104,15 +53,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-    .sub-navbar {
-        .nav-link {
-            font-size: 14px;
-
-            &.active {
-                background-color: transparent;
-            }
-        }
-    }
-
 </style>

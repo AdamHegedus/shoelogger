@@ -58,7 +58,7 @@ import { mapGetters } from 'vuex';
 export default {
     computed: {
         logs() {
-            return this.$store.state.logs.logs;
+            return this.$store.state.logs.logs.slice(0, 10);
         },
         ...mapGetters({
             meta: 'logs/getMeta'
@@ -100,64 +100,63 @@ export default {
     created() {
         this.$store.dispatch('logs/getLogs');
     },
-    destroyed() {
-    }
+    destroyed() {}
 };
 </script>
 
 <style lang="scss" scoped>
-    @import '../../assets/scss/app.scss';
+@import '../../assets/scss/app.scss';
 
-    .card {
+.card {
+    transition: background-color 0.5s ease-out, color 0.1s ease-out;
+
+    &.selected {
+        background-color: lighten($secondary, 15%);
+        cursor: pointer;
+        color: $white;
         transition: background-color 0.5s ease-out, color 0.1s ease-out;
-
-        &.selected {
-            background-color: lighten($secondary, 15%);
-            cursor: pointer;
-            color: $white;
-            transition: background-color 0.5s ease-out, color 0.1s ease-out;
-        }
     }
+}
 
-    .log-action {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
+.log-action {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
-    .transition-item {
-        transition: all 0.1s;
-    }
+.transition-item {
+    transition: all 0.1s;
+}
 
-    .list-enter, .list-leave {
+.list-enter,
+.list-leave {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.list-leave-active {
+    position: absolute;
+}
+
+.animation-slide-bottom-and-fade-enter {
+    opacity: 0;
+}
+
+.animation-slide-bottom-and-fade-enter-active {
+    animation: slide-bottom-and-fade 0.5s;
+}
+
+.animation-slide-bottom-and-fade-leave-active {
+    animation: slide-bottom-and-fade 0.2s reverse;
+}
+
+@keyframes slide-bottom-and-fade {
+    0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: translateY(30px);
     }
-
-    .list-leave-active {
-        position: absolute;
+    100% {
+        transform: translateY(0);
     }
-
-    .animation-slide-bottom-and-fade-enter {
-        opacity: 0;
-    }
-
-    .animation-slide-bottom-and-fade-enter-active {
-        animation: slide-bottom-and-fade 0.5s;
-    }
-
-    .animation-slide-bottom-and-fade-leave-active {
-        animation: slide-bottom-and-fade 0.2s reverse;
-    }
-
-    @keyframes slide-bottom-and-fade {
-        0% {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-
+}
 </style>
