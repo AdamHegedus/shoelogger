@@ -7,14 +7,6 @@
         </div>
         <h2>Logs</h2>
 
-        <!--<button-->
-        <!--type="submit"-->
-        <!--class="btn btn-primary btn-lg btn-block shadow"-->
-        <!--@click="showOverview()"-->
-        <!--&gt;-->
-        <!--Overview-->
-        <!--</button>-->
-
         <b-navbar
                 :toggleable="false"
                 class="sub-navbar"
@@ -23,37 +15,19 @@
                 <b-nav-item to="/logs/overview">
                     Overview
                 </b-nav-item>
+                <b-nav-item to="/logs/recent">
+                    Recent
+                </b-nav-item>
                 <b-nav-item to="/logs/by-shoes">
                     By Shoes
-                </b-nav-item>
-                <b-nav-item to="/types">
-                    By Types
                 </b-nav-item>
             </b-navbar-nav>
         </b-navbar>
 
-        <!--<b-table-->
-        <!--hover-->
-        <!--bordered-->
-        <!--:responsive="true"-->
-        <!--:items="logs"-->
-        <!--:fields="columnDefinitions"-->
-        <!--&gt;-->
-        <!--<template-->
-        <!--slot="distance"-->
-        <!--slot-scope="data"-->
-        <!--&gt;-->
-        <!--{{ data.item.distance }} km-->
-        <!--</template>-->
-        <!--</b-table>-->
+        <transition name="slide" mode="out-in">
+            <router-view />
+        </transition>
 
-        <!-- <div class="row">
-            <div class="col-12"> -->
-                <transition name="slide" mode="out-in">
-                    <router-view />
-                </transition>
-            <!-- </div>
-        </div> -->
     </div>
 </template>
 
@@ -62,43 +36,11 @@ export default {
     computed: {
         logs() {
             return this.$store.state.logs.logs;
-        },
-        columnDefinitions() {
-            return [
-                {
-                    key: 'product',
-                    label: 'Product Name',
-                    sortable: true
-                },
-                {
-                    key: 'brand',
-                    label: 'Brand Name',
-                    sortable: true
-                },
-                {
-                    key: 'type',
-                    label: 'Type',
-                    sortable: true
-                },
-                {
-                    key: 'distance',
-                    label: 'Distance',
-                    sortable: false
-                },
-                {
-                    key: 'date',
-                    label: 'Date',
-                    sortable: true
-                }
-            ];
         }
     },
     methods: {
         newLog() {
             this.$router.push('/logs/new');
-        },
-        showOverview() {
-            this.$router.push('/logs/overview');
         }
     },
     created() {
@@ -110,6 +52,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 </style>

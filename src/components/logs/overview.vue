@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-sm col-lg-6">
                 <h3>Overview</h3>
@@ -44,6 +44,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 </style>
