@@ -39,6 +39,14 @@
                 >
                     {{ data.item.distance }} km
                 </template>
+                <template slot="action" slot-scope="row">
+                    <button
+                        class="btn btn-danger log-action"
+                        @click.stop="deleteLog(row.item.id)"
+                    >
+                        Delete
+                    </button>
+                </template>
             </b-table>
         </div>
     </div>
@@ -60,12 +68,17 @@ export default {
                 {
                     key: 'distance',
                     label: 'Distance',
-                    sortable: false
+                    sortable: true
                 },
                 {
                     key: 'date',
                     label: 'Date',
                     sortable: true
+                },
+                {
+                    key: 'action',
+                    label: '',
+                    sortable: false
                 }
             ];
         }
@@ -89,6 +102,11 @@ export default {
         },
         selectShoe(shoe) {
             this.selectedShoe = shoe;
+        },
+        deleteLog(logId) {
+            this.$store.dispatch('logs/deleteLog', {
+                id: logId
+            });
         }
     },
     created() {
