@@ -26,7 +26,10 @@ export default {
             return this.$store.state.shoes.shoes;
         },
         getHeight() {
-            return (this.shoes.length * 40) + 70 + 'px';
+            const offset = 70;
+            const rowHeight = 40;
+
+            return `${(this.shoes.length * rowHeight) + offset}px`;
         }
     },
     components: {
