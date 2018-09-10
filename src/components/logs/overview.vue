@@ -6,7 +6,7 @@
                 <h3>Overview</h3>
 
                 <bar
-                        style="height: 400px"
+                        :style="{height: getHeight}"
                         :data="shoes"
                         v-if="shoes.length > 0"
                 >
@@ -24,6 +24,9 @@ export default {
     computed: {
         shoes() {
             return this.$store.state.shoes.shoes;
+        },
+        getHeight() {
+            return (this.shoes.length * 40) + 70 + 'px';
         }
     },
     components: {
