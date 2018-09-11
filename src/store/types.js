@@ -1,3 +1,6 @@
+// NAVIGATION
+export const CORE_NAVIGATION_SET = '@core/NAVIGATION_SET';
+
 // BRANDS
 export const BRANDS_GET_BRANDS = '@brands/GET_BRANDS';
 export const BRANDS_POST_BRAND = '@brands/POST_BRAND';
