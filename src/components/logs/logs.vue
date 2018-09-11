@@ -45,7 +45,8 @@ export default {
     },
     created() {
         this.$store.dispatch('logs/getLogs');
-        const navigation = this.$store.state.navigation.menu.selected;
+        const navigation = this.$store.state.navigation.menu.logs.lastPage;
+
         if (navigation !== null) {
             this.$router.push(navigation);
         } else {

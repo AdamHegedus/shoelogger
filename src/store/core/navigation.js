@@ -2,7 +2,11 @@ import * as types from '../types';
 
 const state = {
     menu: {
-        selected: null
+        shoes: {},
+        logs: {
+            lastPage: null
+        },
+        brands: {}
     }
 };
 
@@ -10,7 +14,7 @@ const getters = {};
 
 const mutations = {
     [types.CORE_NAVIGATION_SET]: (innerState, payload) => {
-        state.menu.selected = payload;
+        state.menu.logs.lastPage = payload;
     }
 };
 
