@@ -14,7 +14,7 @@ const getters = {};
 
 const mutations = {
     [types.CORE_NAVIGATION_SET]: (innerState, payload) => {
-        state.menu.logs.lastPage = payload;
+        state.menu.logs.lastPage = typeof payload === 'string' ? payload : null;
     }
 };
 
