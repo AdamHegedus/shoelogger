@@ -41,6 +41,7 @@ export default {
     methods: {},
     watch: {},
     created() {
+        this.$store.dispatch('navigation/setNavigation', '/logs/overview');
         this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
     },

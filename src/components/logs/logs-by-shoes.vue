@@ -110,6 +110,7 @@ export default {
         }
     },
     created() {
+        this.$store.dispatch('navigation/setNavigation', '/logs/by-shoes');
         this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
     },

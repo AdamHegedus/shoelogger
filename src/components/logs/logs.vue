@@ -45,6 +45,12 @@ export default {
     },
     created() {
         this.$store.dispatch('logs/getLogs');
+        const navigation = this.$store.state.navigation.menu.selected;
+        if (navigation !== null) {
+            this.$router.push(navigation);
+        } else {
+            this.$router.push('/logs/overview');
+        }
     },
     destroyed() {
         this.$store.dispatch('logs/reset');
