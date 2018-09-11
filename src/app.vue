@@ -6,7 +6,7 @@
                         :toggleable="false"
                         type="dark"
                         variant="secondary"
-                        style="main-navbar"
+                        class="main-navbar"
                 >
                     <b-navbar-nav>
                         <b-nav-item to="/shoes">
