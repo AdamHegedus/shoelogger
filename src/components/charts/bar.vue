@@ -28,8 +28,8 @@ export default {
     },
     data() {
         return {
-            width: 0,
-            height: 0,
+            width: 1,
+            height: 1,
             scaled: {
                 x: null,
                 y: null
@@ -56,8 +56,8 @@ export default {
     },
     methods: {
         onResize() {
-            this.width = this.$el.offsetWidth;
-            this.height = this.$el.offsetHeight;
+            this.width = this.$el.offsetWidth > 0 ? this.$el.offsetWidth : 200;
+            this.height = this.$el.offsetHeight > 0 ? this.$el.offsetHeight : 200;
         },
         initialize() {
             this.renderSVG();
@@ -172,12 +172,13 @@ export default {
                 .scaleBand()
                 .rangeRound([this.calculatedHeight, 0]);
 
-            this.scaled.y.domain(this.data.map((d) => {
-                return d.product;
-            }));
             this.scaled.x.domain([0, d3.max(this.data, (d) => {
                 return d.distance;
             })]);
+
+            this.scaled.y.domain(this.data.map((d) => {
+                return d.product;
+            }));
         }
     },
     watch: {
