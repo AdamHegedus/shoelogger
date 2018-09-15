@@ -63,7 +63,7 @@ export default {};
 
             .dropdown-item {
                 &:hover,
-                .active {
+                &.active {
                     background-color: $primary !important;
                     color: $white;
                     outline: none;
