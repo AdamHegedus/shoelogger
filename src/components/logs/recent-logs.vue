@@ -99,7 +99,7 @@ export default {
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/recent');
-        this.$store.dispatch('logs/getLogs');
+        // this.$store.dispatch('logs/getLogs');
     },
     destroyed() {
     }

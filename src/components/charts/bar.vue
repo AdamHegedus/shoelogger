@@ -184,6 +184,9 @@ export default {
     watch: {
         width() {
             this.update();
+        },
+        data() {
+            this.update();
         }
     },
     beforeDestroy() {

@@ -121,10 +121,10 @@ export default {
         }
     },
     created() {
-        this.$store.dispatch('shoes/getShoes');
+        // this.$store.dispatch('shoes/getShoes');
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>

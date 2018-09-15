@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="logs-by-shoes">
         <h3>Logs by Shoes</h3>
 
         <div class="col-12 col-lg-6 col-lg-6 px-0 py-2">
@@ -29,7 +29,7 @@
                 v-if="selectedShoe !== null"
                 hover
                 bordered
-                :responsive="true"
+                :responsive="false"
                 :items="getLogsByProduct(selectedShoe.product)"
                 :fields="columnDefinitions"
             >
@@ -78,6 +78,8 @@ export default {
                 {
                     key: 'action',
                     label: '',
+                    class: 'action-column',
+                    width: 100,
                     sortable: false
                 }
             ];
@@ -111,23 +113,32 @@ export default {
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/by-shoes');
-        this.$store.dispatch('logs/getLogs');
+        // this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
 
-<style lang="scss" scoped>
-.sub-navbar {
-    .nav-link {
-        font-size: 14px;
+<style lang="scss" >
+    .sub-navbar {
+        .nav-link {
+            font-size: 14px;
 
-        &.active {
-            background-color: transparent;
+            &.active {
+                background-color: transparent;
+            }
         }
     }
-}
+
+    .logs-by-shoes {
+        td {
+            vertical-align: middle;
+        }
+        .action-column {
+            width: 75px;
+        }
+    }
 </style>
