@@ -97,7 +97,7 @@ export default {
         }
     },
     destroyed() {
-        this.$store.dispatch('brands/reset');
+        // this.$store.dispatch('brands/reset');
     }
 };
 </script>

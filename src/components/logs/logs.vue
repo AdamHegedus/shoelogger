@@ -45,6 +45,7 @@ export default {
     },
     created() {
         this.$store.dispatch('logs/getLogs');
+        this.$store.dispatch('shoes/getShoes');
         const navigation = this.$store.state.navigation.menu.logs.lastPage;
 
         if (navigation !== null) {
@@ -54,7 +55,7 @@ export default {
         }
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>

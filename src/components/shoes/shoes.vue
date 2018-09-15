@@ -102,7 +102,7 @@ export default {
         }
     },
     destroyed() {
-        this.$store.dispatch('shoes/reset');
+        // this.$store.dispatch('shoes/reset');
     }
 };
 </script>

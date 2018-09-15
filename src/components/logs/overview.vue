@@ -42,11 +42,11 @@ export default {
     watch: {},
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/overview');
-        this.$store.dispatch('logs/getLogs');
-        this.$store.dispatch('shoes/getShoes');
+        // this.$store.dispatch('logs/getLogs');
+        // this.$store.dispatch('shoes/getShoes');
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
