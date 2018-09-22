@@ -272,21 +272,24 @@ describe('store > modules > shoes', () => {
                             brand: 'foo',
                             type: 'running',
                             product: 'FOO',
-                            distance: 100
+                            distance: 100,
+                            timestamp: '2018-09-20 06:08:31'
                         },
                         {
                             id: 2,
                             brand: 'bar',
                             type: 'walking',
                             product: 'BAR',
-                            distance: 10
+                            distance: 10,
+                            timestamp: '2018-09-22 00:00:00'
                         },
                         {
                             id: 3,
                             brand: null,
                             type: 'running',
                             product: 'foo-bar',
-                            distance: 0
+                            distance: 0,
+                            timestamp: '2018-09-22 06:08:31'
                         }
                     ]
                 };
@@ -297,21 +300,24 @@ describe('store > modules > shoes', () => {
                         brand: 'foo',
                         type: 'running',
                         product: 'FOO',
-                        distance: '100'
+                        distance: '100',
+                        timestamp: '2018-09-20 06:08:31'
                     },
                     {
                         id: '2',
                         brand: 'bar',
                         type: 'walking',
                         product: 'BAR',
-                        distance: '10'
+                        distance: '10',
+                        timestamp: '2018-09-22 00:00:00'
                     },
                     {
                         id: '3',
                         brand: null,
                         type: 'running',
                         product: 'foo-bar',
-                        distance: null
+                        distance: null,
+                        timestamp: '2018-09-22 06:08:31'
                     }
                 ];
 
