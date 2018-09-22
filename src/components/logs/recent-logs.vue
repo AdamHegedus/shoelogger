@@ -20,12 +20,14 @@
                             <small>{{ item.brand }}</small>
                         </h5>
 
-                        <span class="card-text">
-                            Distance: <strong>{{ item.distance }}</strong> km
+                        <span class="distance-text">
+                            Distance:
+                            <span class="distance-value">{{ item.distance }}</span>
+                            km
                         </span>
-                        <span class="card-text float-right">
-                            Date: <strong>{{ item.date }}</strong>
-                        </span>
+                        <span class="float-right">{{ item.date }}</span>
+
+                        <span class="timestamp">Last modified: {{ item.timestamp }}</span>
 
                         <transition name="fade" appear mode="out-in">
                             <button
@@ -110,6 +112,7 @@ export default {
     @import '../../assets/scss/app.scss';
 
     .card {
+        color: $primary;
         transition: background-color 0.5s ease-out, color 0.1s ease-out;
 
         &.selected {
@@ -117,6 +120,27 @@ export default {
             cursor: pointer;
             color: $white;
             transition: background-color 0.5s ease-out, color 0.1s ease-out;
+
+             .timestamp {
+                color: $white;
+            }
+        }
+
+        .distance-text {
+            font-size: 14px;
+        }
+
+        .distance-value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .timestamp {
+            color: $secondary;
+            font-size: 10px;
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
         }
     }
 
