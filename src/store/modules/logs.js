@@ -29,7 +29,8 @@ const mutations = {
                     brand: data.brand,
                     product: data.product,
                     distance: data.distance - 0,
-                    date: data.date
+                    date: data.date,
+                    timestamp: data.timestamp
                 };
             }) :
             [];

@@ -144,7 +144,7 @@ export default {
             font-size: 10px;
             position: absolute;
             bottom: 5px;
-            right: 10px;
+            right: 20px;
         }
     }
 

@@ -273,7 +273,8 @@ describe('store > modules > logs', () => {
                             type: 'running',
                             product: 'FOO',
                             distance: 100,
-                            date: '2000-01-01'
+                            date: '2000-01-01',
+                            timestamp: '2018-09-22 00:00:00'
                         },
                         {
                             id: 2,
@@ -281,7 +282,8 @@ describe('store > modules > logs', () => {
                             type: 'walking',
                             product: 'BAR',
                             distance: 10,
-                            date: '2000-01-01'
+                            date: '2000-01-01',
+                            timestamp: '2018-09-22 06:00:00'
                         },
                         {
                             id: 3,
@@ -289,7 +291,8 @@ describe('store > modules > logs', () => {
                             type: 'running',
                             product: 'foo-bar',
                             distance: 0,
-                            date: '2000-01-01'
+                            date: '2000-01-01',
+                            timestamp: '2018-09-20 00:00:00'
                         }
                     ]
                 };
@@ -301,7 +304,8 @@ describe('store > modules > logs', () => {
                         type: 'running',
                         product: 'FOO',
                         distance: '100',
-                        date: '2000-01-01'
+                        date: '2000-01-01',
+                        timestamp: '2018-09-22 00:00:00'
                     },
                     {
                         id: '2',
@@ -309,7 +313,8 @@ describe('store > modules > logs', () => {
                         type: 'walking',
                         product: 'BAR',
                         distance: '10',
-                        date: '2000-01-01'
+                        date: '2000-01-01',
+                        timestamp: '2018-09-22 06:00:00'
                     },
                     {
                         id: '3',
@@ -317,7 +322,8 @@ describe('store > modules > logs', () => {
                         type: 'running',
                         product: 'foo-bar',
                         distance: null,
-                        date: '2000-01-01'
+                        date: '2000-01-01',
+                        timestamp: '2018-09-20 00:00:00'
                     }
                 ];
 
