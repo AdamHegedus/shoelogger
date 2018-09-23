@@ -8,19 +8,19 @@
                     <div class="form-group">
                         <label for="brandName">Brand Name</label>
                         <input
-                                type="text"
-                                class="form-control form-control-lg shadow border border-primary"
-                                id="brandName"
-                                v-model="brand"
-                                placeholder="Brand Name"
+                            type="text"
+                            class="form-control form-control-lg shadow border border-primary"
+                            id="brandName"
+                            v-model="brand"
+                            placeholder="Brand Name"
                         >
                     </div>
 
                     <button
-                            type="submit"
-                            class="btn btn-primary btn-lg btn-block shadow"
-                            @click="addBrand(getBrand)"
-                            :disabled="!isValid"
+                        type="submit"
+                        class="btn btn-primary btn-lg btn-block shadow"
+                        @click="addBrand(getBrand)"
+                        :disabled="!isValid"
                     >
                         Add
                     </button>
