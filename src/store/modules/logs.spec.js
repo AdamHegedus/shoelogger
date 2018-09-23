@@ -440,7 +440,7 @@ describe('store > modules > logs', () => {
 
         });
 
-        describe(`${types.LOGS_DELETE_LOGS}`, () => {
+        describe(`${types.LOGS_DELETE_LOG}`, () => {
 
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
