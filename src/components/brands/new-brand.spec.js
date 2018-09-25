@@ -5,7 +5,7 @@ import NewBrand from '@/components/brands/new-brand';
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe('index.vue', () => {
+describe('new-brand.vue', () => {
 
     describe('meta.status is true', () => {
 

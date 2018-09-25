@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`brands.vue should match 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Brands
+  </h2>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-4 transition-item"
+    >
+      <div
+        class="brand-item selected"
+      >
+        <span
+          class="brand-name"
+        >
+          
+                    Foo
+                
+        </span>
+         
+        <button
+          appear=""
+          class="btn btn-danger float-right brand-action"
+          name="animation-slide-right-and-fade"
+          style=""
+        >
+          
+                        Delete
+                    
+        </button>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-4 transition-item"
+    >
+      <div
+        class="brand-item"
+      >
+        <span
+          class="brand-name"
+        >
+          
+                    Bar
+                
+        </span>
+         
+        <button
+          appear=""
+          class="btn btn-danger float-right brand-action"
+          name="animation-slide-right-and-fade"
+          style="display: none;"
+        >
+          
+                        Delete
+                    
+        </button>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
