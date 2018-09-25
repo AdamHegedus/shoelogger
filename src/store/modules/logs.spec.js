@@ -369,7 +369,7 @@ describe('store > modules > logs', () => {
 
         });
 
-        describe(`${types.LOGS_POST_LOGS}`, () => {
+        describe(`${types.LOGS_POST_LOG}`, () => {
 
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
