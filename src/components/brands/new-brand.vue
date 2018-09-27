@@ -67,13 +67,8 @@ export default {
         meta(actual) {
             if (actual.status) {
                 this.$router.push('/brands');
-            } else {
-                // console.log(actual.message);
             }
         }
-    },
-    destroyed() {
-        // this.$store.dispatch('brands/reset');
     }
 };
 </script>

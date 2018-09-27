@@ -91,13 +91,8 @@ export default {
             if (actual.status) {
                 this.selectBrand(null);
                 this.$store.dispatch('brands/getBrands');
-            } else {
-                // console.log(actual.message);
             }
         }
-    },
-    destroyed() {
-        // this.$store.dispatch('brands/reset');
     }
 };
 </script>
