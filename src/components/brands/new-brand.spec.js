@@ -35,13 +35,13 @@ describe('new-brand.vue', () => {
         it('should match snapshot when page loaded', () => {
             // ASSIGN
             const wrapper = shallowMount(NewBrand, { store, localVue });
-    
+
             // ACT
             const actual = wrapper.element;
-    
+
             // ASSERT
             expect(actual).toMatchSnapshot();
-    
+
         });
 
     });
@@ -74,18 +74,18 @@ describe('new-brand.vue', () => {
         it('should match snapshot when page loaded', () => {
             // ASSIGN
             const wrapper = shallowMount(NewBrand, { store, localVue });
-    
+
             // ACT
             const actual = wrapper.element;
-    
+
             // ASSERT
             expect(actual).toMatchSnapshot();
-    
+
         });
 
     });
 
-    it('should match snapshot after input set and button clicked', () => {
+    it('should match snapshot when text input changed', () => {
         // ASSIGN
         const getters = {
             getMeta: () => {
@@ -111,16 +111,101 @@ describe('new-brand.vue', () => {
         });
         const wrapper = shallowMount(NewBrand, { store, localVue });
         const expected = 'Test';
+        const input = 'Test';
 
         // ACT
-        wrapper.find('input').setValue(expected);
-        wrapper.find('button').trigger('click');
+        wrapper.find('input').setValue(input);
 
         // ASSERT
         const element = wrapper.element;
         const actual = wrapper.vm.$data.brand;
         expect(element).toMatchSnapshot();
         expect(actual).toEqual(expected);
+
+    });
+
+    describe('getBrand', () => {
+
+        it('should return the value of text input', () => {
+            // ASSIGN
+            const getters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const actions = {
+                addBrand: jest.fn()
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    brands: {
+                        namespaced: true,
+                        getters,
+                        actions
+                    }
+                }
+            });
+            const wrapper = shallowMount(NewBrand, { store, localVue });
+            const expected = {
+                brand: 'Test'
+            };
+            const input = 'Test';
+            wrapper.find('input').setValue(input);
+
+            // ACT
+            const actual = wrapper.vm.getBrand;
+
+            // ASSERT
+            expect(actual).toEqual(expected);
+        });
+
+    });
+
+    describe('addBrand', () => {
+
+        it('should call event with the value of text input', () => {
+            // ASSIGN
+            const getters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const actions = {
+                addBrand: jest.fn()
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    brands: {
+                        namespaced: true,
+                        getters,
+                        actions
+                    }
+                }
+            });
+            const wrapper = shallowMount(NewBrand, { store, localVue });
+            const expected = {
+                brand: 'Test'
+            };
+            const input = 'Test';
+            wrapper.find('input').setValue(input);
+
+            // ACT
+            wrapper.find('button').trigger('click');
+
+            // ASSERT
+            expect(actions.addBrand.mock.calls.length).toEqual(1);
+            expect(actions.addBrand.mock.calls[0][1]).toEqual(expected);
+        });
 
     });
 

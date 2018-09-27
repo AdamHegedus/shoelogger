@@ -104,7 +104,7 @@ exports[`new-brand.vue meta.status is true should match snapshot when page loade
 </div>
 `;
 
-exports[`new-brand.vue should match snapshot after input set and button clicked 1`] = `
+exports[`new-brand.vue should match snapshot when text input changed 1`] = `
 <div
   class="container"
 >
