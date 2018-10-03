@@ -43,7 +43,13 @@ exports[`new-brand.vue meta.status is false should match snapshot when page load
         </button>
       </form>
        
-      <!---->
+      <p
+        class="alert alert-danger mt-3"
+      >
+        
+                Error message text.
+            
+      </p>
     </div>
   </div>
 </div>
@@ -92,13 +98,7 @@ exports[`new-brand.vue meta.status is true should match snapshot when page loade
         </button>
       </form>
        
-      <p
-        class="alert alert-danger mt-3"
-      >
-        
-                Error message text.
-            
-      </p>
+      <!---->
     </div>
   </div>
 </div>
