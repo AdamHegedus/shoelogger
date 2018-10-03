@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new-shoe.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="add"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-shoe.vue meta.status is true should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="add"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <bdropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <bdropdownitem-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </bdropdownitem-stub>
+          </bdropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="add"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

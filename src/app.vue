@@ -3,10 +3,10 @@
         <div class="row m-0 fixed-top">
             <div class="col-12 p-0">
                 <b-navbar
-                        :toggleable="false"
-                        type="dark"
-                        variant="secondary"
-                        class="main-navbar"
+                    :toggleable="false"
+                    type="dark"
+                    variant="secondary"
+                    class="main-navbar"
                 >
                     <b-navbar-nav>
                         <b-nav-item to="/shoes">

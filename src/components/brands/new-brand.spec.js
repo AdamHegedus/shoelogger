@@ -7,7 +7,7 @@ localVue.use(Vuex);
 
 describe('new-brand.vue', () => {
 
-    describe('meta.status is true', () => {
+    describe('meta.status is false', () => {
 
         const getters = {
             getMeta: () => {
@@ -46,7 +46,7 @@ describe('new-brand.vue', () => {
 
     });
 
-    describe('meta.status is false', () => {
+    describe('meta.status is true', () => {
 
         const getters = {
             getMeta: () => {
