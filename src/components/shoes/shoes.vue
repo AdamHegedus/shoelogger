@@ -57,136 +57,131 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
-    computed: {
-        shoes() {
-            return this.$store.state.shoes.shoes;
-        },
-        ...mapGetters({
-            meta: 'shoes/getMeta'
-        })
+  computed: {
+    shoes() {
+      return this.$store.state.shoes.shoes;
     },
-    created() {
-        this.$store.dispatch('shoes/getShoes');
+    ...mapGetters({
+      meta: "shoes/getMeta"
+    })
+  },
+  created() {
+    this.$store.dispatch("shoes/getShoes");
+  },
+  data() {
+    return {
+      selectedIndex: null
+    };
+  },
+  methods: {
+    newShoe() {
+      this.$router.push("shoes/new");
     },
-    data() {
-        return {
-            selectedIndex: null
-        };
+    deleteShoe(brandId) {
+      this.$store.dispatch("shoes/deleteShoe", {
+        id: brandId
+      });
     },
-    methods: {
-        newShoe() {
-            this.$router.push('shoes/new');
-        },
-        deleteShoe(brandId) {
-            this.$store.dispatch('shoes/deleteShoe', {
-                id: brandId
-            });
-        },
-        selectShoe(index) {
-            this.selectedIndex = this.isSelected(index) ? null : index;
+    selectShoe(index) {
+      this.selectedIndex = this.isSelected(index) ? null : index;
 
-            if (!this.meta.status) {
-                this.$store.dispatch('shoes/resetMeta');
-            }
-        },
-        isSelected(index) {
-            return this.selectedIndex === index;
-        }
+      if (!this.meta.status) {
+        this.$store.dispatch("shoes/resetMeta");
+      }
     },
-    watch: {
-        meta(actual) {
-            if (actual.status) {
-                this.selectShoe(null);
-                this.$store.dispatch('shoes/getShoes');
-            } else {
-                // console.log(actual.message);
-            }
-        }
-    },
-    destroyed() {
-        // this.$store.dispatch('shoes/reset');
+    isSelected(index) {
+      return this.selectedIndex === index;
     }
+  },
+  watch: {
+    meta(actual) {
+      if (actual.status) {
+        this.selectShoe(null);
+        this.$store.dispatch("shoes/getShoes");
+      }
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
-    @import '../../assets/scss/app.scss';
+@import "../../assets/scss/app.scss";
 
-    .card {
-        transition: background-color 0.5s ease-out, color 0.1s ease-out;
-        color: $primary;
+.card {
+  transition: background-color 0.5s ease-out, color 0.1s ease-out;
+  color: $primary;
 
-        &.selected {
-            background-color: lighten($secondary, 15%);
-            cursor: pointer;
-            color: $white;
-            transition: background-color 0.5s ease-out, color 0.1s ease-out;
+  &.selected {
+    background-color: lighten($secondary, 15%);
+    cursor: pointer;
+    color: $white;
+    transition: background-color 0.5s ease-out, color 0.1s ease-out;
 
-            .timestamp {
-                color: $white;
-            }
-        }
-
-        .distance-text {
-            font-size: 14px;
-        }
-
-        .distance-value {
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .timestamp {
-            color: $secondary;
-            font-size: 10px;
-            position: absolute;
-            bottom: 5px;
-            right: 20px;
-        }
+    .timestamp {
+      color: $white;
     }
+  }
 
-    .shoe-action {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
+  .distance-text {
+    font-size: 14px;
+  }
 
-    .transition-item {
-        transition: all 0.1s;
-    }
+  .distance-value {
+    font-size: 16px;
+    font-weight: bold;
+  }
 
-    .list-enter, .list-leave {
-        opacity: 0;
-        transform: scale(0.5);
-    }
+  .timestamp {
+    color: $secondary;
+    font-size: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+  }
+}
 
-    .list-leave-active {
-        position: absolute;
-    }
+.shoe-action {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
-    .animation-slide-bottom-and-fade-enter {
-        opacity: 0;
-    }
+.transition-item {
+  transition: all 0.1s;
+}
 
-    .animation-slide-bottom-and-fade-enter-active {
-        animation: slide-bottom-and-fade 0.5s;
-    }
+.list-enter,
+.list-leave {
+  opacity: 0;
+  transform: scale(0.5);
+}
 
-    .animation-slide-bottom-and-fade-leave-active {
-        animation: slide-bottom-and-fade 0.2s reverse;
-    }
+.list-leave-active {
+  position: absolute;
+}
 
-    @keyframes slide-bottom-and-fade {
-        0% {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
+.animation-slide-bottom-and-fade-enter {
+  opacity: 0;
+}
 
+.animation-slide-bottom-and-fade-enter-active {
+  animation: slide-bottom-and-fade 0.5s;
+}
+
+.animation-slide-bottom-and-fade-leave-active {
+  animation: slide-bottom-and-fade 0.2s reverse;
+}
+
+@keyframes slide-bottom-and-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 </style>

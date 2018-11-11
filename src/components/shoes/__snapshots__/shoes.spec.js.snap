@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shoes.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Shoes
+  </h2>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              100
+            </span>
+            
+                        km
+                        
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger shoe-action"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
