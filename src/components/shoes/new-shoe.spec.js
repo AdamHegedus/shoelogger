@@ -299,11 +299,6 @@ describe('new-shoe.vue', () => {
             });
 
             const wrapper = shallowMount(NewShoe, { store, localVue });
-            const expected = {
-                brandId: 0,
-                typeId: 0,
-                product: 'Test'
-            };
             const input = 'Test';
             wrapper.vm.$data.selectedType = {
                 id: 0,
@@ -319,7 +314,7 @@ describe('new-shoe.vue', () => {
             const actual = wrapper.vm.getShoe;
 
             // ASSERT
-            expect(actual).toEqual(expected);
+            expect(actual).toMatchSnapshot();
         });
 
     });
@@ -388,18 +383,12 @@ describe('new-shoe.vue', () => {
             });
 
             const wrapper = shallowMount(NewShoe, { store, localVue });
-            const expected = [
-                {
-                    id: 0,
-                    brand: 'Foo'
-                }
-            ];
 
             // ACT
             const actual = wrapper.vm.brands;
 
             // ASSERT
-            expect(actual).toEqual(expected);
+            expect(actual).toMatchSnapshot();
         });
 
     });
@@ -468,18 +457,12 @@ describe('new-shoe.vue', () => {
             });
 
             const wrapper = shallowMount(NewShoe, { store, localVue });
-            const expected = [
-                {
-                    id: 0,
-                    type: 'Foo'
-                }
-            ];
 
             // ACT
             const actual = wrapper.vm.types;
 
             // ASSERT
-            expect(actual).toEqual(expected);
+            expect(actual).toMatchSnapshot();
         });
 
     });
@@ -548,11 +531,6 @@ describe('new-shoe.vue', () => {
             });
 
             const wrapper = shallowMount(NewShoe, { store, localVue });
-            const expected = {
-                brandId: 0,
-                typeId: 1,
-                product: 'Test'
-            };
             const input = {
                 brandId: 0,
                 typeId: 1,
@@ -563,8 +541,168 @@ describe('new-shoe.vue', () => {
             wrapper.vm.addShoe(input);
 
             // ASSERT
-            expect(shoesActions.addShoe.mock.calls.length).toEqual(1);
-            expect(shoesActions.addShoe.mock.calls[0][1]).toEqual(expected);
+            const actual = shoesActions.addShoe.mock.calls;
+            expect(actual).toMatchSnapshot();
+
+        });
+
+    });
+
+    describe('selectBrand', () => {
+
+        it('should set selectedBrand', () => {
+            // ASSIGN
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                addShoe: jest.fn()
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(NewShoe, { store, localVue });
+            const input = {
+                id: 0,
+                brand: 'Foo'
+            };
+
+            // ACT
+            wrapper.vm.selectBrand(input);
+
+            // ASSERT
+            const actual = wrapper.vm.selectedBrand;
+            expect(actual).toMatchSnapshot();
+
+        });
+
+    });
+
+    describe('selectType', () => {
+
+        it('should set selectedType', () => {
+            // ASSIGN
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                addShoe: jest.fn()
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(NewShoe, { store, localVue });
+            const input = {
+                id: 1,
+                brand: 'Bar'
+            };
+
+            // ACT
+            wrapper.vm.selectType(input);
+
+            // ASSERT
+            const actual = wrapper.vm.selectedType;
+            expect(actual).toMatchSnapshot();
 
         });
 
