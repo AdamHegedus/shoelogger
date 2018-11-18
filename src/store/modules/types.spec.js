@@ -1,19 +1,18 @@
-jest.mock('axios', () => {
-    return {
-        get: jest.fn(() => Promise.resolve({})),
-        post: jest.fn(() => Promise.resolve({}))
-    };
-});
 import axios from 'axios';
 import Types from './types';
 import * as types from '../types';
 
-describe('store > modules > types', () => {
+jest.mock('axios', () => {
+    return {
+        get: jest.fn(() => { return Promise.resolve({}); }),
+        post: jest.fn(() => { return Promise.resolve({}); })
+    };
+});
 
+describe('store > modules > types', () => {
     const component = Types;
 
     describe('namespaced', () => {
-
         it('should be true', () => {
             // ASSIGN
             const expected = true;
@@ -24,11 +23,9 @@ describe('store > modules > types', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('getters', () => {
-
         it('should be empty', () => {
             // ASSIGN
             const expected = {};
@@ -39,11 +36,9 @@ describe('store > modules > types', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('state', () => {
-
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
@@ -57,13 +52,10 @@ describe('store > modules > types', () => {
             expect(actual).toEqual(expected);
             expect(actual.types).toEqual(expected.types);
         });
-
     });
 
     describe('actions', () => {
-
         describe('reset', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -83,11 +75,9 @@ describe('store > modules > types', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('getTypes', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expected = '/types/get-types.php';
@@ -98,15 +88,11 @@ describe('store > modules > types', () => {
 
                 // ASSERT
                 expect(axios.get).toBeCalledWith(expected);
-
             });
-
         });
 
         describe('mutations', () => {
-
             describe(`${types.TYPES_RESET}`, () => {
-
                 it('should set state', () => {
                     // ASSIGN
                     const expected = {
@@ -124,13 +110,10 @@ describe('store > modules > types', () => {
 
                     // ASSERT
                     expect(component.state.types).toEqual(expected.types);
-
                 });
-
             });
 
             describe(`${types.TYPES_GET_TYPES}`, () => {
-
                 it('should set state when payload returns array', () => {
                     // ASSIGN
                     const expected = {
@@ -170,7 +153,6 @@ describe('store > modules > types', () => {
 
                     // ASSERT
                     expect(component.state.types).toEqual(expected.types);
-
                 });
 
                 it('should set state when payload returns null', () => {
@@ -186,7 +168,6 @@ describe('store > modules > types', () => {
 
                     // ASSERT
                     expect(component.state.types).toEqual(expected.types);
-
                 });
 
                 it('should set state when payload returns undefined', () => {
@@ -202,13 +183,8 @@ describe('store > modules > types', () => {
 
                     // ASSERT
                     expect(component.state.types).toEqual(expected.types);
-
                 });
-
             });
-
         });
-
     });
-
 });

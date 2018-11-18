@@ -8,9 +8,7 @@ localVue.use(Vuex);
 localVue.use(BootstrapVue);
 
 describe('new-shoe.vue', () => {
-
     describe('meta.status is false', () => {
-
         const shoesGetters = {
             getMeta: () => {
                 return {
@@ -79,13 +77,10 @@ describe('new-shoe.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     describe('meta.status is true', () => {
-
         const shoesGetters = {
             getMeta: () => {
                 return {
@@ -154,9 +149,7 @@ describe('new-shoe.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     it('should match snapshot when text input changed', () => {
@@ -232,11 +225,9 @@ describe('new-shoe.vue', () => {
         const actual = wrapper.vm.$data.product;
         expect(element).toMatchSnapshot();
         expect(actual).toEqual(expected);
-
     });
 
     describe('getShoe', () => {
-
         it('should return the value of text input', () => {
             // ASSIGN
             const shoesGetters = {
@@ -316,11 +307,9 @@ describe('new-shoe.vue', () => {
             // ASSERT
             expect(actual).toMatchSnapshot();
         });
-
     });
 
     describe('brands', () => {
-
         it('should return the value from store', () => {
             // ASSIGN
             const shoesGetters = {
@@ -390,11 +379,9 @@ describe('new-shoe.vue', () => {
             // ASSERT
             expect(actual).toMatchSnapshot();
         });
-
     });
 
     describe('types', () => {
-
         it('should return the value from store', () => {
             // ASSIGN
             const shoesGetters = {
@@ -464,11 +451,9 @@ describe('new-shoe.vue', () => {
             // ASSERT
             expect(actual).toMatchSnapshot();
         });
-
     });
 
     describe('addShoe', () => {
-
         it('should call action', () => {
             // ASSIGN
             const shoesGetters = {
@@ -543,13 +528,10 @@ describe('new-shoe.vue', () => {
             // ASSERT
             const actual = shoesActions.addShoe.mock.calls;
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     describe('selectBrand', () => {
-
         it('should set selectedBrand', () => {
             // ASSIGN
             const shoesGetters = {
@@ -623,13 +605,10 @@ describe('new-shoe.vue', () => {
             // ASSERT
             const actual = wrapper.vm.selectedBrand;
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     describe('selectType', () => {
-
         it('should set selectedType', () => {
             // ASSIGN
             const shoesGetters = {
@@ -703,9 +682,6 @@ describe('new-shoe.vue', () => {
             // ASSERT
             const actual = wrapper.vm.selectedType;
             expect(actual).toMatchSnapshot();
-
         });
-
     });
-
 });

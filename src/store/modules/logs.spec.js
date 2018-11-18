@@ -1,19 +1,18 @@
-jest.mock('axios', () => {
-    return {
-        get: jest.fn(() => Promise.resolve({})),
-        post: jest.fn(() => Promise.resolve({}))
-    };
-});
 import axios from 'axios';
 import Logs from './logs';
 import * as types from '../types';
 
-describe('store > modules > logs', () => {
+jest.mock('axios', () => {
+    return {
+        get: jest.fn(() => { return Promise.resolve({}); }),
+        post: jest.fn(() => { return Promise.resolve({}); })
+    };
+});
 
+describe('store > modules > logs', () => {
     const component = Logs;
 
     describe('namespaced', () => {
-
         it('should be true', () => {
             // ASSIGN
             const expected = true;
@@ -24,13 +23,10 @@ describe('store > modules > logs', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('getters', () => {
-
         describe('getMeta', () => {
-
             it('should return correct data', () => {
                 // ASSIGN
                 const expected = {
@@ -51,13 +47,10 @@ describe('store > modules > logs', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
-
     });
 
     describe('state', () => {
-
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
@@ -78,13 +71,10 @@ describe('store > modules > logs', () => {
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
         });
-
     });
 
     describe('actions', () => {
-
         describe('reset', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -104,11 +94,9 @@ describe('store > modules > logs', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('resetMeta', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -128,11 +116,9 @@ describe('store > modules > logs', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('getLogs', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expected = '/logs/get-logs.php';
@@ -143,13 +129,10 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(axios.get).toBeCalledWith(expected);
-
             });
-
         });
 
         describe('addLog', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/logs/post-log.php';
@@ -166,13 +149,10 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
 
         describe('deleteLog', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/logs/delete-log.php';
@@ -189,17 +169,12 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
-
     });
 
     describe('mutations', () => {
-
         describe(`${types.LOGS_RESET}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -226,13 +201,10 @@ describe('store > modules > logs', () => {
                 // ASSERT
                 expect(component.state.logs).toEqual(expected.logs);
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.LOGS_RESET_META}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -256,13 +228,10 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.LOGS_GET_LOGS}`, () => {
-
             it('should set state when payload returns array', () => {
                 // ASSIGN
                 const expected = {
@@ -332,7 +301,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.logs).toEqual(expected.logs);
-
             });
 
             it('should set state when payload returns null', () => {
@@ -348,7 +316,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.logs).toEqual(expected.logs);
-
             });
 
             it('should set state when payload returns undefined', () => {
@@ -364,13 +331,10 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.logs).toEqual(expected.logs);
-
             });
-
         });
 
         describe(`${types.LOGS_POST_LOG}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -389,7 +353,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -412,7 +375,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -435,13 +397,10 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.LOGS_DELETE_LOG}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -460,7 +419,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -483,7 +441,6 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -506,11 +463,7 @@ describe('store > modules > logs', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
-
     });
-
 });

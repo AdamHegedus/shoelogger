@@ -1,11 +1,9 @@
 import matchItem from './match-item';
 
 describe('utils > match-item', () => {
-
     const component = matchItem;
 
     describe('item A is undefined', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -20,11 +18,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item A is null', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -39,11 +35,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item A is an empty object', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -58,11 +52,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item A is an array', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -77,13 +69,10 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item A is a valid object', () => {
-
         describe('item B is a different object', () => {
-
             it('should return false', () => {
                 // ASSIGN
                 const expected = false;
@@ -100,11 +89,9 @@ describe('utils > match-item', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
 
         describe('item B is the same object', () => {
-
             it('should return true', () => {
                 // ASSIGN
                 const expected = true;
@@ -121,13 +108,10 @@ describe('utils > match-item', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
-
     });
 
     describe('item B is undefined', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -142,11 +126,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item B is null', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -161,11 +143,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item B is an empty object', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -180,11 +160,9 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item B is an array', () => {
-
         it('should return false', () => {
             // ASSIGN
             const expected = false;
@@ -199,13 +177,10 @@ describe('utils > match-item', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('item B is a valid object', () => {
-
         describe('item A is a different object', () => {
-
             it('should return false', () => {
                 // ASSIGN
                 const expected = false;
@@ -222,11 +197,9 @@ describe('utils > match-item', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
 
         describe('item A is the same object', () => {
-
             it('should return true', () => {
                 // ASSIGN
                 const expected = true;
@@ -243,9 +216,6 @@ describe('utils > match-item', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
-
     });
-
 });

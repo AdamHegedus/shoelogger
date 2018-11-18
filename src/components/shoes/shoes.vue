@@ -57,53 +57,53 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-  computed: {
-    shoes() {
-      return this.$store.state.shoes.shoes;
+    computed: {
+        shoes() {
+            return this.$store.state.shoes.shoes;
+        },
+        ...mapGetters({
+            meta: 'shoes/getMeta'
+        })
     },
-    ...mapGetters({
-      meta: "shoes/getMeta"
-    })
-  },
-  created() {
-    this.$store.dispatch("shoes/getShoes");
-  },
-  data() {
-    return {
-      selectedIndex: null
-    };
-  },
-  methods: {
-    newShoe() {
-      this.$router.push("shoes/new");
+    created() {
+        this.$store.dispatch('shoes/getShoes');
     },
-    deleteShoe(brandId) {
-      this.$store.dispatch("shoes/deleteShoe", {
-        id: brandId
-      });
+    data() {
+        return {
+            selectedIndex: null
+        };
     },
-    selectShoe(index) {
-      this.selectedIndex = this.isSelected(index) ? null : index;
+    methods: {
+        newShoe() {
+            this.$router.push('shoes/new');
+        },
+        deleteShoe(shoeId) {
+            this.$store.dispatch('shoes/deleteShoe', {
+                id: shoeId
+            });
+        },
+        selectShoe(index) {
+            this.selectedIndex = this.isSelected(index) ? null : index;
 
-      if (!this.meta.status) {
-        this.$store.dispatch("shoes/resetMeta");
-      }
+            if (!this.meta.status) {
+                this.$store.dispatch('shoes/resetMeta');
+            }
+        },
+        isSelected(index) {
+            return this.selectedIndex === index;
+        }
     },
-    isSelected(index) {
-      return this.selectedIndex === index;
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.selectShoe(null);
+                this.$store.dispatch('shoes/getShoes');
+            }
+        }
     }
-  },
-  watch: {
-    meta(actual) {
-      if (actual.status) {
-        this.selectShoe(null);
-        this.$store.dispatch("shoes/getShoes");
-      }
-    }
-  }
 };
 </script>
 
