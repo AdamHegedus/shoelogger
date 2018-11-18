@@ -2,11 +2,9 @@ import Navigation from './navigation';
 import * as types from '../types';
 
 describe('store > core > navigation', () => {
-
     const component = Navigation;
 
     describe('namespaced', () => {
-
         it('should be true', () => {
             // ASSIGN
             const expected = true;
@@ -17,11 +15,9 @@ describe('store > core > navigation', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('getters', () => {
-
         it('should be empty', () => {
             // ASSIGN
             const expected = {};
@@ -32,11 +28,9 @@ describe('store > core > navigation', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('state', () => {
-
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
@@ -56,13 +50,10 @@ describe('store > core > navigation', () => {
             expect(actual).toEqual(expected);
             expect(actual.menu).toEqual(expected.menu);
         });
-
     });
 
     describe('actions', () => {
-
         describe('setNavigation', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -84,15 +75,11 @@ describe('store > core > navigation', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
-
     });
 
     describe('mutations', () => {
-
         describe(`${types.CORE_NAVIGATION_SET}`, () => {
-
             it('should set state when payload is null', () => {
                 // ASSIGN
                 const expected = {
@@ -113,7 +100,6 @@ describe('store > core > navigation', () => {
 
                 // ASSERT
                 expect(component.state.menu).toEqual(expected.menu);
-
             });
 
             it('should set state when payload is undefined', () => {
@@ -136,7 +122,6 @@ describe('store > core > navigation', () => {
 
                 // ASSERT
                 expect(component.state.menu).toEqual(expected.menu);
-
             });
 
             it('should set state when payload is string', () => {
@@ -159,7 +144,6 @@ describe('store > core > navigation', () => {
 
                 // ASSERT
                 expect(component.state.menu).toEqual(expected.menu);
-
             });
 
             it('should set state when payload is object', () => {
@@ -182,11 +166,7 @@ describe('store > core > navigation', () => {
 
                 // ASSERT
                 expect(component.state.menu).toEqual(expected.menu);
-
             });
-
         });
-
     });
-
 });

@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Bar from '@/components/charts/bar';
 
 describe('index.vue', () => {
-
     const Constructor = Vue.extend(Bar);
 
     it('should match snapshot when data is available', () => {
@@ -44,7 +43,6 @@ describe('index.vue', () => {
 
         // ASSERT
         expect(actual).toMatchSnapshot();
-
     });
 
     it('should match snapshot when data is empty', () => {
@@ -56,7 +54,5 @@ describe('index.vue', () => {
 
         // ASSERT
         expect(actual).toMatchSnapshot();
-
     });
-
 });

@@ -6,7 +6,7 @@
                 <h2>Add New Shoe</h2>
                 <form>
                     <div class="form-group">
-                       
+
                         <label>Type</label>
                         <b-dropdown
                             id="type"
@@ -83,67 +83,67 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import matchItem from "@/utils/match-item";
+import { mapGetters } from 'vuex';
+import matchItem from '@/utils/match-item';
 
 export default {
-  computed: {
-    brands() {
-      return this.$store.state.brands.brands;
-    },
-    types() {
-      return this.$store.state.types.types;
-    },
-    getShoe() {
-      return {
-        brandId: this.selectedBrand.id,
-        typeId: this.selectedType.id,
-        product: this.product
-      };
-    },
-    isValid() {
-      return (
-        this.selectedBrand !== null &&
+    computed: {
+        brands() {
+            return this.$store.state.brands.brands;
+        },
+        types() {
+            return this.$store.state.types.types;
+        },
+        getShoe() {
+            return {
+                brandId: this.selectedBrand.id,
+                typeId: this.selectedType.id,
+                product: this.product
+            };
+        },
+        isValid() {
+            return (
+                this.selectedBrand !== null &&
         this.selectedType !== null &&
         this.product.length > 0
-      );
+            );
+        },
+        ...mapGetters({
+            meta: 'shoes/getMeta'
+        })
     },
-    ...mapGetters({
-      meta: "shoes/getMeta"
-    })
-  },
-  data() {
-    return {
-      selectedBrand: null,
-      selectedType: null,
-      product: ""
-    };
-  },
-  methods: {
-    isSelected(currentItem, selectedItem) {
-      return matchItem(currentItem, selectedItem);
+    data() {
+        return {
+            selectedBrand: null,
+            selectedType: null,
+            product: ''
+        };
     },
-    selectBrand(brand) {
-      this.selectedBrand = brand;
+    methods: {
+        isSelected(currentItem, selectedItem) {
+            return matchItem(currentItem, selectedItem);
+        },
+        selectBrand(brand) {
+            this.selectedBrand = brand;
+        },
+        selectType(type) {
+            this.selectedType = type;
+        },
+        addShoe(shoe) {
+            this.$store.dispatch('shoes/addShoe', shoe);
+        }
     },
-    selectType(type) {
-      this.selectedType = type;
+    created() {
+        this.$store.dispatch('brands/getBrands');
+        this.$store.dispatch('types/getTypes');
     },
-    addShoe(shoe) {
-      this.$store.dispatch("shoes/addShoe", shoe);
+    watch: {
+        meta(actual) {
+            if (actual.status) {
+                this.$router.push('/shoes');
+            }
+        }
     }
-  },
-  created() {
-    this.$store.dispatch("brands/getBrands");
-    this.$store.dispatch("types/getTypes");
-  },
-  watch: {
-    meta(actual) {
-      if (actual.status) {
-        this.$router.push("/shoes");
-      }
-    }
-  }
 };
 </script>
 

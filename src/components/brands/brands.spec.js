@@ -8,7 +8,6 @@ localVue.use(Vuex);
 localVue.use(VueRouter);
 
 describe('brands.vue', () => {
-
     let actions;
     let state;
 
@@ -34,9 +33,7 @@ describe('brands.vue', () => {
     });
 
     describe('meta.status is false', () => {
-
         describe('first element is clicked', () => {
-
             it('should match snapshot', () => {
                 // ASSIGN
                 const getters = {
@@ -67,17 +64,12 @@ describe('brands.vue', () => {
 
                 // ASSERT
                 expect(actual).toMatchSnapshot();
-
             });
-
         });
-
     });
 
     describe('meta.status is true', () => {
-
         describe('first element is clicked', () => {
-
             it('should match snapshot', () => {
                 // ASSIGN
                 const getters = {
@@ -109,15 +101,11 @@ describe('brands.vue', () => {
 
                 // ASSERT
                 expect(actual).toMatchSnapshot();
-
             });
-
         });
-
     });
 
     describe('brands', () => {
-
         it('should match computed property', () => {
             // ASSIGN
             const expected = [
@@ -159,13 +147,10 @@ describe('brands.vue', () => {
             // ASSERT
             expect(actual).toEqual(expected);
             expect(actions.getBrands).toBeCalled();
-
         });
-
     });
 
     describe('selectBrand', () => {
-
         it('should set index when selectedIndex is unset', () => {
             // ASSIGN
             const expected = 0;
@@ -198,7 +183,6 @@ describe('brands.vue', () => {
             // ASSERT
             const actual = wrapper.vm.selectedIndex;
             expect(actual).toEqual(expected);
-
         });
 
         it('should set index when selectedIndex is different', () => {
@@ -237,7 +221,6 @@ describe('brands.vue', () => {
             // ASSERT
             const actual = wrapper.vm.selectedIndex;
             expect(actual).toEqual(expected);
-
         });
 
         it('should set index when selectedIndex is the same', () => {
@@ -276,7 +259,6 @@ describe('brands.vue', () => {
             // ASSERT
             const actual = wrapper.vm.selectedIndex;
             expect(actual).toEqual(expected);
-
         });
 
         it('should call resetMeta when meta.status is false', () => {
@@ -307,7 +289,6 @@ describe('brands.vue', () => {
 
             // ASSERT
             expect(actions.resetMeta).toBeCalled();
-
         });
 
         it('should not call resetMeta when meta.status is true', () => {
@@ -338,19 +319,16 @@ describe('brands.vue', () => {
 
             // ASSERT
             expect(actions.resetMeta).not.toBeCalled();
-
         });
-
     });
 
     describe('DOM events', () => {
-
         it('should call event when \'delete\' button clicked', () => {
             // ASSIGN
             const expected = {
                 id: 0
             };
-    
+
             const getters = {
                 getMeta: () => {
                     return {
@@ -359,7 +337,7 @@ describe('brands.vue', () => {
                     };
                 }
             };
-    
+
             const store = new Vuex.Store({
                 modules: {
                     brands: {
@@ -372,20 +350,19 @@ describe('brands.vue', () => {
             });
             const wrapper = shallowMount(Brands, { store, localVue });
             wrapper.vm.selectBrand(0);
-    
+
             // ACT
             wrapper.find('button.brand-action').trigger('click');
-    
+
             // ASSERT
             expect(actions.deleteBrand.mock.calls.length).toEqual(1);
             expect(actions.deleteBrand.mock.calls[0][1]).toEqual(expected);
-    
         });
-    
+
         it('should call router when \'new\' button clicked', () => {
             // ASSIGN
             const expected = 'brands/new';
-    
+
             const getters = {
                 getMeta: () => {
                     return {
@@ -394,7 +371,7 @@ describe('brands.vue', () => {
                     };
                 }
             };
-    
+
             const store = new Vuex.Store({
                 modules: {
                     brands: {
@@ -408,16 +385,13 @@ describe('brands.vue', () => {
             const router = new VueRouter();
             const wrapper = shallowMount(Brands, { store, localVue, router });
             const spy = jest.spyOn(wrapper.vm.$router, 'push');
-    
+
             // ACT
             wrapper.find('button').trigger('click');
-    
+
             // ASSERT
             expect(spy.mock.calls.length).toEqual(1);
             expect(spy.mock.calls[0][0]).toEqual(expected);
-    
         });
-
     });
-
 });

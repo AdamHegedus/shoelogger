@@ -6,9 +6,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('new-brand.vue', () => {
-
     describe('meta.status is false', () => {
-
         const getters = {
             getMeta: () => {
                 return {
@@ -41,13 +39,10 @@ describe('new-brand.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     describe('meta.status is true', () => {
-
         const getters = {
             getMeta: () => {
                 return {
@@ -80,9 +75,7 @@ describe('new-brand.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
-
         });
-
     });
 
     it('should match snapshot when text input changed', () => {
@@ -121,11 +114,9 @@ describe('new-brand.vue', () => {
         const actual = wrapper.vm.$data.brand;
         expect(element).toMatchSnapshot();
         expect(actual).toEqual(expected);
-
     });
 
     describe('getBrand', () => {
-
         it('should return the value of text input', () => {
             // ASSIGN
             const getters = {
@@ -163,11 +154,9 @@ describe('new-brand.vue', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('addBrand', () => {
-
         it('should call event with the value of text input', () => {
             // ASSIGN
             const getters = {
@@ -206,7 +195,5 @@ describe('new-brand.vue', () => {
             expect(actions.addBrand.mock.calls.length).toEqual(1);
             expect(actions.addBrand.mock.calls[0][1]).toEqual(expected);
         });
-
     });
-
 });

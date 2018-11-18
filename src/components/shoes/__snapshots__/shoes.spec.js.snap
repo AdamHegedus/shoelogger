@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shoes.vue DOM events should call event when 'delete' button clicked meta false 1`] = `
+Array [
+  Array [
+    Object {
+      "commit": [Function],
+      "dispatch": [Function],
+      "getters": Object {
+        "getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootGetters": Object {
+        "shoes/getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootState": Object {
+        "brands": Object {
+          "brands": Array [
+            Object {
+              "brand": "Foo",
+              "id": 0,
+            },
+          ],
+        },
+        "shoes": Object {
+          "shoes": Array [
+            Object {
+              "brand": "foobar",
+              "distance": 100,
+              "id": 0,
+              "product": "Foo",
+              "timestamp": 100,
+            },
+          ],
+        },
+        "types": Object {
+          "types": Array [
+            Object {
+              "id": 0,
+              "type": "Foo",
+            },
+          ],
+        },
+      },
+      "state": Object {
+        "shoes": Array [
+          Object {
+            "brand": "foobar",
+            "distance": 100,
+            "id": 0,
+            "product": "Foo",
+            "timestamp": 100,
+          },
+        ],
+      },
+    },
+    Object {
+      "id": 0,
+    },
+    undefined,
+  ],
+]
+`;
+
+exports[`shoes.vue DOM events should call event when 'delete' button clicked meta true 1`] = `
+Array [
+  Array [
+    Object {
+      "commit": [Function],
+      "dispatch": [Function],
+      "getters": Object {
+        "getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootGetters": Object {
+        "shoes/getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootState": Object {
+        "brands": Object {
+          "brands": Array [
+            Object {
+              "brand": "Foo",
+              "id": 0,
+            },
+          ],
+        },
+        "shoes": Object {
+          "shoes": Array [
+            Object {
+              "brand": "foobar",
+              "distance": 100,
+              "id": 0,
+              "product": "Foo",
+              "timestamp": 100,
+            },
+          ],
+        },
+        "types": Object {
+          "types": Array [
+            Object {
+              "id": 0,
+              "type": "Foo",
+            },
+          ],
+        },
+      },
+      "state": Object {
+        "shoes": Array [
+          Object {
+            "brand": "foobar",
+            "distance": 100,
+            "id": 0,
+            "product": "Foo",
+            "timestamp": 100,
+          },
+        ],
+      },
+    },
+    Object {
+      "id": 0,
+    },
+    undefined,
+  ],
+  Array [
+    Object {
+      "commit": [Function],
+      "dispatch": [Function],
+      "getters": Object {
+        "getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootGetters": Object {
+        "shoes/getMeta": Object {
+          "message": "Error message text.",
+          "status": false,
+        },
+      },
+      "rootState": Object {
+        "brands": Object {
+          "brands": Array [
+            Object {
+              "brand": "Foo",
+              "id": 0,
+            },
+          ],
+        },
+        "shoes": Object {
+          "shoes": Array [
+            Object {
+              "brand": "foobar",
+              "distance": 100,
+              "id": 0,
+              "product": "Foo",
+              "timestamp": 100,
+            },
+          ],
+        },
+        "types": Object {
+          "types": Array [
+            Object {
+              "id": 0,
+              "type": "Foo",
+            },
+          ],
+        },
+      },
+      "state": Object {
+        "shoes": Array [
+          Object {
+            "brand": "foobar",
+            "distance": 100,
+            "id": 0,
+            "product": "Foo",
+            "timestamp": 100,
+          },
+        ],
+      },
+    },
+    Object {
+      "id": 0,
+    },
+    undefined,
+  ],
+]
+`;
+
+exports[`shoes.vue DOM events should call router when 'new' button clicked 1`] = `
+Array [
+  Array [
+    "shoes/new",
+  ],
+]
+`;
+
+exports[`shoes.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Shoes
+  </h2>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              100
+            </span>
+            
+                        km
+                        
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger shoe-action"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is different 1`] = `0`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is the same 1`] = `null`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is unset 1`] = `0`;
