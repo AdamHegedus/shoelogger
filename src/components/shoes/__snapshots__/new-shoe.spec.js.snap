@@ -88,7 +88,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
             Type
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="type"
@@ -99,7 +99,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -110,8 +110,8 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
@@ -121,7 +121,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
             Brand Name
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="brandName"
@@ -132,7 +132,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -143,8 +143,8 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
@@ -202,7 +202,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
             Type
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="type"
@@ -213,7 +213,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -224,8 +224,8 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
@@ -235,7 +235,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
             Brand Name
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="brandName"
@@ -246,7 +246,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -257,8 +257,8 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
@@ -330,7 +330,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
             Type
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="type"
@@ -341,7 +341,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -352,8 +352,8 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
@@ -363,7 +363,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
             Brand Name
           </label>
            
-          <bdropdown-stub
+          <b-dropdown-stub
             boundary="scrollParent"
             class="btn-block"
             id="brandName"
@@ -374,7 +374,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
             toggleclass="btn btn-secondary btn-lg btn-block shadow"
             toggletext="Toggle Dropdown"
           >
-            <bdropdownitem-stub
+            <b-dropdown-item-stub
               activeclass="active"
               class="[object Object]"
               event="click"
@@ -385,8 +385,8 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
               
                             Foo
                         
-            </bdropdownitem-stub>
-          </bdropdown-stub>
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
         </div>
          
         <div
