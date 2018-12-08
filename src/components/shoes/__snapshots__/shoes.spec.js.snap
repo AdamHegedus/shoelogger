@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shoes.vue deleteShoe should call event 1`] = `
+Object {
+  "id": 0,
+}
+`;
+
+exports[`shoes.vue meta.status is false should match snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Shoes
+  </h2>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card selected"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              100
+            </span>
+            
+                        km
+                        
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger shoe-action"
+            mode="out-in"
+            name="fade"
+            style=""
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <p
+        appear=""
+        class="alert alert-danger mt-3"
+        name="animation-slide-bottom-and-fade"
+      >
+        
+                    Error message text.
+                
+      </p>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`shoes.vue meta.status is true should match snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Shoes
+  </h2>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              100
+            </span>
+            
+                        km
+                        
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger shoe-action"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
+
+exports[`shoes.vue newShoe should call router 1`] = `
+Array [
+  Array [
+    "shoes/new",
+  ],
+]
+`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is different 1`] = `0`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is the same 1`] = `null`;
+
+exports[`shoes.vue selectShoe should set index when selectedIndex is unset 1`] = `0`;

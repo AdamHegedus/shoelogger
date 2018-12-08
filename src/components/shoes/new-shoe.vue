@@ -6,45 +6,46 @@
                 <h2>Add New Shoe</h2>
                 <form>
                     <div class="form-group">
-                        <div class="form-group">
-                            <label>Type</label>
-                            <b-dropdown
-                                    id="type"
-                                    size="lg"
-                                    :no-flip="true"
-                                    :text="selectedType !== null ?
-                                    selectedType.type :
-                                    'Select Type'"
-                                    class="btn-block"
-                                    toggle-class="btn btn-secondary btn-lg btn-block shadow"
-                            >
-                                <b-dropdown-item
-                                        :class="{ active: isSelected(type, selectedType) }"
-                                        :key="type.type"
-                                        v-for="type in types"
-                                        @click="selectType(type)"
-                                >
-                                    {{type.type}}
-                                </b-dropdown-item>
 
-                            </b-dropdown>
-                        </div>
-                        <label>Brand Name</label>
+                        <label>Type</label>
                         <b-dropdown
-                                id="brandName"
-                                size="lg"
-                                :no-flip="true"
-                                :text="selectedBrand !== null ?
-                                selectedBrand.brand :
-                                'Select Brand'"
-                                class="btn-block"
-                                toggle-class="btn btn-secondary btn-lg btn-block shadow"
+                            id="type"
+                            size="lg"
+                            :no-flip="true"
+                            :text="selectedType !== null ?
+                            selectedType.type :
+                            'Select Type'"
+                            class="btn-block"
+                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
                         >
                             <b-dropdown-item
-                                    :class="{ active: isSelected(brand, selectedBrand) }"
-                                    :key="brand.brand"
-                                    v-for="brand in brands"
-                                    @click="selectBrand(brand)"
+                                :class="{ active: isSelected(type, selectedType) }"
+                                :key="type.type"
+                                v-for="type in types"
+                                @click="selectType(type)"
+                            >
+                                {{type.type}}
+                            </b-dropdown-item>
+
+                        </b-dropdown>
+                    </div>
+                    <div class="form-group">
+                        <label>Brand Name</label>
+                        <b-dropdown
+                            id="brandName"
+                            size="lg"
+                            :no-flip="true"
+                            :text="selectedBrand !== null ?
+                            selectedBrand.brand :
+                            'Select Brand'"
+                            class="btn-block"
+                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
+                        >
+                            <b-dropdown-item
+                                :class="{ active: isSelected(brand, selectedBrand) }"
+                                :key="brand.brand"
+                                v-for="brand in brands"
+                                @click="selectBrand(brand)"
                             >
                                 {{brand.brand}}
                             </b-dropdown-item>
@@ -55,19 +56,20 @@
                     <div class="form-group">
                         <label for="productName">Product Name</label>
                         <input
-                                type="text"
-                                class="form-control form-control-lg shadow border border-primary"
-                                id="productName"
-                                v-model="product"
-                                placeholder="Product Name"
+                            type="text"
+                            class="form-control form-control-lg shadow border border-primary"
+                            id="productName"
+                            v-model="product"
+                            placeholder="Product Name"
                         >
                     </div>
 
                     <button
-                            type="submit"
-                            class="btn btn-primary btn-lg btn-block shadow"
-                            @click="addShoe(getShoe)"
-                            :disabled="!isValid"
+                        type="submit"
+                        id="add"
+                        class="btn btn-primary btn-lg btn-block shadow"
+                        @click="addShoe(getShoe)"
+                        :disabled="!isValid"
                     >
                         Add
                     </button>
@@ -100,9 +102,11 @@ export default {
             };
         },
         isValid() {
-            return this.selectedBrand !== null &&
-                this.selectedType !== null &&
-                this.product.length > 0;
+            return (
+                this.selectedBrand !== null &&
+        this.selectedType !== null &&
+        this.product.length > 0
+            );
         },
         ...mapGetters({
             meta: 'shoes/getMeta'
@@ -137,18 +141,11 @@ export default {
         meta(actual) {
             if (actual.status) {
                 this.$router.push('/shoes');
-            } else {
-                // console.log(actual.message);
             }
         }
-    },
-    destroyed() {
-        this.$store.dispatch('shoes/reset');
     }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 </style>

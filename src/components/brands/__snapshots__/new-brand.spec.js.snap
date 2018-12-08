@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new-brand.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Brand
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            for="brandName"
+          >
+            Brand Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="brandName"
+            placeholder="Brand Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+       
+      <p
+        class="alert alert-danger mt-3"
+      >
+        
+                Error message text.
+            
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-brand.vue meta.status is true should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Brand
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            for="brandName"
+          >
+            Brand Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="brandName"
+            placeholder="Brand Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-brand.vue should match snapshot when text input changed 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Brand
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label
+            for="brandName"
+          >
+            Brand Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="brandName"
+            placeholder="Brand Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;

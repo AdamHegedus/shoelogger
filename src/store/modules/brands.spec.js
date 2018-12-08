@@ -1,19 +1,18 @@
-jest.mock('axios', () => {
-    return {
-        get: jest.fn(() => Promise.resolve({})),
-        post: jest.fn(() => Promise.resolve({}))
-    };
-});
 import axios from 'axios';
 import Brands from './brands';
 import * as types from '../types';
 
-describe('store > modules > brands', () => {
+jest.mock('axios', () => {
+    return {
+        get: jest.fn(() => { return Promise.resolve({}); }),
+        post: jest.fn(() => { return Promise.resolve({}); })
+    };
+});
 
+describe('store > modules > brands', () => {
     const component = Brands;
 
     describe('namespaced', () => {
-
         it('should be true', () => {
             // ASSIGN
             const expected = true;
@@ -24,13 +23,10 @@ describe('store > modules > brands', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('getters', () => {
-
         describe('getMeta', () => {
-
             it('should return correct data', () => {
                 // ASSIGN
                 const expected = {
@@ -51,13 +47,10 @@ describe('store > modules > brands', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
-
     });
 
     describe('state', () => {
-
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
@@ -78,13 +71,10 @@ describe('store > modules > brands', () => {
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
         });
-
     });
 
     describe('actions', () => {
-
         describe('reset', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -104,11 +94,9 @@ describe('store > modules > brands', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('resetMeta', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -128,11 +116,9 @@ describe('store > modules > brands', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('getBrands', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expected = '/brands/get-brands.php';
@@ -143,13 +129,10 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(axios.get).toBeCalledWith(expected);
-
             });
-
         });
 
         describe('addBrand', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/brands/post-brand.php';
@@ -166,13 +149,10 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
 
         describe('deleteBrand', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/brands/delete-brand.php';
@@ -189,17 +169,12 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
-
     });
 
     describe('mutations', () => {
-
         describe(`${types.BRANDS_RESET}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -226,13 +201,10 @@ describe('store > modules > brands', () => {
                 // ASSERT
                 expect(component.state.brands).toEqual(expected.brands);
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.BRANDS_RESET_META}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -256,13 +228,10 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.BRANDS_GET_BRANDS}`, () => {
-
             it('should set state when payload returns array', () => {
                 // ASSIGN
                 const expected = {
@@ -302,7 +271,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.brands).toEqual(expected.brands);
-
             });
 
             it('should set state when payload returns null', () => {
@@ -318,7 +286,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.brands).toEqual(expected.brands);
-
             });
 
             it('should set state when payload returns undefined', () => {
@@ -334,13 +301,10 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.brands).toEqual(expected.brands);
-
             });
-
         });
 
         describe(`${types.BRANDS_POST_BRAND}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -359,7 +323,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -382,7 +345,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -405,13 +367,10 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.BRANDS_DELETE_BRAND}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -430,7 +389,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -453,7 +411,6 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -476,11 +433,7 @@ describe('store > modules > brands', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
-
     });
-
 });

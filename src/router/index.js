@@ -5,6 +5,9 @@ import Shoes from '@/components/shoes/shoes';
 import NewShoe from '@/components/shoes/new-shoe';
 import Logs from '@/components/logs/logs';
 import NewLog from '@/components/logs/new-log';
+import LogsOverview from '@/components/logs/overview';
+import LogsByShoes from '@/components/logs/logs-by-shoes';
+import RecentLogs from '@/components/logs/recent-logs';
 import Brands from '@/components/brands/brands';
 import NewBrand from '@/components/brands/new-brand';
 
@@ -25,7 +28,24 @@ export default new Router({
         {
             path: '/logs',
             name: 'Logs',
-            component: Logs
+            component: Logs,
+            children: [
+                {
+                    path: '/logs/overview',
+                    name: 'LogsOverview',
+                    component: LogsOverview
+                },
+                {
+                    path: '/logs/recent',
+                    name: 'RecentLogs',
+                    component: RecentLogs
+                },
+                {
+                    path: '/logs/by-shoes',
+                    name: 'LogsByShoes',
+                    component: LogsByShoes
+                }
+            ]
         },
         {
             path: '/brands',
@@ -42,6 +62,7 @@ export default new Router({
             name: 'NewLog',
             component: NewLog
         },
+
         {
             path: '/brands/new',
             name: 'NewBrand',

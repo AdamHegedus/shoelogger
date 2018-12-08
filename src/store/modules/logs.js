@@ -29,7 +29,8 @@ const mutations = {
                     brand: data.brand,
                     product: data.product,
                     distance: data.distance - 0,
-                    date: data.date
+                    date: data.date,
+                    timestamp: data.timestamp
                 };
             }) :
             [];
@@ -72,11 +73,9 @@ const mutations = {
 const actions = {
     getLogs: ({ commit }) => {
         axios.get('/logs/get-logs.php')
-            .then(
-                (response) => {
-                    commit(types.LOGS_GET_LOGS, response.data);
-                }
-            );
+            .then((response) => {
+                commit(types.LOGS_GET_LOGS, response.data);
+            });
     },
     addLog: ({ commit }, payload) => {
         axios.post('/logs/post-log.php', payload)

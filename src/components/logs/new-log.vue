@@ -9,20 +9,20 @@
                         <div class="form-group">
                             <label>Shoe</label>
                             <b-dropdown
-                                    id="type"
-                                    size="lg"
-                                    :no-flip="true"
-                                    :text="selectedShoe !== null ?
-                                    `${selectedShoe.brand} ${selectedShoe.product}` :
-                                    'Select Shoe'"
-                                    class="btn-block"
-                                    toggle-class="btn btn-secondary btn-lg btn-block shadow"
+                                id="type"
+                                size="lg"
+                                :no-flip="true"
+                                :text="selectedShoe !== null ?
+                                `${selectedShoe.brand} ${selectedShoe.product}` :
+                                'Select Shoe'"
+                                class="btn-block"
+                                toggle-class="btn btn-secondary btn-lg btn-block shadow"
                             >
                                 <b-dropdown-item
-                                        :class="{ active: isSelected(shoe, selectedShoe) }"
-                                        :key="shoe.product"
-                                        v-for="shoe in shoes"
-                                        @click="selectShoe(shoe)"
+                                    :class="{ active: isSelected(shoe, selectedShoe) }"
+                                    :key="shoe.product"
+                                    v-for="shoe in shoes"
+                                    @click="selectShoe(shoe)"
                                 >
                                     {{shoe.brand}} - {{shoe.product}}
                                 </b-dropdown-item>
@@ -114,22 +114,21 @@ export default {
     watch: {
         meta(actual) {
             if (actual.status) {
-                this.$router.push('/logs');
+                this.$router.push('/logs/recent');
             } else {
                 // console.log(actual.message);
             }
         }
     },
     created() {
-        this.$store.dispatch('shoes/getShoes');
+        // this.$store.dispatch('shoes/getShoes');
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 </style>

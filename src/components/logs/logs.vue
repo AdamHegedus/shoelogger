@@ -7,20 +7,27 @@
         </div>
         <h2>Logs</h2>
 
-        <b-table
-                hover
-                bordered
-                :responsive="true"
-                :items="logs"
-                :fields="columnDefinitions"
+        <b-navbar
+                :toggleable="false"
+                class="sub-navbar"
         >
-            <template
-                    slot="distance"
-                    slot-scope="data"
-            >
-                {{ data.item.distance }} km
-            </template>
-        </b-table>
+            <b-navbar-nav>
+                <b-nav-item to="/logs/overview">
+                    Overview
+                </b-nav-item>
+                <b-nav-item to="/logs/recent">
+                    Recent
+                </b-nav-item>
+                <b-nav-item to="/logs/by-shoes">
+                    By Shoes
+                </b-nav-item>
+            </b-navbar-nav>
+        </b-navbar>
+
+        <transition name="slide" mode="out-in">
+            <router-view />
+        </transition>
+
     </div>
 </template>
 
@@ -29,52 +36,29 @@ export default {
     computed: {
         logs() {
             return this.$store.state.logs.logs;
-        },
-        columnDefinitions() {
-            return [
-                {
-                    key: 'product',
-                    label: 'Product Name',
-                    sortable: true
-                },
-                {
-                    key: 'brand',
-                    label: 'Brand Name',
-                    sortable: true
-                },
-                {
-                    key: 'type',
-                    label: 'Type',
-                    sortable: true
-                },
-                {
-                    key: 'distance',
-                    label: 'Distance',
-                    sortable: false
-                },
-                {
-                    key: 'date',
-                    label: 'Date',
-                    sortable: true
-                }
-            ];
         }
     },
     methods: {
         newLog() {
-            this.$router.push('logs/new');
+            this.$router.push('/logs/new');
         }
     },
     created() {
         this.$store.dispatch('logs/getLogs');
+        this.$store.dispatch('shoes/getShoes');
+        const navigation = this.$store.state.navigation.menu.logs.lastPage;
+
+        if (navigation !== null) {
+            this.$router.push(navigation);
+        } else {
+            this.$router.push('/logs/overview');
+        }
     },
     destroyed() {
-        this.$store.dispatch('logs/reset');
+        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
 </style>

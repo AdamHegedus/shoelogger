@@ -3,9 +3,10 @@
         <div class="row m-0 fixed-top">
             <div class="col-12 p-0">
                 <b-navbar
-                        :toggleable="false"
-                        type="dark"
-                        variant="secondary"
+                    :toggleable="false"
+                    type="dark"
+                    variant="secondary"
+                    class="main-navbar"
                 >
                     <b-navbar-nav>
                         <b-nav-item to="/shoes">
@@ -55,6 +56,25 @@ export default {};
             text-shadow: 0 0 2px whitesmoke;
         }
 
+        .dropdown-menu {
+            width: 100%;
+            background-color: $body-bg;
+            border: 1px solid $secondary;
+
+            .dropdown-item {
+                &:hover,
+                &.active {
+                    background-color: $primary !important;
+                    color: $white;
+                    outline: none;
+                }
+                &:focus {
+                    background-color: transparent;
+                    outline: none;
+                }
+            }
+        }
+
         .navbar {
             padding: 0;
         }
@@ -64,29 +84,16 @@ export default {};
 
             .nav-link {
                 padding: 0.75rem 0.75rem;
-
-                &.active {
-                    background-color: $primary;
-                }
             }
         }
+    }
 
-        .dropdown-menu {
-            width: 100%;
-            background-color: $body-bg;
-            border: 1px solid $secondary;
+    .main-navbar {
+        .nav-link {
+            padding: 0.75rem 0.75rem;
 
-            .dropdown-item {
-                &:hover,
-                .active {
-                    background-color: $primary !important;
-                    color: $white;
-                    outline: none;
-                }
-                &:focus {
-                    background-color: transparent;
-                    outline: none;
-                }
+            &.active {
+                background-color: $primary;
             }
         }
     }

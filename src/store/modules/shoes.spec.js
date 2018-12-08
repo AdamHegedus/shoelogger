@@ -1,19 +1,18 @@
-jest.mock('axios', () => {
-    return {
-        get: jest.fn(() => Promise.resolve({})),
-        post: jest.fn(() => Promise.resolve({}))
-    };
-});
 import axios from 'axios';
 import Shoes from './shoes';
 import * as types from '../types';
 
-describe('store > modules > shoes', () => {
+jest.mock('axios', () => {
+    return {
+        get: jest.fn(() => { return Promise.resolve({}); }),
+        post: jest.fn(() => { return Promise.resolve({}); })
+    };
+});
 
+describe('store > modules > shoes', () => {
     const component = Shoes;
 
     describe('namespaced', () => {
-
         it('should be true', () => {
             // ASSIGN
             const expected = true;
@@ -24,13 +23,10 @@ describe('store > modules > shoes', () => {
             // ASSERT
             expect(actual).toEqual(expected);
         });
-
     });
 
     describe('getters', () => {
-
         describe('getMeta', () => {
-
             it('should return correct data', () => {
                 // ASSIGN
                 const expected = {
@@ -51,13 +47,10 @@ describe('store > modules > shoes', () => {
                 // ASSERT
                 expect(actual).toEqual(expected);
             });
-
         });
-
     });
 
     describe('state', () => {
-
         it('should have correct properties', () => {
             // ASSIGN
             const expected = {
@@ -78,13 +71,10 @@ describe('store > modules > shoes', () => {
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
         });
-
     });
 
     describe('actions', () => {
-
         describe('reset', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -104,11 +94,9 @@ describe('store > modules > shoes', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('resetMeta', () => {
-
             it('should call correct commit', () => {
                 // ASSIGN
                 const expected = {
@@ -128,11 +116,9 @@ describe('store > modules > shoes', () => {
                 expect(commit.mock.calls.length).toEqual(expected.mock.calls.length);
                 expect(commit.mock.calls[0][0]).toEqual(expected.mock.calls[0][0]);
             });
-
         });
 
         describe('getShoes', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expected = '/shoes/get-shoes.php';
@@ -143,13 +129,10 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(axios.get).toBeCalledWith(expected);
-
             });
-
         });
 
         describe('addShoe', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/shoes/post-shoe.php';
@@ -166,13 +149,10 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
 
         describe('deleteShoe', () => {
-
             it('should call axios with the correct endpoint', () => {
                 // ASSIGN
                 const expectedUrl = '/shoes/delete-shoe.php';
@@ -189,17 +169,12 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
-
             });
-
         });
-
     });
 
     describe('mutations', () => {
-
         describe(`${types.SHOES_RESET}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -226,13 +201,10 @@ describe('store > modules > shoes', () => {
                 // ASSERT
                 expect(component.state.shoes).toEqual(expected.shoes);
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.SHOES_RESET_META}`, () => {
-
             it('should set state', () => {
                 // ASSIGN
                 const expected = {
@@ -256,13 +228,10 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.SHOES_GET_SHOES}`, () => {
-
             it('should set state when payload returns array', () => {
                 // ASSIGN
                 const expected = {
@@ -272,21 +241,24 @@ describe('store > modules > shoes', () => {
                             brand: 'foo',
                             type: 'running',
                             product: 'FOO',
-                            distance: 100
+                            distance: 100,
+                            timestamp: '2018-09-20 06:08:31'
                         },
                         {
                             id: 2,
                             brand: 'bar',
                             type: 'walking',
                             product: 'BAR',
-                            distance: 10
+                            distance: 10,
+                            timestamp: '2018-09-22 00:00:00'
                         },
                         {
                             id: 3,
                             brand: null,
                             type: 'running',
                             product: 'foo-bar',
-                            distance: 0
+                            distance: 0,
+                            timestamp: '2018-09-22 06:08:31'
                         }
                     ]
                 };
@@ -297,21 +269,24 @@ describe('store > modules > shoes', () => {
                         brand: 'foo',
                         type: 'running',
                         product: 'FOO',
-                        distance: '100'
+                        distance: '100',
+                        timestamp: '2018-09-20 06:08:31'
                     },
                     {
                         id: '2',
                         brand: 'bar',
                         type: 'walking',
                         product: 'BAR',
-                        distance: '10'
+                        distance: '10',
+                        timestamp: '2018-09-22 00:00:00'
                     },
                     {
                         id: '3',
                         brand: null,
                         type: 'running',
                         product: 'foo-bar',
-                        distance: null
+                        distance: null,
+                        timestamp: '2018-09-22 06:08:31'
                     }
                 ];
 
@@ -320,7 +295,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.shoes).toEqual(expected.shoes);
-
             });
 
             it('should set state when payload returns null', () => {
@@ -336,7 +310,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.shoes).toEqual(expected.shoes);
-
             });
 
             it('should set state when payload returns undefined', () => {
@@ -352,13 +325,10 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.shoes).toEqual(expected.shoes);
-
             });
-
         });
 
         describe(`${types.SHOES_POST_SHOE}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -377,7 +347,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -400,7 +369,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -423,13 +391,10 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
 
         describe(`${types.SHOES_DELETE_SHOE}`, () => {
-
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
                 const expected = {
@@ -448,7 +413,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns null data', () => {
@@ -471,7 +435,6 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
 
             it('should set state when payload returns undefined data', () => {
@@ -494,11 +457,7 @@ describe('store > modules > shoes', () => {
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
-
             });
-
         });
-
     });
-
 });
