@@ -6,6 +6,14 @@ Object {
 }
 `;
 
+exports[`shoes.vue editShoe should call router 1`] = `
+Array [
+  Array [
+    "shoes/0/edit",
+  ],
+]
+`;
+
 exports[`shoes.vue meta.status is false should match snapshot 1`] = `
 <div
   class="container"
