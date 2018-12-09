@@ -789,7 +789,7 @@ describe('shoes.vue', () => {
             wrapper.vm.selectShoe(0);
 
             // ACT
-            wrapper.find('button.shoe-action').trigger('click');
+            wrapper.find('button.shoe-delete').trigger('click');
 
             // ASSERT
             expect(shoesActions.deleteShoe.mock.calls.length).toEqual(1);

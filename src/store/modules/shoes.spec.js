@@ -55,6 +55,7 @@ describe('store > modules > shoes', () => {
             // ASSIGN
             const expected = {
                 shoes: [],
+                shoe: null,
                 meta: {
                     status: false,
                     message: null

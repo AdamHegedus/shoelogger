@@ -35,14 +35,14 @@
                             <div  class="shoe-action">
                                 <button
                                     v-show="isSelected(index)"
-                                    class="btn btn-warning shoe-action1"
+                                    class="btn btn-warning shoe-edit"
                                     @click="editShoe(item.id)"
                                 >
                                     Edit
                                 </button>
                                 <button
                                     v-show="isSelected(index)"
-                                    class="btn btn-danger shoe-action1"
+                                    class="btn btn-danger shoe-delete"
                                     @click.stop="deleteShoe(item.id)"
                                 >
                                     Delete
