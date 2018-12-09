@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm col-lg-6">
-                <h2>Add New Shoe</h2>
+                <h2>Edit Shoe</h2>
                 <form>
                     <div class="form-group">
 
@@ -13,8 +13,8 @@
                             size="lg"
                             :no-flip="true"
                             :text="selectedType !== null ?
-                            selectedType.type :
-                            'Select Type'"
+                                selectedType.type :
+                                'Select Type'"
                             class="btn-block"
                             toggle-class="btn btn-secondary btn-lg btn-block shadow"
                         >
@@ -36,8 +36,8 @@
                             size="lg"
                             :no-flip="true"
                             :text="selectedBrand !== null ?
-                            selectedBrand.brand :
-                            'Select Brand'"
+                                selectedBrand.brand :
+                                'Select Brand'"
                             class="btn-block"
                             toggle-class="btn btn-secondary btn-lg btn-block shadow"
                         >
@@ -66,12 +66,12 @@
 
                     <button
                         type="submit"
-                        id="add"
+                        id="save"
                         class="btn btn-primary btn-lg btn-block shadow"
-                        @click="addShoe(getShoe)"
+                        @click="editShoe(getShoe)"
                         :disabled="!isValid"
                     >
-                        Add
+                        Save
                     </button>
 
                 </form>
@@ -94,8 +94,12 @@ export default {
         types() {
             return this.$store.state.types.types;
         },
+        original() {
+            return this.$store.state.shoes.shoe;
+        },
         getShoe() {
             return {
+                id: this.original.id,
                 brandId: this.selectedBrand.id,
                 typeId: this.selectedType.id,
                 product: this.product
@@ -129,19 +133,34 @@ export default {
         selectType(type) {
             this.selectedType = type;
         },
-        addShoe(shoe) {
-            this.$store.dispatch('shoes/addShoe', shoe);
+        editShoe(shoe) {
+            this.$store.dispatch('shoes/editShoe', shoe);
         }
     },
     created() {
         this.$store.dispatch('brands/getBrands');
         this.$store.dispatch('types/getTypes');
+
+        const id = this.$route.params.id;
+        this.$store.dispatch('shoes/getShoesById', id);
     },
     watch: {
         meta(actual) {
             if (actual.status) {
                 this.$router.push('/shoes');
             }
+        },
+        original(actual) {
+            const type = this.types.find((element) => {
+                return element.id === actual.typeId;
+            });
+            const brand = this.brands.find((element) => {
+                return element.id === actual.brandId;
+            });
+
+            this.selectType(type);
+            this.selectBrand(brand);
+            this.product = actual.product;
         }
     }
 };
