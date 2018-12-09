@@ -36,8 +36,8 @@ const mutations = {
             [];
     },
     [types.SHOES_GET_SHOES_BY_ID]: (innerState, payload) => {
-        state.shoe = Array.isArray(payload) ?
-            payload.map((data) => {
+        state.shoe = Array.isArray(payload.data) ?
+            payload.data.map((data) => {
                 return {
                     id: data.id - 0,
                     typeId: data.typeId - 0,
@@ -99,8 +99,8 @@ const actions = {
                 commit(types.SHOES_GET_SHOES, response.data);
             });
     },
-    getShoesById: ({ commit }) => {
-        axios.get('/shoes/get-shoes-by-id.php')
+    getShoesById: ({ commit }, payload) => {
+        axios.post('/shoes/get-shoes-by-id.php', payload)
             .then((response) => {
                 commit(types.SHOES_GET_SHOES_BY_ID, response.data);
             });

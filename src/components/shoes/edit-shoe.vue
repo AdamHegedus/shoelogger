@@ -141,8 +141,8 @@ export default {
         this.$store.dispatch('brands/getBrands');
         this.$store.dispatch('types/getTypes');
 
-        const id = this.$route.params.id;
-        this.$store.dispatch('shoes/getShoesById', id);
+        const id = this.$route.params.id - 0;
+        this.$store.dispatch('shoes/getShoesById', { id });
     },
     watch: {
         meta(actual) {
