@@ -402,7 +402,6 @@ describe('store > modules > shoes', () => {
 
             it('should set state when payload returns null data', () => {
                 // ASSIGN
-                const meta = 'foo';
                 const expected = {
                     shoe: null
                 };
@@ -420,7 +419,6 @@ describe('store > modules > shoes', () => {
 
             it('should set state when payload returns undefined data', () => {
                 // ASSIGN
-                const meta = 'foo';
                 const expected = {
                     shoe: null
                 };
