@@ -7,3 +7,5 @@ jobs:
       script: "npm run lint"
     - stage: test
       script: "npm run test:clean && npm run test"
+    - stage: build
+      script: "npm run build"
