@@ -679,7 +679,9 @@ describe('edit-shoe.vue', () => {
             wrapper.vm.editShoe(input);
 
             // ASSERT
-            const actual = shoesActions.editShoe.mock.calls[shoesActions.editShoe.mock.calls.length - 1][1];
+            const actual = shoesActions.editShoe.mock.calls[
+                shoesActions.editShoe.mock.calls.length - 1
+            ][1];
             expect(actual).toMatchSnapshot();
         });
     });

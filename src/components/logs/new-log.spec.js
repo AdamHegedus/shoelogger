@@ -52,7 +52,7 @@ describe('new-log.vue', () => {
             modules: {
                 logs: {
                     namespaced: true,
-                    getters: logsGetters,
+                    getters: logsGetters
                 },
                 shoes: {
                     namespaced: true,
@@ -128,7 +128,7 @@ describe('new-log.vue', () => {
             modules: {
                 logs: {
                     namespaced: true,
-                    getters: logsGetters,
+                    getters: logsGetters
                 },
                 shoes: {
                     namespaced: true,
@@ -205,7 +205,7 @@ describe('new-log.vue', () => {
             modules: {
                 logs: {
                     namespaced: true,
-                    getters: logsGetters,
+                    getters: logsGetters
                 },
                 shoes: {
                     namespaced: true,
@@ -284,7 +284,7 @@ describe('new-log.vue', () => {
                 modules: {
                     logs: {
                         namespaced: true,
-                        getters: logsGetters,
+                        getters: logsGetters
                     },
                     shoes: {
                         namespaced: true,
@@ -373,7 +373,7 @@ describe('new-log.vue', () => {
                 modules: {
                     logs: {
                         namespaced: true,
-                        getters: logsGetters,
+                        getters: logsGetters
                     },
                     shoes: {
                         namespaced: true,
@@ -546,7 +546,7 @@ describe('new-log.vue', () => {
                 modules: {
                     logs: {
                         namespaced: true,
-                        getters: logsGetters,
+                        getters: logsGetters
                     },
                     shoes: {
                         namespaced: true,
