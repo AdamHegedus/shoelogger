@@ -115,16 +115,8 @@ export default {
         meta(actual) {
             if (actual.status) {
                 this.$router.push('/logs/recent');
-            } else {
-                // console.log(actual.message);
             }
         }
-    },
-    created() {
-        // this.$store.dispatch('shoes/getShoes');
-    },
-    destroyed() {
-        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
