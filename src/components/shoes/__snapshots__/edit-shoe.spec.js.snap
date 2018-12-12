@@ -1,0 +1,386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`edit-shoe.vue brands should return the value from store 1`] = `
+Array [
+  Object {
+    "brand": "Foo",
+    "id": 0,
+  },
+]
+`;
+
+exports[`edit-shoe.vue editShoe should call action 1`] = `Array []`;
+
+exports[`edit-shoe.vue getShoe should return the value of text input 1`] = `
+Object {
+  "brandId": 0,
+  "id": 1,
+  "product": "Test",
+  "typeId": 0,
+}
+`;
+
+exports[`edit-shoe.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Edit Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="save"
+          type="submit"
+        >
+          
+                    Save
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`edit-shoe.vue meta.status is true should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Edit Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="save"
+          type="submit"
+        >
+          
+                    Save
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`edit-shoe.vue selectBrand should set selectedBrand 1`] = `
+Object {
+  "brand": "Foo",
+  "id": 0,
+}
+`;
+
+exports[`edit-shoe.vue selectType should set selectedType 1`] = `
+Object {
+  "brand": "Bar",
+  "id": 1,
+}
+`;
+
+exports[`edit-shoe.vue should match snapshot when text input changed 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Edit Shoe
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <label>
+            Type
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="type"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Type"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label>
+            Brand Name
+          </label>
+           
+          <b-dropdown-stub
+            boundary="scrollParent"
+            class="btn-block"
+            id="brandName"
+            no-flip="true"
+            role="menu"
+            size="lg"
+            text="Select Brand"
+            toggleclass="btn btn-secondary btn-lg btn-block shadow"
+            toggletext="Toggle Dropdown"
+          >
+            <b-dropdown-item-stub
+              activeclass="active"
+              class="[object Object]"
+              event="click"
+              exactactiveclass="active"
+              routertag="a"
+              target="_self"
+            >
+              
+                            Foo
+                        
+            </b-dropdown-item-stub>
+          </b-dropdown-stub>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="productName"
+          >
+            Product Name
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="productName"
+            placeholder="Product Name"
+            type="text"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          id="save"
+          type="submit"
+        >
+          
+                    Save
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`edit-shoe.vue types should return the value from store 1`] = `
+Array [
+  Object {
+    "id": 0,
+    "type": "Foo",
+  },
+]
+`;
