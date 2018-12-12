@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Index from '@/components/index';
 import Shoes from '@/components/shoes/shoes';
 import NewShoe from '@/components/shoes/new-shoe';
+import EditShoe from '@/components/shoes/edit-shoe';
 import Logs from '@/components/logs/logs';
 import NewLog from '@/components/logs/new-log';
 import LogsOverview from '@/components/logs/overview';
@@ -24,6 +25,16 @@ export default new Router({
             path: '/shoes',
             name: 'Shoes',
             component: Shoes
+        },
+        {
+            path: '/shoes/new',
+            name: 'NewShoe',
+            component: NewShoe
+        },
+        {
+            path: '/shoes/:id/edit',
+            name: 'EditShoe',
+            component: EditShoe
         },
         {
             path: '/logs',
@@ -51,11 +62,6 @@ export default new Router({
             path: '/brands',
             name: 'Brands',
             component: Brands
-        },
-        {
-            path: '/shoes/new',
-            name: 'NewShoe',
-            component: NewShoe
         },
         {
             path: '/logs/new',

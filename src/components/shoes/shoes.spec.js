@@ -709,6 +709,94 @@ describe('shoes.vue', () => {
         });
     });
 
+    describe('editShoe', () => {
+        it('should call router', () => {
+            // ASSIGN
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                getShoes: jest.fn()
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const shoesState = {
+                shoes: [
+                    {
+                        id: 0,
+                        product: 'Foo',
+                        brand: 'foobar',
+                        distance: 100,
+                        timestamp: 100
+                    }
+                ]
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 0,
+                        type: 'Foo'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        state: shoesState,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const router = new VueRouter();
+            const wrapper = shallowMount(Shoes, { store, localVue, router });
+            const spy = jest.spyOn(wrapper.vm.$router, 'push');
+            wrapper.vm.selectShoe(0);
+
+            // ACT
+            wrapper.find('button.shoe-edit').trigger('click');
+
+            // ASSERT
+            expect(spy.mock.calls).toMatchSnapshot();
+        });
+    });
+
     describe('deleteShoe', () => {
         it('should call event', () => {
             // ASSIGN
@@ -789,7 +877,7 @@ describe('shoes.vue', () => {
             wrapper.vm.selectShoe(0);
 
             // ACT
-            wrapper.find('button.shoe-action').trigger('click');
+            wrapper.find('button.shoe-delete').trigger('click');
 
             // ASSERT
             expect(shoesActions.deleteShoe.mock.calls.length).toEqual(1);

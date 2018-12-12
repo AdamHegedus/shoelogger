@@ -32,13 +32,22 @@
                         <span class="timestamp">Last modified: {{ item.timestamp }}</span>
 
                         <transition name="fade" appear mode="out-in">
-                            <button
-                                v-show="isSelected(index)"
-                                class="btn btn-danger shoe-action"
-                                @click.stop="deleteShoe(item.id)"
-                            >
-                                Delete
-                            </button>
+                            <div  class="shoe-action">
+                                <button
+                                    v-show="isSelected(index)"
+                                    class="btn btn-warning shoe-edit"
+                                    @click="editShoe(item.id)"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    v-show="isSelected(index)"
+                                    class="btn btn-danger shoe-delete"
+                                    @click.stop="deleteShoe(item.id)"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </transition>
                     </div>
                 </div>
@@ -79,6 +88,9 @@ export default {
     methods: {
         newShoe() {
             this.$router.push('shoes/new');
+        },
+        editShoe(id) {
+            this.$router.push(`shoes/${id}/edit`);
         },
         deleteShoe(shoeId) {
             this.$store.dispatch('shoes/deleteShoe', {

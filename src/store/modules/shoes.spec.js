@@ -55,6 +55,7 @@ describe('store > modules > shoes', () => {
             // ASSIGN
             const expected = {
                 shoes: [],
+                shoe: null,
                 meta: {
                     status: false,
                     message: null
@@ -67,6 +68,7 @@ describe('store > modules > shoes', () => {
             // ASSERT
             expect(actual).toEqual(expected);
             expect(actual.shoes).toEqual(expected.shoes);
+            expect(actual.shoe).toEqual(expected.shoe);
             expect(actual.meta).toEqual(expected.meta);
             expect(actual.meta.status).toEqual(expected.meta.status);
             expect(actual.meta.message).toEqual(expected.meta.message);
@@ -146,6 +148,46 @@ describe('store > modules > shoes', () => {
 
                 // ACT
                 component.actions.addShoe({ commit }, payload);
+
+                // ASSERT
+                expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
+            });
+        });
+
+        describe('getShoesById', () => {
+            it('should call axios with the correct endpoint', () => {
+                // ASSIGN
+                const expectedUrl = '/shoes/get-shoes-by-id.php';
+                const expectedPayload = {
+                    foo: 'bar'
+                };
+                const commit = jest.fn();
+                const payload = {
+                    foo: 'bar'
+                };
+
+                // ACT
+                component.actions.getShoesById({ commit }, payload);
+
+                // ASSERT
+                expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
+            });
+        });
+
+        describe('editShoe', () => {
+            it('should call axios with the correct endpoint', () => {
+                // ASSIGN
+                const expectedUrl = '/shoes/put-shoe.php';
+                const expectedPayload = {
+                    foo: 'bar'
+                };
+                const commit = jest.fn();
+                const payload = {
+                    foo: 'bar'
+                };
+
+                // ACT
+                component.actions.editShoe({ commit }, payload);
 
                 // ASSERT
                 expect(axios.post).toBeCalledWith(expectedUrl, expectedPayload);
@@ -328,6 +370,71 @@ describe('store > modules > shoes', () => {
             });
         });
 
+        describe(`${types.SHOES_GET_SHOES_BY_ID}`, () => {
+            it('should set state when payload returns valid data', () => {
+                // ASSIGN
+                const expected = {
+                    shoe: {
+                        brandId: 1,
+                        id: 0,
+                        product: 'Foo Bar',
+                        typeId: 2
+                    }
+                };
+                const mockState = {};
+                const payload = {
+                    data: [
+                        {
+                            id: '0',
+                            brandId: '1',
+                            typeId: '2',
+                            product: 'Foo Bar'
+                        }
+                    ]
+                };
+
+                // ACT
+                component.mutations[types.SHOES_GET_SHOES_BY_ID](mockState, payload);
+
+                // ASSERT
+                expect(component.state.shoe).toEqual(expected.shoe);
+            });
+
+            it('should set state when payload returns null data', () => {
+                // ASSIGN
+                const expected = {
+                    shoe: null
+                };
+                const mockState = {};
+                const payload = {
+                    data: null
+                };
+
+                // ACT
+                component.mutations[types.SHOES_GET_SHOES_BY_ID](mockState, payload);
+
+                // ASSERT
+                expect(component.state.shoe).toEqual(expected.shoe);
+            });
+
+            it('should set state when payload returns undefined data', () => {
+                // ASSIGN
+                const expected = {
+                    shoe: null
+                };
+                const mockState = {};
+                const payload = {
+                    data: undefined
+                };
+
+                // ACT
+                component.mutations[types.SHOES_GET_SHOES_BY_ID](mockState, payload);
+
+                // ASSERT
+                expect(component.state.shoe).toEqual(expected.shoe);
+            });
+        });
+
         describe(`${types.SHOES_POST_SHOE}`, () => {
             it('should set state when payload returns valid data', () => {
                 // ASSIGN
@@ -388,6 +495,72 @@ describe('store > modules > shoes', () => {
 
                 // ACT
                 component.mutations[types.SHOES_POST_SHOE](mockState, payload);
+
+                // ASSERT
+                expect(component.state.meta).toEqual(expected.meta);
+            });
+        });
+
+        describe(`${types.SHOES_PUT_SHOE}`, () => {
+            it('should set state when payload returns valid data', () => {
+                // ASSIGN
+                const expected = {
+                    meta: {
+                        status: true,
+                        message: null
+                    }
+                };
+                const mockState = {};
+                const payload = {
+                    data: {}
+                };
+
+                // ACT
+                component.mutations[types.SHOES_PUT_SHOE](mockState, payload);
+
+                // ASSERT
+                expect(component.state.meta).toEqual(expected.meta);
+            });
+
+            it('should set state when payload returns null data', () => {
+                // ASSIGN
+                const meta = 'foo';
+                const expected = {
+                    meta: {
+                        status: false,
+                        message: meta
+                    }
+                };
+                const mockState = {};
+                const payload = {
+                    data: null,
+                    meta
+                };
+
+                // ACT
+                component.mutations[types.SHOES_PUT_SHOE](mockState, payload);
+
+                // ASSERT
+                expect(component.state.meta).toEqual(expected.meta);
+            });
+
+            it('should set state when payload returns undefined data', () => {
+                // ASSIGN
+                const meta = 'foo';
+                const expected = {
+                    meta: {
+                        status: false,
+                        message: meta
+                    }
+                };
+                const mockState = {};
+                const payload = {
+                    data: undefined,
+                    meta
+                };
+
+                // ACT
+                component.mutations[types.SHOES_PUT_SHOE](mockState, payload);
 
                 // ASSERT
                 expect(component.state.meta).toEqual(expected.meta);
