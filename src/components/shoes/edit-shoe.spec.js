@@ -84,9 +84,11 @@ describe('edit-shoe.vue', () => {
 
         it('should match snapshot when page loaded', () => {
             // ASSIGN
-            const wrapper = shallowMount(EditShoe, { store, localVue, mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
 
             // ACT
             const actual = wrapper.element;
@@ -172,9 +174,11 @@ describe('edit-shoe.vue', () => {
 
         it('should match snapshot when page loaded', () => {
             // ASSIGN
-            const wrapper = shallowMount(EditShoe, { store, localVue, mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
 
             // ACT
             const actual = wrapper.element;
@@ -259,9 +263,11 @@ describe('edit-shoe.vue', () => {
             }
         });
 
-        const wrapper = shallowMount(EditShoe, { store, localVue, mocks: {
-            $route
-        } });
+        const wrapper = shallowMount(EditShoe, { store,
+            localVue,
+            mocks: {
+                $route
+            } });
 
         const expected = 'Test';
         const input = 'Test';
@@ -362,9 +368,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue, mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
 
             const input = 'Test';
             wrapper.vm.$data.selectedType = {
@@ -461,9 +469,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue , mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
 
             // ACT
             const actual = wrapper.vm.brands;
@@ -549,9 +559,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue, mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
 
             // ACT
             const actual = wrapper.vm.types;
@@ -637,9 +649,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue , mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
             const input = {
                 id: 1,
                 brandId: 0,
@@ -732,9 +746,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue , mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
             const input = {
                 id: 0,
                 brand: 'Foo'
@@ -825,9 +841,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
-            const wrapper = shallowMount(EditShoe, { store, localVue , mocks: {
-                $route
-            } });
+            const wrapper = shallowMount(EditShoe, { store,
+                localVue,
+                mocks: {
+                    $route
+                } });
             const input = {
                 id: 1,
                 brand: 'Bar'
