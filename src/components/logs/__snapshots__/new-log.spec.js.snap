@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new-log.vue addLog should call action 1`] = `
+Array [
+  Array [
+    Object {
+      "commit": [Function],
+      "dispatch": [Function],
+      "getters": Object {
+        "getMeta": Object {
+          "message": null,
+          "status": true,
+        },
+      },
+      "rootGetters": Object {
+        "logs/getMeta": Object {
+          "message": null,
+          "status": true,
+        },
+        "shoes/getMeta": Object {
+          "message": null,
+          "status": true,
+        },
+      },
+      "rootState": Object {
+        "brands": Object {
+          "brands": Array [
+            Object {
+              "brand": "Foo",
+              "id": 0,
+            },
+          ],
+        },
+        "logs": Object {},
+        "shoes": Object {
+          "shoes": Array [
+            Object {
+              "brandId": 0,
+              "id": 0,
+              "product": "Foo",
+              "typeId": 0,
+            },
+            Object {
+              "brandId": 0,
+              "id": 1,
+              "product": "Bar",
+              "typeId": 0,
+            },
+          ],
+        },
+        "types": Object {
+          "types": Array [
+            Object {
+              "id": 1,
+              "type": "Bar",
+            },
+          ],
+        },
+      },
+      "state": Object {},
+    },
+    Object {
+      "date": 1000000000,
+      "distance": 10,
+      "shoeId": 0,
+    },
+    undefined,
+  ],
+]
+`;
+
+exports[`new-log.vue getShoe should return the value of text input 1`] = `
+Object {
+  "date": "2018-12-12",
+  "distance": "1",
+  "shoeId": 0,
+}
+`;
+
+exports[`new-log.vue meta.status is false should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Log Entry
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <div
+            class="form-group"
+          >
+            <label>
+              Shoe
+            </label>
+             
+            <b-dropdown-stub
+              boundary="scrollParent"
+              class="btn-block"
+              id="type"
+              no-flip="true"
+              role="menu"
+              size="lg"
+              text="Select Shoe"
+              toggleclass="btn btn-secondary btn-lg btn-block shadow"
+              toggletext="Toggle Dropdown"
+            />
+          </div>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="distance"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="distance"
+            placeholder="Distance (km)"
+            type="number"
+          />
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="date"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="date"
+            placeholder="Date (YYYY-mm-dd)"
+            type="date"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-log.vue meta.status is true should match snapshot when page loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Log Entry
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <div
+            class="form-group"
+          >
+            <label>
+              Shoe
+            </label>
+             
+            <b-dropdown-stub
+              boundary="scrollParent"
+              class="btn-block"
+              id="type"
+              no-flip="true"
+              role="menu"
+              size="lg"
+              text="Select Shoe"
+              toggleclass="btn btn-secondary btn-lg btn-block shadow"
+              toggletext="Toggle Dropdown"
+            />
+          </div>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="distance"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="distance"
+            placeholder="Distance (km)"
+            type="number"
+          />
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="date"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="date"
+            placeholder="Date (YYYY-mm-dd)"
+            type="date"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new-log.vue selectShoe should set selectedShoe 1`] = `
+Object {
+  "brandId": 0,
+  "id": 1,
+  "product": "Foo",
+  "typeId": 0,
+}
+`;
+
+exports[`new-log.vue shoes should return the value from store 1`] = `undefined`;
+
+exports[`new-log.vue should match snapshot when distance text input has changed 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h2>
+        Add New Log Entry
+      </h2>
+       
+      <form>
+        <div
+          class="form-group"
+        >
+          <div
+            class="form-group"
+          >
+            <label>
+              Shoe
+            </label>
+             
+            <b-dropdown-stub
+              boundary="scrollParent"
+              class="btn-block"
+              id="type"
+              no-flip="true"
+              role="menu"
+              size="lg"
+              text="Select Shoe"
+              toggleclass="btn btn-secondary btn-lg btn-block shadow"
+              toggletext="Toggle Dropdown"
+            />
+          </div>
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="distance"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="distance"
+            placeholder="Distance (km)"
+            type="number"
+          />
+        </div>
+         
+        <div
+          class="form-group"
+        >
+          <label
+            for="date"
+          >
+            Distance
+          </label>
+           
+          <input
+            class="form-control form-control-lg shadow border border-primary"
+            id="date"
+            placeholder="Date (YYYY-mm-dd)"
+            type="date"
+          />
+        </div>
+         
+        <button
+          class="btn btn-primary btn-lg btn-block shadow"
+          disabled="disabled"
+          type="submit"
+        >
+          
+                    Add
+                
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

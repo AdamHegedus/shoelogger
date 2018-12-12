@@ -9,7 +9,14 @@ Array [
 ]
 `;
 
-exports[`edit-shoe.vue editShoe should call action 1`] = `Array []`;
+exports[`edit-shoe.vue editShoe should call action 1`] = `
+Object {
+  "brandId": 0,
+  "id": 1,
+  "product": "Test",
+  "typeId": 1,
+}
+`;
 
 exports[`edit-shoe.vue getShoe should return the value of text input 1`] = `
 Object {
