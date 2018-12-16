@@ -33,11 +33,6 @@
 
 <script>
 export default {
-    computed: {
-        logs() {
-            return this.$store.state.logs.logs;
-        }
-    },
     methods: {
         newLog() {
             this.$router.push('/logs/new');
@@ -46,6 +41,8 @@ export default {
     created() {
         this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
+    },
+    mounted() {
         const navigation = this.$store.state.navigation.menu.logs.lastPage;
 
         if (navigation !== null) {
