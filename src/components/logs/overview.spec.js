@@ -4,9 +4,9 @@ import Overview from '@/components/logs/overview';
 
 jest.mock('../charts/bar', () => {
     return {
-        render: () => { 
-            return jest.fn().mockImplementation(() => { 
-                return <div class="mock-bar-chart"/>; 
+        render: () => {
+            return jest.fn().mockImplementation(() => {
+                return <div class="mock-bar-chart"/>;
             });
         }
     };
