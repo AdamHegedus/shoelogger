@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="date">Distance</label>
+                        <label for="date">Date</label>
                         <input
                                 type="date"
                                 class="form-control form-control-lg shadow border border-primary"
