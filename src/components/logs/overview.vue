@@ -35,18 +35,8 @@ export default {
     components: {
         bar: Bar
     },
-    data() {
-        return {};
-    },
-    methods: {},
-    watch: {},
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/overview');
-        // this.$store.dispatch('logs/getLogs');
-        // this.$store.dispatch('shoes/getShoes');
-    },
-    destroyed() {
-        // this.$store.dispatch('logs/reset');
     }
 };
 </script>

@@ -4,14 +4,14 @@
 
         <transition-group name="list" tag="div" class="row">
             <div
-                    class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
-                    v-for="(item, index) in logs"
-                    :key="index"
+                class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+                v-for="(item, index) in logs"
+                :key="item"
             >
                 <div
-                        class="card"
-                        :class="{selected: isSelected(index)}"
-                        @click.stop="selectLog(index)"
+                    class="card"
+                    :class="{selected: isSelected(index)}"
+                    @click.stop="selectLog(index)"
                 >
                     <div class="card-body">
                         <h5 class="card-title">
@@ -31,9 +31,9 @@
 
                         <transition name="fade" appear mode="out-in">
                             <button
-                                    v-show="isSelected(index)"
-                                    class="btn btn-danger log-action"
-                                    @click.stop="deleteLog(item.id)"
+                                v-show="isSelected(index)"
+                                class="btn btn-danger log-action"
+                                @click.stop="deleteLog(item.id)"
                             >
                                 Delete
                             </button>
@@ -42,8 +42,8 @@
                 </div>
                 <transition name="animation-slide-bottom-and-fade" appear>
                     <p
-                            class="alert alert-danger mt-3"
-                            v-if="!meta.status && meta.message !== null && isSelected(index)"
+                        class="alert alert-danger mt-3"
+                        v-if="!meta.status && meta.message !== null && isSelected(index)"
                     >
                         {{ meta.message }}
                     </p>
@@ -94,14 +94,11 @@ export default {
                 this.selectLog(null);
                 this.$store.dispatch('logs/getLogs');
                 this.$store.dispatch('shoes/getShoes');
-            } else {
-                // console.log(actual.message);
             }
         }
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/recent');
-        // this.$store.dispatch('logs/getLogs');
     },
     destroyed() {
     }

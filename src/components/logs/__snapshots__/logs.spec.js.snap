@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logs.vue newLog should call router 1`] = `
+Array [
+  Array [
+    "/logs/new",
+  ],
+]
+`;
+
+exports[`logs.vue when navigation is set should render component 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Logs
+  </h2>
+   
+  <b-navbar-stub
+    class="sub-navbar"
+    tag="nav"
+    type="light"
+  >
+    <b-navbar-nav-stub
+      tag="ul"
+    >
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/overview"
+      >
+        
+                Overview
+            
+      </b-nav-item-stub>
+       
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/recent"
+      >
+        
+                Recent
+            
+      </b-nav-item-stub>
+       
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/by-shoes"
+      >
+        
+                By Shoes
+            
+      </b-nav-item-stub>
+    </b-navbar-nav-stub>
+  </b-navbar-stub>
+   
+  <router-view-stub
+    mode="out-in"
+    name="slide"
+  />
+</div>
+`;
+
+exports[`logs.vue when navigation is set should render component 2`] = `
+Array [
+  Array [
+    "/logs/mock-navigation-state",
+  ],
+]
+`;
+
+exports[`logs.vue when navigation is unset should render component 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="float-right"
+  >
+    <button
+      class="btn btn-primary"
+    >
+      
+            New
+        
+    </button>
+  </div>
+   
+  <h2>
+    Logs
+  </h2>
+   
+  <b-navbar-stub
+    class="sub-navbar"
+    tag="nav"
+    type="light"
+  >
+    <b-navbar-nav-stub
+      tag="ul"
+    >
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/overview"
+      >
+        
+                Overview
+            
+      </b-nav-item-stub>
+       
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/recent"
+      >
+        
+                Recent
+            
+      </b-nav-item-stub>
+       
+      <b-nav-item-stub
+        activeclass="active"
+        event="click"
+        exactactiveclass="active"
+        routertag="a"
+        target="_self"
+        to="/logs/by-shoes"
+      >
+        
+                By Shoes
+            
+      </b-nav-item-stub>
+    </b-navbar-nav-stub>
+  </b-navbar-stub>
+   
+  <router-view-stub
+    mode="out-in"
+    name="slide"
+  />
+</div>
+`;
+
+exports[`logs.vue when navigation is unset should render component 2`] = `
+Array [
+  Array [
+    "/logs/overview",
+  ],
+]
+`;

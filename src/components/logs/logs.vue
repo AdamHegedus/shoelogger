@@ -8,8 +8,8 @@
         <h2>Logs</h2>
 
         <b-navbar
-                :toggleable="false"
-                class="sub-navbar"
+            :toggleable="false"
+            class="sub-navbar"
         >
             <b-navbar-nav>
                 <b-nav-item to="/logs/overview">
@@ -33,11 +33,6 @@
 
 <script>
 export default {
-    computed: {
-        logs() {
-            return this.$store.state.logs.logs;
-        }
-    },
     methods: {
         newLog() {
             this.$router.push('/logs/new');
@@ -46,6 +41,8 @@ export default {
     created() {
         this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
+    },
+    mounted() {
         const navigation = this.$store.state.navigation.menu.logs.lastPage;
 
         if (navigation !== null) {
@@ -53,9 +50,6 @@ export default {
         } else {
             this.$router.push('/logs/overview');
         }
-    },
-    destroyed() {
-        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
