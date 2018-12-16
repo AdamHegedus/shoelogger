@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`overview.vue when doesn't have shoes should render component 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h3>
+        Overview
+      </h3>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`overview.vue when doesn't have shoes should render component 2`] = `1`;
+
+exports[`overview.vue when doesn't have shoes should render component 3`] = `"/logs/overview"`;
+
+exports[`overview.vue when has shoes should render component 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm col-lg-6"
+    >
+      <h3>
+        Overview
+      </h3>
+       
+      <bar-stub
+        data="0,1,2,3"
+        style="height: 230px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`overview.vue when has shoes should render component 2`] = `1`;
+
+exports[`overview.vue when has shoes should render component 3`] = `"/logs/overview"`;
