@@ -71,7 +71,7 @@ Array [
 
 exports[`new-log.vue getShoe should return the value of text input 1`] = `
 Object {
-  "date": "2018-12-12",
+  "date": "2000-01-01",
   "distance": "1",
   "shoeId": 0,
 }
@@ -139,7 +139,7 @@ exports[`new-log.vue meta.status is false should match snapshot when page loaded
           <label
             for="date"
           >
-            Distance
+            Date
           </label>
            
           <input
@@ -227,7 +227,7 @@ exports[`new-log.vue meta.status is true should match snapshot when page loaded 
           <label
             for="date"
           >
-            Distance
+            Date
           </label>
            
           <input
@@ -326,7 +326,7 @@ exports[`new-log.vue should match snapshot when distance text input has changed 
           <label
             for="date"
           >
-            Distance
+            Date
           </label>
            
           <input

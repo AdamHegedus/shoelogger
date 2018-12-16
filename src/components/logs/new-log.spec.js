@@ -312,6 +312,8 @@ describe('new-log.vue', () => {
                 typeId: 0,
                 product: 'Foo'
             };
+            wrapper.vm.$data.distance = 10;
+            wrapper.vm.$data.date = new Date('2000-01-01').toISOString().substring(0, 10);
             wrapper.find('#distance').setValue(input);
 
             // ACT
