@@ -8,8 +8,8 @@
         <h2>Logs</h2>
 
         <b-navbar
-                :toggleable="false"
-                class="sub-navbar"
+            :toggleable="false"
+            class="sub-navbar"
         >
             <b-navbar-nav>
                 <b-nav-item to="/logs/overview">
@@ -53,9 +53,6 @@ export default {
         } else {
             this.$router.push('/logs/overview');
         }
-    },
-    destroyed() {
-        // this.$store.dispatch('logs/reset');
     }
 };
 </script>

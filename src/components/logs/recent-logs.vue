@@ -94,14 +94,11 @@ export default {
                 this.selectLog(null);
                 this.$store.dispatch('logs/getLogs');
                 this.$store.dispatch('shoes/getShoes');
-            } else {
-                // console.log(actual.message);
             }
         }
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/recent');
-        // this.$store.dispatch('logs/getLogs');
     },
     destroyed() {
     }
