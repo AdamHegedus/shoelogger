@@ -1,0 +1,1375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`recent-logs.vue deleteLog should call event 1`] = `
+Object {
+  "id": 0,
+}
+`;
+
+exports[`recent-logs.vue meta.status is false should match snapshot 1`] = `
+<div>
+  <h3>
+    Recent logs
+  </h3>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card selected"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style=""
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <p
+        appear=""
+        class="alert alert-danger mt-3"
+        name="animation-slide-bottom-and-fade"
+      >
+        
+                    Error message text
+                
+      </p>
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              3
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              10
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
+
+exports[`recent-logs.vue meta.status is false should match snapshot 2`] = `"/logs/recent"`;
+
+exports[`recent-logs.vue meta.status is true should match snapshot 1`] = `
+<div>
+  <h3>
+    Recent logs
+  </h3>
+   
+  <span
+    class="row"
+    name="list"
+    tag="div"
+  >
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card selected"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style=""
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              3
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              1
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Foo
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        Bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              5
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+    <div
+      class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="card-body"
+        >
+          <h5
+            class="card-title"
+          >
+            
+                        bar
+                        
+            <br />
+             
+            <small>
+              foobar
+            </small>
+          </h5>
+           
+          <span
+            class="distance-text"
+          >
+            
+                        Distance:
+                        
+            <span
+              class="distance-value"
+            >
+              10
+            </span>
+            
+                        km
+                    
+          </span>
+           
+          <span
+            class="float-right"
+          >
+            
+          </span>
+           
+          <span
+            class="timestamp"
+          >
+            Last modified: 100
+          </span>
+           
+          <button
+            appear=""
+            class="btn btn-danger log-action log-delete"
+            mode="out-in"
+            name="fade"
+            style="display: none;"
+          >
+            
+                            Delete
+                        
+          </button>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </span>
+</div>
+`;
+
+exports[`recent-logs.vue meta.status is true should match snapshot 2`] = `"/logs/recent"`;
+
+exports[`recent-logs.vue selectLog should set index when selectedIndex is different 1`] = `1`;
+
+exports[`recent-logs.vue selectLog should set index when selectedIndex is the same 1`] = `null`;
+
+exports[`recent-logs.vue selectLog should set index when selectedIndex is unset 1`] = `0`;

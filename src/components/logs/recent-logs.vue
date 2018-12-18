@@ -32,7 +32,7 @@
                         <transition name="fade" appear mode="out-in">
                             <button
                                 v-show="isSelected(index)"
-                                class="btn btn-danger log-action"
+                                class="btn btn-danger log-action log-delete"
                                 @click.stop="deleteLog(item.id)"
                             >
                                 Delete
