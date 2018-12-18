@@ -91,9 +91,6 @@ export default {
         };
     },
     methods: {
-        newLog() {
-            this.$router.push('/logs/new');
-        },
         getLogsByProduct(product) {
             return this.logs.filter((log) => {
                 return log.product === product;
@@ -113,11 +110,7 @@ export default {
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/by-shoes');
-        // this.$store.dispatch('logs/getLogs');
         this.$store.dispatch('shoes/getShoes');
-    },
-    destroyed() {
-        // this.$store.dispatch('logs/reset');
     }
 };
 </script>
