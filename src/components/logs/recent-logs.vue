@@ -6,7 +6,7 @@
             <div
                 class="col-12 col-md-6 col-lg-6 px-3 px-lg-2 py-2 transition-item"
                 v-for="(item, index) in logs"
-                :key="item"
+                :key="item.id"
             >
                 <div
                     class="card"
@@ -99,8 +99,6 @@ export default {
     },
     created() {
         this.$store.dispatch('navigation/setNavigation', '/logs/recent');
-    },
-    destroyed() {
     }
 };
 </script>
