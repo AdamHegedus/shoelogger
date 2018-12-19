@@ -8,6 +8,19 @@
                     <div class="form-group">
 
                         <label>Type</label>
+                        <dropdown
+                            event="select-type"
+                            v-on:select-type="selectedType = arguments[0]"
+                            :data="types"
+                            :selected="selectedType"
+                            :getDisplayValue="(item) => item.type"
+                            placeholder="Select Type"
+                        />
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Type</label>
                         <b-dropdown
                             id="type"
                             size="lg"
@@ -85,8 +98,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import matchItem from '@/utils/match-item';
+import Dropdown from '@/components/common/dropdown';
 
 export default {
+    components: {
+        dropdown: Dropdown
+    },
     computed: {
         brands() {
             return this.$store.state.brands.brands;
