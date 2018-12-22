@@ -1,7 +1,7 @@
 <template>
 
     <b-dropdown
-        id="type"
+        :id="event"
         size="lg"
         :no-flip="true"
         :text="selected !== null ? getDisplayValue(selected) : placeholder"

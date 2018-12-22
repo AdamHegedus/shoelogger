@@ -60,7 +60,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import matchItem from '@/utils/match-item';
 import Dropdown from '@/components/common/dropdown';
 
 export default {
@@ -100,9 +99,6 @@ export default {
         };
     },
     methods: {
-        isSelected(currentItem, selectedItem) {
-            return matchItem(currentItem, selectedItem);
-        },
         selectBrand(brand) {
             this.selectedBrand = brand;
         },
