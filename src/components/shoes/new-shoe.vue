@@ -6,11 +6,10 @@
                 <h2>Add New Shoe</h2>
                 <form>
                     <div class="form-group">
-
                         <label>Type</label>
                         <dropdown
                             event="select-type"
-                            v-on:select-type="selectedType = arguments[0]"
+                            @select-type="selectedType = arguments[0]"
                             :data="types"
                             :selected="selectedType"
                             :getDisplayValue="(item) => item.type"
@@ -19,53 +18,17 @@
                     </div>
 
                     <div class="form-group">
-
-                        <label>Type</label>
-                        <b-dropdown
-                            id="type"
-                            size="lg"
-                            :no-flip="true"
-                            :text="selectedType !== null ?
-                            selectedType.type :
-                            'Select Type'"
-                            class="btn-block"
-                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
-                        >
-                            <b-dropdown-item
-                                :class="{ active: isSelected(type, selectedType) }"
-                                :key="type.type"
-                                v-for="type in types"
-                                @click="selectType(type)"
-                            >
-                                {{type.type}}
-                            </b-dropdown-item>
-
-                        </b-dropdown>
-                    </div>
-                    <div class="form-group">
                         <label>Brand Name</label>
-                        <b-dropdown
-                            id="brandName"
-                            size="lg"
-                            :no-flip="true"
-                            :text="selectedBrand !== null ?
-                            selectedBrand.brand :
-                            'Select Brand'"
-                            class="btn-block"
-                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
-                        >
-                            <b-dropdown-item
-                                :class="{ active: isSelected(brand, selectedBrand) }"
-                                :key="brand.brand"
-                                v-for="brand in brands"
-                                @click="selectBrand(brand)"
-                            >
-                                {{brand.brand}}
-                            </b-dropdown-item>
-
-                        </b-dropdown>
-
+                        <dropdown
+                            event="select-brand"
+                            @select-brand="selectedBrand = arguments[0]"
+                            :data="brands"
+                            :selected="selectedBrand"
+                            :getDisplayValue="(item) => item.brand"
+                            placeholder="Select Brand"
+                        />
                     </div>
+
                     <div class="form-group">
                         <label for="productName">Product Name</label>
                         <input
