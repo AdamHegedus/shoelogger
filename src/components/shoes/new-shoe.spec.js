@@ -684,4 +684,156 @@ describe('new-shoe.vue', () => {
             expect(actual).toMatchSnapshot();
         });
     });
+
+    describe('getTypeDisplayValue', () => {
+        it('should return correct value', () => {
+            // ASSIGN
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                addShoe: jest.fn()
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(NewShoe, { store, localVue });
+            const input = {
+                id: 1,
+                type: 'Bar'
+            };
+
+            // ACT
+            const actual = wrapper.vm.getTypeDisplayValue(input);
+
+            // ASSERT
+            expect(actual).toMatchSnapshot();
+        });
+    });
+
+    describe('getBrandDisplayValue', () => {
+        it('should return correct value', () => {
+            // ASSIGN
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                addShoe: jest.fn()
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(NewShoe, { store, localVue });
+            const input = {
+                id: 1,
+                brand: 'Bar'
+            };
+
+            // ACT
+            const actual = wrapper.vm.getBrandDisplayValue(input);
+
+            // ASSERT
+            expect(actual).toMatchSnapshot();
+        });
+    });
 });

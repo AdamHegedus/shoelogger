@@ -58,6 +58,8 @@ Array [
 ]
 `;
 
+exports[`new-shoe.vue getBrandDisplayValue should return correct value 1`] = `"Bar"`;
+
 exports[`new-shoe.vue getShoe should return the value of text input 1`] = `
 Object {
   "brandId": 0,
@@ -65,6 +67,8 @@ Object {
   "typeId": 0,
 }
 `;
+
+exports[`new-shoe.vue getTypeDisplayValue should return correct value 1`] = `"Bar"`;
 
 exports[`new-shoe.vue meta.status is false should match snapshot when page loaded 1`] = `
 <div
@@ -91,7 +95,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
           <dropdown-stub
             data="[object Object]"
             event="select-type"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[13]++;cov_p3rkeai1x.s[29]++;return item.type;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Type"
           />
         </div>
@@ -106,7 +110,7 @@ exports[`new-shoe.vue meta.status is false should match snapshot when page loade
           <dropdown-stub
             data="[object Object]"
             event="select-brand"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[15]++;cov_p3rkeai1x.s[31]++;return item.brand;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Brand"
           />
         </div>
@@ -169,7 +173,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
           <dropdown-stub
             data="[object Object]"
             event="select-type"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[13]++;cov_p3rkeai1x.s[29]++;return item.type;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Type"
           />
         </div>
@@ -184,7 +188,7 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
           <dropdown-stub
             data="[object Object]"
             event="select-brand"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[15]++;cov_p3rkeai1x.s[31]++;return item.brand;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Brand"
           />
         </div>
@@ -261,7 +265,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
           <dropdown-stub
             data="[object Object]"
             event="select-type"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[13]++;cov_p3rkeai1x.s[29]++;return item.type;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Type"
           />
         </div>
@@ -276,7 +280,7 @@ exports[`new-shoe.vue should match snapshot when text input changed 1`] = `
           <dropdown-stub
             data="[object Object]"
             event="select-brand"
-            getdisplayvalue="function (item) {/* istanbul ignore next */cov_p3rkeai1x.f[15]++;cov_p3rkeai1x.s[31]++;return item.brand;}"
+            getdisplayvalue="function () { [native code] }"
             placeholder="Select Brand"
           />
         </div>

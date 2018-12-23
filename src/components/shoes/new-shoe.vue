@@ -12,7 +12,7 @@
                             @select-type="selectedType = arguments[0]"
                             :data="types"
                             :selected="selectedType"
-                            :getDisplayValue="(item) => item.type"
+                            :getDisplayValue="getTypeDisplayValue"
                             placeholder="Select Type"
                         />
                     </div>
@@ -24,7 +24,7 @@
                             @select-brand="selectedBrand = arguments[0]"
                             :data="brands"
                             :selected="selectedBrand"
-                            :getDisplayValue="(item) => item.brand"
+                            :getDisplayValue="getBrandDisplayValue"
                             placeholder="Select Brand"
                         />
                     </div>
@@ -99,6 +99,12 @@ export default {
         };
     },
     methods: {
+        getTypeDisplayValue(item) {
+            return item.type;
+        },
+        getBrandDisplayValue(item) {
+            return item.brand;
+        },
         selectBrand(brand) {
             this.selectedBrand = brand;
         },
