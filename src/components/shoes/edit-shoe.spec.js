@@ -868,7 +868,7 @@ describe('edit-shoe.vue', () => {
             });
             const input = {
                 id: 1,
-                brand: 'Bar'
+                type: 'Bar'
             };
 
             // ACT
@@ -876,6 +876,198 @@ describe('edit-shoe.vue', () => {
 
             // ASSERT
             const actual = wrapper.vm.selectedType;
+            expect(actual).toMatchSnapshot();
+        });
+    });
+
+    describe('getTypeDisplayValue', () => {
+        it('should return correct value', () => {
+            // ASSIGN
+            const $route = {
+                params: {
+                    id: '1'
+                }
+            };
+
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                editShoe: jest.fn(),
+                getShoesById: jest.fn(() => {
+                    return {
+                        id: 1,
+                        typeId: 0,
+                        brandId: 0,
+                        product: 'Foo Bar'
+                    };
+                })
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(EditShoe, {
+                store,
+                localVue,
+                mocks: {
+                    $route
+                }
+            });
+            const input = {
+                id: 1,
+                type: 'Bar'
+            };
+
+            // ACT
+            const actual = wrapper.vm.getTypeDisplayValue(input);
+
+            // ASSERT
+            expect(actual).toMatchSnapshot();
+        });
+    });
+
+    describe('getBrandDisplayValue', () => {
+        it('should return correct value', () => {
+            // ASSIGN
+            const $route = {
+                params: {
+                    id: '1'
+                }
+            };
+
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                editShoe: jest.fn(),
+                getShoesById: jest.fn(() => {
+                    return {
+                        id: 1,
+                        typeId: 0,
+                        brandId: 0,
+                        product: 'Foo Bar'
+                    };
+                })
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(EditShoe, {
+                store,
+                localVue,
+                mocks: {
+                    $route
+                }
+            });
+            const input = {
+                id: 1,
+                brand: 'Bar'
+            };
+
+            // ACT
+            const actual = wrapper.vm.getBrandDisplayValue(input);
+
+            // ASSERT
             expect(actual).toMatchSnapshot();
         });
     });

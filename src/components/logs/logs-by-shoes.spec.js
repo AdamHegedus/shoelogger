@@ -96,7 +96,7 @@ describe('logs-by-shoes.vue', () => {
         });
     });
 
-    describe('selectShoe', () => {
+    describe('getShoeDisplayValue', () => {
         it('should set selected shoe', () => {
             // ASSIGN
             const logsActions = {
@@ -181,10 +181,9 @@ describe('logs-by-shoes.vue', () => {
             };
 
             // ACT
-            wrapper.vm.selectShoe(input);
+            const actual = wrapper.vm.getShoeDisplayValue(input);
 
             // ASSERT
-            const actual = wrapper.vm.selectedShoe;
             expect(actual).toMatchSnapshot();
             expect(wrapper.element).toMatchSnapshot();
         });

@@ -18,6 +18,8 @@ Object {
 }
 `;
 
+exports[`edit-shoe.vue getBrandDisplayValue should return correct value 1`] = `"Bar"`;
+
 exports[`edit-shoe.vue getShoe should return the value of text input 1`] = `
 Object {
   "brandId": 0,
@@ -26,6 +28,8 @@ Object {
   "typeId": 0,
 }
 `;
+
+exports[`edit-shoe.vue getTypeDisplayValue should return correct value 1`] = `"Bar"`;
 
 exports[`edit-shoe.vue meta.status is false should match snapshot when page loaded 1`] = `
 <div
@@ -49,30 +53,12 @@ exports[`edit-shoe.vue meta.status is false should match snapshot when page load
             Type
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="type"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Type"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-type"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Type"
+          />
         </div>
          
         <div
@@ -82,30 +68,12 @@ exports[`edit-shoe.vue meta.status is false should match snapshot when page load
             Brand Name
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="brandName"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Brand"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-brand"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Brand"
+          />
         </div>
          
         <div
@@ -163,30 +131,12 @@ exports[`edit-shoe.vue meta.status is true should match snapshot when page loade
             Type
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="type"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Type"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-type"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Type"
+          />
         </div>
          
         <div
@@ -196,30 +146,12 @@ exports[`edit-shoe.vue meta.status is true should match snapshot when page loade
             Brand Name
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="brandName"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Brand"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-brand"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Brand"
+          />
         </div>
          
         <div
@@ -264,8 +196,8 @@ Object {
 
 exports[`edit-shoe.vue selectType should set selectedType 1`] = `
 Object {
-  "brand": "Bar",
   "id": 1,
+  "type": "Bar",
 }
 `;
 
@@ -291,30 +223,12 @@ exports[`edit-shoe.vue should match snapshot when text input changed 1`] = `
             Type
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="type"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Type"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-type"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Type"
+          />
         </div>
          
         <div
@@ -324,30 +238,12 @@ exports[`edit-shoe.vue should match snapshot when text input changed 1`] = `
             Brand Name
           </label>
            
-          <b-dropdown-stub
-            boundary="scrollParent"
-            class="btn-block"
-            id="brandName"
-            no-flip="true"
-            role="menu"
-            size="lg"
-            text="Select Brand"
-            toggleclass="btn btn-secondary btn-lg btn-block shadow"
-            toggletext="Toggle Dropdown"
-          >
-            <b-dropdown-item-stub
-              activeclass="active"
-              class="[object Object]"
-              event="click"
-              exactactiveclass="active"
-              routertag="a"
-              target="_self"
-            >
-              
-                            Foo
-                        
-            </b-dropdown-item-stub>
-          </b-dropdown-stub>
+          <dropdown-stub
+            data="[object Object]"
+            event="select-brand"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Brand"
+          />
         </div>
          
         <div

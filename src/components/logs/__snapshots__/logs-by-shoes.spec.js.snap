@@ -25,6 +25,43 @@ Array [
 ]
 `;
 
+exports[`logs-by-shoes.vue getShoeDisplayValue should set selected shoe 1`] = `"Foo - Bar"`;
+
+exports[`logs-by-shoes.vue getShoeDisplayValue should set selected shoe 2`] = `
+<div
+  class="logs-by-shoes"
+>
+  <h3>
+    Logs by Shoes
+  </h3>
+   
+  <div
+    class="col-12 col-lg-6 col-lg-6 px-0 py-2"
+  >
+    <div
+      class="form-group"
+    >
+      <label>
+        Shoe
+      </label>
+       
+      <dropdown-stub
+        data="[object Object],[object Object]"
+        event="select-shoe"
+        getdisplayvalue="function () { [native code] }"
+        placeholder="Select Shoe"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="col-12 col-lg-6 col-lg-6 px-0 py-2"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`logs-by-shoes.vue on init should render component 1`] = `null`;
 
 exports[`logs-by-shoes.vue on init should render component 2`] = `
@@ -38,42 +75,20 @@ exports[`logs-by-shoes.vue on init should render component 2`] = `
   <div
     class="col-12 col-lg-6 col-lg-6 px-0 py-2"
   >
-    <b-dropdown-stub
-      boundary="scrollParent"
-      class="btn-block"
-      id="type"
-      no-flip="true"
-      role="menu"
-      size="lg"
-      text="Select Shoe"
-      toggleclass="btn btn-secondary btn-lg btn-block shadow"
-      toggletext="Toggle Dropdown"
+    <div
+      class="form-group"
     >
-      <b-dropdown-item-stub
-        activeclass="active"
-        class="[object Object]"
-        event="click"
-        exactactiveclass="active"
-        routertag="a"
-        target="_self"
-      >
-        
-                Foo - Bar
-            
-      </b-dropdown-item-stub>
-      <b-dropdown-item-stub
-        activeclass="active"
-        class="[object Object]"
-        event="click"
-        exactactiveclass="active"
-        routertag="a"
-        target="_self"
-      >
-        
-                Foo - Test
-            
-      </b-dropdown-item-stub>
-    </b-dropdown-stub>
+      <label>
+        Shoe
+      </label>
+       
+      <dropdown-stub
+        data="[object Object],[object Object]"
+        event="select-shoe"
+        getdisplayvalue="function () { [native code] }"
+        placeholder="Select Shoe"
+      />
+    </div>
   </div>
    
   <div
@@ -85,84 +100,3 @@ exports[`logs-by-shoes.vue on init should render component 2`] = `
 `;
 
 exports[`logs-by-shoes.vue on init should render component 3`] = `"/logs/by-shoes"`;
-
-exports[`logs-by-shoes.vue selectShoe should set selected shoe 1`] = `
-Object {
-  "brand": "Foo",
-  "id": 0,
-  "product": "Bar",
-}
-`;
-
-exports[`logs-by-shoes.vue selectShoe should set selected shoe 2`] = `
-<div
-  class="logs-by-shoes"
->
-  <h3>
-    Logs by Shoes
-  </h3>
-   
-  <div
-    class="col-12 col-lg-6 col-lg-6 px-0 py-2"
-  >
-    <b-dropdown-stub
-      boundary="scrollParent"
-      class="btn-block"
-      id="type"
-      no-flip="true"
-      role="menu"
-      size="lg"
-      text="Foo Bar"
-      toggleclass="btn btn-secondary btn-lg btn-block shadow"
-      toggletext="Toggle Dropdown"
-    >
-      <b-dropdown-item-stub
-        activeclass="active"
-        class="[object Object]"
-        event="click"
-        exactactiveclass="active"
-        routertag="a"
-        target="_self"
-      >
-        
-                Foo - Bar
-            
-      </b-dropdown-item-stub>
-      <b-dropdown-item-stub
-        activeclass="active"
-        class="[object Object]"
-        event="click"
-        exactactiveclass="active"
-        routertag="a"
-        target="_self"
-      >
-        
-                Foo - Test
-            
-      </b-dropdown-item-stub>
-    </b-dropdown-stub>
-  </div>
-   
-  <div
-    class="col-12 col-lg-6 col-lg-6 px-0 py-2"
-  >
-    <b-table-stub
-      apiurl=""
-      bordered="true"
-      currentpage="1"
-      emptyfilteredtext="There are no records matching your request"
-      emptytext="There are no records to show"
-      fields="[object Object],[object Object],[object Object]"
-      footvariant=""
-      headvariant=""
-      hover="true"
-      items="[object Object],[object Object]"
-      labelsortasc="Click to sort Ascending"
-      labelsortdesc="Click to sort Descending"
-      perpage="0"
-      sortdirection="asc"
-      value=""
-    />
-  </div>
-</div>
-`;

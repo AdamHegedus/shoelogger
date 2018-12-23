@@ -77,6 +77,8 @@ Object {
 }
 `;
 
+exports[`new-log.vue getShoeDisplayValue should return correct value 1`] = `"Bar - Foo"`;
+
 exports[`new-log.vue meta.status is false should match snapshot when page loaded 1`] = `
 <div
   class="container"
@@ -95,25 +97,15 @@ exports[`new-log.vue meta.status is false should match snapshot when page loaded
         <div
           class="form-group"
         >
-          <div
-            class="form-group"
-          >
-            <label>
-              Shoe
-            </label>
-             
-            <b-dropdown-stub
-              boundary="scrollParent"
-              class="btn-block"
-              id="type"
-              no-flip="true"
-              role="menu"
-              size="lg"
-              text="Select Shoe"
-              toggleclass="btn btn-secondary btn-lg btn-block shadow"
-              toggletext="Toggle Dropdown"
-            />
-          </div>
+          <label>
+            Shoe
+          </label>
+           
+          <dropdown-stub
+            event="select-shoe"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Shoe"
+          />
         </div>
          
         <div
@@ -183,25 +175,15 @@ exports[`new-log.vue meta.status is true should match snapshot when page loaded 
         <div
           class="form-group"
         >
-          <div
-            class="form-group"
-          >
-            <label>
-              Shoe
-            </label>
-             
-            <b-dropdown-stub
-              boundary="scrollParent"
-              class="btn-block"
-              id="type"
-              no-flip="true"
-              role="menu"
-              size="lg"
-              text="Select Shoe"
-              toggleclass="btn btn-secondary btn-lg btn-block shadow"
-              toggletext="Toggle Dropdown"
-            />
-          </div>
+          <label>
+            Shoe
+          </label>
+           
+          <dropdown-stub
+            event="select-shoe"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Shoe"
+          />
         </div>
          
         <div
@@ -253,16 +235,22 @@ exports[`new-log.vue meta.status is true should match snapshot when page loaded 
 </div>
 `;
 
-exports[`new-log.vue selectShoe should set selectedShoe 1`] = `
-Object {
-  "brandId": 0,
-  "id": 1,
-  "product": "Foo",
-  "typeId": 0,
-}
+exports[`new-log.vue shoes should return the value from store 1`] = `
+Array [
+  Object {
+    "brandId": 0,
+    "id": 0,
+    "product": "Foo",
+    "typeId": 0,
+  },
+  Object {
+    "brandId": 0,
+    "id": 1,
+    "product": "Bar",
+    "typeId": 0,
+  },
+]
 `;
-
-exports[`new-log.vue shoes should return the value from store 1`] = `undefined`;
 
 exports[`new-log.vue should match snapshot when distance text input has changed 1`] = `
 <div
@@ -282,25 +270,15 @@ exports[`new-log.vue should match snapshot when distance text input has changed 
         <div
           class="form-group"
         >
-          <div
-            class="form-group"
-          >
-            <label>
-              Shoe
-            </label>
-             
-            <b-dropdown-stub
-              boundary="scrollParent"
-              class="btn-block"
-              id="type"
-              no-flip="true"
-              role="menu"
-              size="lg"
-              text="Select Shoe"
-              toggleclass="btn btn-secondary btn-lg btn-block shadow"
-              toggletext="Toggle Dropdown"
-            />
-          </div>
+          <label>
+            Shoe
+          </label>
+           
+          <dropdown-stub
+            event="select-shoe"
+            getdisplayvalue="function () { [native code] }"
+            placeholder="Select Shoe"
+          />
         </div>
          
         <div

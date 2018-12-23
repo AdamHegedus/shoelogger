@@ -379,7 +379,7 @@ describe('new-log.vue', () => {
                     },
                     shoes: {
                         namespaced: true,
-                        sate: shoesState
+                        state: shoesState
                     },
                     brands: {
                         namespaced: true,
@@ -502,8 +502,8 @@ describe('new-log.vue', () => {
         });
     });
 
-    describe('selectShoe', () => {
-        it('should set selectedShoe', () => {
+    describe('getShoeDisplayValue', () => {
+        it('should return correct value', () => {
             // ASSIGN
             const logsGetters = {
                 getMeta: () => {
@@ -571,16 +571,14 @@ describe('new-log.vue', () => {
             const wrapper = shallowMount(NewLog, { store, localVue });
             const input = {
                 id: 1,
-                typeId: 0,
-                brandId: 0,
+                brand: 'Bar',
                 product: 'Foo'
             };
 
             // ACT
-            wrapper.vm.selectShoe(input);
+            const actual = wrapper.vm.getShoeDisplayValue(input);
 
             // ASSERT
-            const actual = wrapper.vm.selectedShoe;
             expect(actual).toMatchSnapshot();
         });
     });
