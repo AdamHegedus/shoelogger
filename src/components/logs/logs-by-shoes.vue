@@ -3,26 +3,17 @@
         <h3>Logs by Shoes</h3>
 
         <div class="col-12 col-lg-6 col-lg-6 px-0 py-2">
-            <b-dropdown
-                id="type"
-                size="lg"
-                :no-flip="true"
-                :text="selectedShoe !== null ?
-                `${selectedShoe.brand} ${selectedShoe.product}` :
-                'Select Shoe'"
-                class="btn-block"
-                toggle-class="btn btn-secondary btn-lg btn-block shadow"
-            >
-                <b-dropdown-item
-                    :class="{ active: isSelected(shoe, selectedShoe) }"
-                    :key="shoe.product"
-                    v-for="shoe in shoes"
-                    @click="selectShoe(shoe)"
-                >
-                    {{shoe.brand}} - {{shoe.product}}
-                </b-dropdown-item>
-
-            </b-dropdown>
+            <div class="form-group">
+                <label>Shoe</label>
+                <dropdown
+                    event="select-shoe"
+                    @select-shoe="selectedShoe = arguments[0]"
+                    :data="shoes"
+                    :selected="selectedShoe"
+                    :getDisplayValue="getShoeDisplayValue"
+                    placeholder="Select Type"
+                />
+            </div>
         </div>
         <div class="col-12 col-lg-6 col-lg-6 px-0 py-2">
             <b-table
@@ -53,9 +44,12 @@
 </template>
 
 <script>
-import matchItem from '@/utils/match-item';
+import Dropdown from '@/components/common/dropdown';
 
 export default {
+    components: {
+        dropdown: Dropdown
+    },
     computed: {
         logs() {
             return this.$store.state.logs.logs;
@@ -91,16 +85,13 @@ export default {
         };
     },
     methods: {
+        getShoeDisplayValue(item) {
+            return `${item.brand} - ${item.product}`;
+        },
         getLogsByProduct(product) {
             return this.logs.filter((log) => {
                 return log.product === product;
             });
-        },
-        isSelected(currentItem, selectedItem) {
-            return matchItem(currentItem, selectedItem);
-        },
-        selectShoe(shoe) {
-            this.selectedShoe = shoe;
         },
         deleteLog(logId) {
             this.$store.dispatch('logs/deleteLog', {
