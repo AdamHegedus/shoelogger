@@ -18,6 +18,8 @@ Object {
 }
 `;
 
+exports[`edit-shoe.vue getBrandDisplayValue should return correct value 1`] = `"Bar"`;
+
 exports[`edit-shoe.vue getShoe should return the value of text input 1`] = `
 Object {
   "brandId": 0,
@@ -26,6 +28,8 @@ Object {
   "typeId": 0,
 }
 `;
+
+exports[`edit-shoe.vue getTypeDisplayValue should return correct value 1`] = `"Bar"`;
 
 exports[`edit-shoe.vue meta.status is false should match snapshot when page loaded 1`] = `
 <div
@@ -192,8 +196,8 @@ Object {
 
 exports[`edit-shoe.vue selectType should set selectedType 1`] = `
 Object {
-  "brand": "Bar",
   "id": 1,
+  "type": "Bar",
 }
 `;
 
