@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dropdown.vue render should render component when selected is null 1`] = `
+<b-dropdown-stub
+  boundary="scrollParent"
+  class="btn-block"
+  id="mock-event"
+  no-flip="true"
+  role="menu"
+  size="lg"
+  text="mock-placeholder"
+  toggleclass="btn btn-secondary btn-lg btn-block shadow"
+  toggletext="Toggle Dropdown"
+>
+  <b-dropdown-item-stub
+    activeclass="active"
+    class="[object Object]"
+    event="click"
+    exactactiveclass="active"
+    routertag="a"
+    target="_self"
+  >
+    
+        Mock 01
+    
+  </b-dropdown-item-stub>
+  <b-dropdown-item-stub
+    activeclass="active"
+    class="[object Object]"
+    event="click"
+    exactactiveclass="active"
+    routertag="a"
+    target="_self"
+  >
+    
+        Mock 02
+    
+  </b-dropdown-item-stub>
+</b-dropdown-stub>
+`;
+
+exports[`dropdown.vue render should render component when selected is set 1`] = `
+<b-dropdown-stub
+  boundary="scrollParent"
+  class="btn-block"
+  id="mock-event"
+  no-flip="true"
+  role="menu"
+  size="lg"
+  text="Mock 01"
+  toggleclass="btn btn-secondary btn-lg btn-block shadow"
+  toggletext="Toggle Dropdown"
+>
+  <b-dropdown-item-stub
+    activeclass="active"
+    class="[object Object]"
+    event="click"
+    exactactiveclass="active"
+    routertag="a"
+    target="_self"
+  >
+    
+        Mock 01
+    
+  </b-dropdown-item-stub>
+  <b-dropdown-item-stub
+    activeclass="active"
+    class="[object Object]"
+    event="click"
+    exactactiveclass="active"
+    routertag="a"
+    target="_self"
+  >
+    
+        Mock 02
+    
+  </b-dropdown-item-stub>
+</b-dropdown-stub>
+`;
