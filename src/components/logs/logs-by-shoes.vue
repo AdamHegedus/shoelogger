@@ -11,7 +11,7 @@
                     :data="shoes"
                     :selected="selectedShoe"
                     :getDisplayValue="getShoeDisplayValue"
-                    placeholder="Select Type"
+                    placeholder="Select Shoe"
                 />
             </div>
         </div>

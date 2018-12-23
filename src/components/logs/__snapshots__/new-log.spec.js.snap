@@ -104,7 +104,7 @@ exports[`new-log.vue meta.status is false should match snapshot when page loaded
           <dropdown-stub
             event="select-shoe"
             getdisplayvalue="function () { [native code] }"
-            placeholder="Select Type"
+            placeholder="Select Shoe"
           />
         </div>
          
@@ -182,7 +182,7 @@ exports[`new-log.vue meta.status is true should match snapshot when page loaded 
           <dropdown-stub
             event="select-shoe"
             getdisplayvalue="function () { [native code] }"
-            placeholder="Select Type"
+            placeholder="Select Shoe"
           />
         </div>
          
@@ -277,7 +277,7 @@ exports[`new-log.vue should match snapshot when distance text input has changed 
           <dropdown-stub
             event="select-shoe"
             getdisplayvalue="function () { [native code] }"
-            placeholder="Select Type"
+            placeholder="Select Shoe"
           />
         </div>
          

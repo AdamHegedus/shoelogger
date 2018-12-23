@@ -49,7 +49,7 @@ exports[`logs-by-shoes.vue getShoeDisplayValue should set selected shoe 2`] = `
         data="[object Object],[object Object]"
         event="select-shoe"
         getdisplayvalue="function () { [native code] }"
-        placeholder="Select Type"
+        placeholder="Select Shoe"
       />
     </div>
   </div>
@@ -86,7 +86,7 @@ exports[`logs-by-shoes.vue on init should render component 2`] = `
         data="[object Object],[object Object]"
         event="select-shoe"
         getdisplayvalue="function () { [native code] }"
-        placeholder="Select Type"
+        placeholder="Select Shoe"
       />
     </div>
   </div>
