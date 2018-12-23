@@ -6,53 +6,28 @@
                 <h2>Edit Shoe</h2>
                 <form>
                     <div class="form-group">
-
                         <label>Type</label>
-                        <b-dropdown
-                            id="type"
-                            size="lg"
-                            :no-flip="true"
-                            :text="selectedType !== null ?
-                                selectedType.type :
-                                'Select Type'"
-                            class="btn-block"
-                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
-                        >
-                            <b-dropdown-item
-                                :class="{ active: isSelected(type, selectedType) }"
-                                :key="type.type"
-                                v-for="type in types"
-                                @click="selectType(type)"
-                            >
-                                {{type.type}}
-                            </b-dropdown-item>
-
-                        </b-dropdown>
+                        <dropdown
+                            event="select-type"
+                            @select-type="selectedType = arguments[0]"
+                            :data="types"
+                            :selected="selectedType"
+                            :getDisplayValue="getTypeDisplayValue"
+                            placeholder="Select Type"
+                        />
                     </div>
                     <div class="form-group">
                         <label>Brand Name</label>
-                        <b-dropdown
-                            id="brandName"
-                            size="lg"
-                            :no-flip="true"
-                            :text="selectedBrand !== null ?
-                                selectedBrand.brand :
-                                'Select Brand'"
-                            class="btn-block"
-                            toggle-class="btn btn-secondary btn-lg btn-block shadow"
-                        >
-                            <b-dropdown-item
-                                :class="{ active: isSelected(brand, selectedBrand) }"
-                                :key="brand.brand"
-                                v-for="brand in brands"
-                                @click="selectBrand(brand)"
-                            >
-                                {{brand.brand}}
-                            </b-dropdown-item>
-
-                        </b-dropdown>
-
+                        <dropdown
+                            event="select-brand"
+                            @select-brand="selectedBrand = arguments[0]"
+                            :data="brands"
+                            :selected="selectedBrand"
+                            :getDisplayValue="getBrandDisplayValue"
+                            placeholder="Select Brand"
+                        />
                     </div>
+
                     <div class="form-group">
                         <label for="productName">Product Name</label>
                         <input
@@ -84,9 +59,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import matchItem from '@/utils/match-item';
+import Dropdown from '@/components/common/dropdown';
 
 export default {
+    components: {
+        dropdown: Dropdown
+    },
     computed: {
         brands() {
             return this.$store.state.brands.brands;
@@ -124,8 +102,11 @@ export default {
         };
     },
     methods: {
-        isSelected(currentItem, selectedItem) {
-            return matchItem(currentItem, selectedItem);
+        getTypeDisplayValue(item) {
+            return item.type;
+        },
+        getBrandDisplayValue(item) {
+            return item.brand;
         },
         selectBrand(brand) {
             this.selectedBrand = brand;
