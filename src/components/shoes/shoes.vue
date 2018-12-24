@@ -32,7 +32,7 @@
                         <span class="timestamp">Last modified: {{ item.timestamp }}</span>
 
                         <transition name="fade" appear mode="out-in">
-                            <div  class="shoe-action">
+                            <div class="shoe-action">
                                 <button
                                     v-show="isSelected(index)"
                                     class="btn btn-warning shoe-edit"
