@@ -177,3 +177,11 @@ exports[`brands.vue meta.status is true first element is clicked should match sn
   </span>
 </div>
 `;
+
+exports[`brands.vue metaChanged meta.status is false should call event 1`] = `0`;
+
+exports[`brands.vue metaChanged meta.status is false should call event 2`] = `1`;
+
+exports[`brands.vue metaChanged meta.status is true should call event 1`] = `null`;
+
+exports[`brands.vue metaChanged meta.status is true should call event 2`] = `2`;

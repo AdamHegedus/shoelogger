@@ -106,14 +106,17 @@ export default {
         },
         isSelected(index) {
             return this.selectedIndex === index;
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.selectShoe(null);
+                this.$store.dispatch('shoes/getShoes');
+            }
         }
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.selectShoe(null);
-                this.$store.dispatch('shoes/getShoes');
-            }
+            this.metaChanged(actual);
         }
     }
 };

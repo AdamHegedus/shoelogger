@@ -226,6 +226,14 @@ exports[`shoes.vue meta.status is true should match snapshot 1`] = `
 </div>
 `;
 
+exports[`shoes.vue metaChanged meta.status is false should not call event 1`] = `0`;
+
+exports[`shoes.vue metaChanged meta.status is false should not call event 2`] = `1`;
+
+exports[`shoes.vue metaChanged meta.status is true should call event 1`] = `null`;
+
+exports[`shoes.vue metaChanged meta.status is true should call event 2`] = `2`;
+
 exports[`shoes.vue newShoe should call router 1`] = `
 Array [
   Array [
