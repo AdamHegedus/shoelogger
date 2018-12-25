@@ -884,4 +884,188 @@ describe('shoes.vue', () => {
             expect(shoesActions.deleteShoe.mock.calls[0][1]).toMatchSnapshot();
         });
     });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+            // ASSIGN
+                const shoesGetters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    getShoes: jest.fn(),
+                    deleteShoe: jest.fn()
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const shoesState = {
+                    shoes: [
+                        {
+                            id: 0,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 100,
+                            timestamp: 100
+                        }
+                    ]
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 0,
+                            type: 'Foo'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        shoes: {
+                            namespaced: true,
+                            getters: shoesGetters,
+                            actions: shoesActions,
+                            state: shoesState
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(Shoes, { store, localVue });
+                wrapper.vm.selectShoe(0);
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(shoesActions.getShoes.mock.calls.length).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should not call event', () => {
+            // ASSIGN
+                const shoesGetters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    getShoes: jest.fn(),
+                    deleteShoe: jest.fn()
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const shoesState = {
+                    shoes: [
+                        {
+                            id: 0,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 100,
+                            timestamp: 100
+                        }
+                    ]
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 0,
+                            type: 'Foo'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        shoes: {
+                            namespaced: true,
+                            getters: shoesGetters,
+                            actions: shoesActions,
+                            state: shoesState
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(Shoes, { store, localVue });
+                wrapper.vm.selectShoe(0);
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(shoesActions.getShoes.mock.calls.length).toMatchSnapshot();
+            });
+        });
+    });
 });
