@@ -394,4 +394,82 @@ describe('brands.vue', () => {
             expect(spy.mock.calls[0][0]).toEqual(expected);
         });
     });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const getters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        brands: {
+                            namespaced: true,
+                            getters,
+                            actions,
+                            state
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(Brands, { store, localVue });
+                wrapper.vm.selectBrand(0);
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(actions.getBrands.mock.calls.length).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const getters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        brands: {
+                            namespaced: true,
+                            getters,
+                            actions,
+                            state
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(Brands, { store, localVue });
+                wrapper.vm.selectBrand(0);
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(actions.getBrands.mock.calls.length).toMatchSnapshot();
+            });
+        });
+    });
 });

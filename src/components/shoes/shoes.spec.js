@@ -888,7 +888,7 @@ describe('shoes.vue', () => {
     describe('metaChanged', () => {
         describe('meta.status is true', () => {
             it('should call event', () => {
-            // ASSIGN
+                // ASSIGN
                 const shoesGetters = {
                     getMeta: () => {
                         return {
@@ -979,7 +979,7 @@ describe('shoes.vue', () => {
 
         describe('meta.status is false', () => {
             it('should not call event', () => {
-            // ASSIGN
+                // ASSIGN
                 const shoesGetters = {
                     getMeta: () => {
                         return {

@@ -84,14 +84,17 @@ export default {
         },
         isSelected(index) {
             return this.selectedIndex === index;
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.selectBrand(null);
+                this.$store.dispatch('brands/getBrands');
+            }
         }
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.selectBrand(null);
-                this.$store.dispatch('brands/getBrands');
-            }
+            this.metaChanged(actual);
         }
     }
 };
