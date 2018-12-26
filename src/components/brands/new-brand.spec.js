@@ -1,9 +1,11 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
+import VueRouter from 'vue-router';
 import NewBrand from '@/components/brands/new-brand';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(VueRouter);
 
 describe('new-brand.vue', () => {
     describe('meta.status is false', () => {
@@ -194,6 +196,93 @@ describe('new-brand.vue', () => {
             // ASSERT
             expect(actions.addBrand.mock.calls.length).toEqual(1);
             expect(actions.addBrand.mock.calls[0][1]).toEqual(expected);
+        });
+    });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const getters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const actions = {
+                    addBrand: jest.fn()
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        brands: {
+                            namespaced: true,
+                            getters,
+                            actions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(NewBrand, { store, localVue, router });
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(1);
+                expect(spy.mock.calls[0][0]).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const getters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const actions = {
+                    addBrand: jest.fn()
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        brands: {
+                            namespaced: true,
+                            getters,
+                            actions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(NewBrand, { store, localVue, router });
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(0);
+            });
         });
     });
 });

@@ -187,6 +187,24 @@ exports[`edit-shoe.vue meta.status is true should match snapshot when page loade
 </div>
 `;
 
+exports[`edit-shoe.vue metaChanged meta.status is true should call event 1`] = `"/shoes"`;
+
+exports[`edit-shoe.vue originalChanged should call event 1`] = `"Foo Bar"`;
+
+exports[`edit-shoe.vue originalChanged should call event 2`] = `
+Object {
+  "brand": "Bar",
+  "id": 1,
+}
+`;
+
+exports[`edit-shoe.vue originalChanged should call event 3`] = `
+Object {
+  "id": 0,
+  "type": "Foo",
+}
+`;
+
 exports[`edit-shoe.vue selectBrand should set selectedBrand 1`] = `
 Object {
   "brand": "Foo",

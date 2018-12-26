@@ -116,6 +116,23 @@ export default {
         },
         editShoe(shoe) {
             this.$store.dispatch('shoes/editShoe', shoe);
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.$router.push('/shoes');
+            }
+        },
+        originalChanged(actual) {
+            const type = this.types.find((element) => {
+                return element.id === actual.typeId;
+            });
+            const brand = this.brands.find((element) => {
+                return element.id === actual.brandId;
+            });
+
+            this.selectType(type);
+            this.selectBrand(brand);
+            this.product = actual.product;
         }
     },
     created() {
@@ -127,21 +144,10 @@ export default {
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.$router.push('/shoes');
-            }
+            this.metaChanged(actual);
         },
         original(actual) {
-            const type = this.types.find((element) => {
-                return element.id === actual.typeId;
-            });
-            const brand = this.brands.find((element) => {
-                return element.id === actual.brandId;
-            });
-
-            this.selectType(type);
-            this.selectBrand(brand);
-            this.product = actual.product;
+            this.originalChanged(actual);
         }
     }
 };

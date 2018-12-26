@@ -104,6 +104,8 @@ exports[`new-brand.vue meta.status is true should match snapshot when page loade
 </div>
 `;
 
+exports[`new-brand.vue metaChanged meta.status is true should call event 1`] = `"/brands"`;
+
 exports[`new-brand.vue should match snapshot when text input changed 1`] = `
 <div
   class="container"
