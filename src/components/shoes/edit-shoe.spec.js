@@ -1,10 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
+import VueRouter from 'vue-router';
 import BootstrapVue from 'bootstrap-vue';
 import EditShoe from '@/components/shoes/edit-shoe';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(VueRouter);
 localVue.use(BootstrapVue);
 
 describe('edit-shoe.vue', () => {
@@ -84,9 +86,11 @@ describe('edit-shoe.vue', () => {
 
         it('should match snapshot when page loaded', () => {
             // ASSIGN
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -176,9 +180,11 @@ describe('edit-shoe.vue', () => {
 
         it('should match snapshot when page loaded', () => {
             // ASSIGN
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -267,9 +273,11 @@ describe('edit-shoe.vue', () => {
             }
         });
 
+        const router = new VueRouter();
         const wrapper = shallowMount(EditShoe, {
             store,
             localVue,
+            router,
             mocks: {
                 $route
             }
@@ -374,9 +382,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -477,9 +487,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -569,9 +581,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -661,9 +675,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -762,9 +778,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -859,9 +877,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -956,9 +976,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -1052,9 +1074,11 @@ describe('edit-shoe.vue', () => {
                 }
             });
 
+            const router = new VueRouter();
             const wrapper = shallowMount(EditShoe, {
                 store,
                 localVue,
+                router,
                 mocks: {
                     $route
                 }
@@ -1069,6 +1093,209 @@ describe('edit-shoe.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
+        });
+    });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const $route = {
+                    params: {
+                        id: '1'
+                    }
+                };
+
+                const shoesGetters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    editShoe: jest.fn(),
+                    getShoesById: jest.fn(() => {
+                        return {
+                            id: 1,
+                            typeId: 0,
+                            brandId: 0,
+                            product: 'Foo Bar'
+                        };
+                    })
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 0,
+                            type: 'Foo'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        shoes: {
+                            namespaced: true,
+                            getters: shoesGetters,
+                            actions: shoesActions
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(EditShoe, {
+                    store,
+                    localVue,
+                    router,
+                    mocks: {
+                        $route
+                    }
+                });
+
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(1);
+                expect(spy.mock.calls[0][0]).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const $route = {
+                    params: {
+                        id: '1'
+                    }
+                };
+
+                const shoesGetters = {
+                    getMeta: () => {
+                        return {
+                            status: true,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    editShoe: jest.fn(),
+                    getShoesById: jest.fn(() => {
+                        return {
+                            id: 1,
+                            typeId: 0,
+                            brandId: 0,
+                            product: 'Foo Bar'
+                        };
+                    })
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 1,
+                            type: 'Bar'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        shoes: {
+                            namespaced: true,
+                            getters: shoesGetters,
+                            actions: shoesActions
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(EditShoe, {
+                    store,
+                    localVue,
+                    router,
+                    mocks: {
+                        $route
+                    }
+                });
+
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(0);
+            });
         });
     });
 });
