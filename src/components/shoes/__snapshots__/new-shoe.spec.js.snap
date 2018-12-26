@@ -226,6 +226,8 @@ exports[`new-shoe.vue meta.status is true should match snapshot when page loaded
 </div>
 `;
 
+exports[`new-shoe.vue metaChanged meta.status is true should call event 1`] = `"/shoes"`;
+
 exports[`new-shoe.vue selectBrand should set selectedBrand 1`] = `
 Object {
   "brand": "Foo",
