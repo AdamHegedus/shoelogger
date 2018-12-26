@@ -1298,4 +1298,114 @@ describe('edit-shoe.vue', () => {
             });
         });
     });
+
+    describe('originalChanged', () => {
+        it('should call event', () => {
+            // ASSIGN
+            const $route = {
+                params: {
+                    id: '1'
+                }
+            };
+
+            const shoesGetters = {
+                getMeta: () => {
+                    return {
+                        status: true,
+                        message: null
+                    };
+                }
+            };
+
+            const shoesActions = {
+                editShoe: jest.fn(),
+                getShoesById: jest.fn(() => {
+                    return {
+                        id: 1,
+                        typeId: 0,
+                        brandId: 0,
+                        product: 'Foo Bar'
+                    };
+                })
+            };
+
+            const brandsActions = {
+                getBrands: jest.fn()
+            };
+
+            const typesActions = {
+                getTypes: jest.fn()
+            };
+
+            const typesState = {
+                types: [
+                    {
+                        id: 0,
+                        type: 'Foo'
+                    },
+                    {
+                        id: 1,
+                        type: 'Bar'
+                    }
+                ]
+            };
+
+            const brandsState = {
+                brands: [
+                    {
+                        id: 0,
+                        brand: 'Foo'
+                    },
+                    {
+                        id: 1,
+                        brand: 'Bar'
+                    }
+                ]
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    shoes: {
+                        namespaced: true,
+                        getters: shoesGetters,
+                        actions: shoesActions
+                    },
+                    brands: {
+                        namespaced: true,
+                        state: brandsState,
+                        actions: brandsActions
+                    },
+                    types: {
+                        namespaced: true,
+                        state: typesState,
+                        actions: typesActions
+                    }
+                }
+            });
+
+            const router = new VueRouter();
+            const wrapper = shallowMount(EditShoe, {
+                store,
+                localVue,
+                router,
+                mocks: {
+                    $route
+                }
+            });
+
+            const input = {
+                typeId: 0,
+                brandId: 1,
+                product: 'Foo Bar'
+            };
+
+            // ACT
+            wrapper.vm.originalChanged(input);
+
+            // ASSERT
+            expect(wrapper.vm.product).toMatchSnapshot();
+            expect(wrapper.vm.selectedBrand).toMatchSnapshot();
+            expect(wrapper.vm.selectedType).toMatchSnapshot();
+        });
+    });
 });
