@@ -61,19 +61,21 @@ export default {
     methods: {
         addBrand(brand) {
             this.$store.dispatch('brands/addBrand', brand);
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.$router.push('/brands');
+            }
         }
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.$router.push('/brands');
-            }
+            this.metaChanged(actual);
         }
     }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
 
 </style>
