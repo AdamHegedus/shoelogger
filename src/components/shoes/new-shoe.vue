@@ -113,6 +113,11 @@ export default {
         },
         addShoe(shoe) {
             this.$store.dispatch('shoes/addShoe', shoe);
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.$router.push('/shoes');
+            }
         }
     },
     created() {
@@ -121,9 +126,7 @@ export default {
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.$router.push('/shoes');
-            }
+            this.metaChanged(actual);
         }
     }
 };
