@@ -786,4 +786,166 @@ describe('recent-logs.vue', () => {
             expect(logsActions.deleteLog.mock.calls[0][1]).toMatchSnapshot();
         });
     });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const logsGetters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const logsActions = {
+                    getLogs: jest.fn(),
+                    deleteLog: jest.fn(),
+                    resetMeta: jest.fn()
+                };
+
+                const logsState = {
+                    logs: [
+                        {
+                            id: 0,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 1,
+                            timestamp: 100
+                        },
+                        {
+                            id: 1,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 1,
+                            timestamp: 200
+                        }
+                    ]
+                };
+
+                const shoesActions = {
+                    getShoes: jest.fn()
+                };
+
+                const navigationActions = {
+                    setNavigation: jest.fn()
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        logs: {
+                            namespaced: true,
+                            getters: logsGetters,
+                            actions: logsActions,
+                            state: logsState
+                        },
+                        shoes: {
+                            namespaced: true,
+                            actions: shoesActions
+                        },
+                        navigation: {
+                            namespaced: true,
+                            actions: navigationActions
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(RecentLogs, { store, localVue });
+                wrapper.vm.selectLog(0);
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(shoesActions.getShoes.mock.calls.length).toMatchSnapshot();
+                expect(logsActions.getLogs.mock.calls.length).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const logsGetters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const logsActions = {
+                    getLogs: jest.fn(),
+                    deleteLog: jest.fn(),
+                    resetMeta: jest.fn()
+                };
+
+                const logsState = {
+                    logs: [
+                        {
+                            id: 0,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 1,
+                            timestamp: 100
+                        },
+                        {
+                            id: 1,
+                            product: 'Foo',
+                            brand: 'foobar',
+                            distance: 1,
+                            timestamp: 200
+                        }
+                    ]
+                };
+
+                const shoesActions = {
+                    getShoes: jest.fn()
+                };
+
+                const navigationActions = {
+                    setNavigation: jest.fn()
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        logs: {
+                            namespaced: true,
+                            getters: logsGetters,
+                            actions: logsActions,
+                            state: logsState
+                        },
+                        shoes: {
+                            namespaced: true,
+                            actions: shoesActions
+                        },
+                        navigation: {
+                            namespaced: true,
+                            actions: navigationActions
+                        }
+                    }
+                });
+
+                const wrapper = shallowMount(RecentLogs, { store, localVue });
+                wrapper.vm.selectLog(0);
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(wrapper.vm.selectedIndex).toMatchSnapshot();
+                expect(shoesActions.getShoes.mock.calls.length).toMatchSnapshot();
+                expect(logsActions.getLogs.mock.calls.length).toMatchSnapshot();
+            });
+        });
+    });
 });

@@ -86,15 +86,18 @@ export default {
         },
         isSelected(index) {
             return this.selectedIndex === index;
-        }
-    },
-    watch: {
-        meta(actual) {
-            if (actual.status) {
+        },
+        metaChanged(meta) {
+            if (meta.status) {
                 this.selectLog(null);
                 this.$store.dispatch('logs/getLogs');
                 this.$store.dispatch('shoes/getShoes');
             }
+        }
+    },
+    watch: {
+        meta(actual) {
+            this.metaChanged(actual);
         }
     },
     created() {
