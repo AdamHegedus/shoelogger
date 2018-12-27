@@ -96,13 +96,16 @@ export default {
         },
         addLog(shoe) {
             this.$store.dispatch('logs/addLog', shoe);
+        },
+        metaChanged(meta) {
+            if (meta.status) {
+                this.$router.push('/logs/recent');
+            }
         }
     },
     watch: {
         meta(actual) {
-            if (actual.status) {
-                this.$router.push('/logs/recent');
-            }
+            this.metaChanged(actual);
         }
     }
 };
