@@ -235,6 +235,8 @@ exports[`new-log.vue meta.status is true should match snapshot when page loaded 
 </div>
 `;
 
+exports[`new-log.vue metaChanged meta.status is true should call event 1`] = `"/logs/recent"`;
+
 exports[`new-log.vue shoes should return the value from store 1`] = `
 Array [
   Object {

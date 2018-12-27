@@ -1,10 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
+import VueRouter from 'vue-router';
 import BootstrapVue from 'bootstrap-vue';
 import NewLog from '@/components/logs/new-log';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(VueRouter);
 localVue.use(BootstrapVue);
 
 describe('new-log.vue', () => {
@@ -580,6 +582,173 @@ describe('new-log.vue', () => {
 
             // ASSERT
             expect(actual).toMatchSnapshot();
+        });
+    });
+
+    describe('metaChanged', () => {
+        describe('meta.status is true', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const logsGetters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    addShoe: jest.fn()
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 1,
+                            type: 'Bar'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        logs: {
+                            namespaced: true,
+                            getters: logsGetters
+                        },
+                        shoes: {
+                            namespaced: true,
+                            getters: logsGetters,
+                            actions: shoesActions
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(NewLog, { store, localVue, router });
+
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+                const input = {
+                    status: true
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(1);
+                expect(spy.mock.calls[0][0]).toMatchSnapshot();
+            });
+        });
+
+        describe('meta.status is false', () => {
+            it('should call event', () => {
+                // ASSIGN
+                const logsGetters = {
+                    getMeta: () => {
+                        return {
+                            status: false,
+                            message: null
+                        };
+                    }
+                };
+
+                const shoesActions = {
+                    addShoe: jest.fn()
+                };
+
+                const brandsActions = {
+                    getBrands: jest.fn()
+                };
+
+                const typesActions = {
+                    getTypes: jest.fn()
+                };
+
+                const typesState = {
+                    types: [
+                        {
+                            id: 1,
+                            type: 'Bar'
+                        }
+                    ]
+                };
+
+                const brandsState = {
+                    brands: [
+                        {
+                            id: 0,
+                            brand: 'Foo'
+                        }
+                    ]
+                };
+
+                const store = new Vuex.Store({
+                    modules: {
+                        logs: {
+                            namespaced: true,
+                            getters: logsGetters
+                        },
+                        shoes: {
+                            namespaced: true,
+                            getters: logsGetters,
+                            actions: shoesActions
+                        },
+                        brands: {
+                            namespaced: true,
+                            state: brandsState,
+                            actions: brandsActions
+                        },
+                        types: {
+                            namespaced: true,
+                            state: typesState,
+                            actions: typesActions
+                        }
+                    }
+                });
+
+                const router = new VueRouter();
+                const wrapper = shallowMount(NewLog, { store, localVue, router });
+
+                const spy = jest.spyOn(wrapper.vm.$router, 'push');
+                const input = {
+                    status: false
+                };
+
+                // ACT
+                wrapper.vm.metaChanged(input);
+
+                // ASSERT
+                expect(spy.mock.calls.length).toEqual(0);
+            });
         });
     });
 });
