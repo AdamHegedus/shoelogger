@@ -1368,6 +1368,18 @@ exports[`recent-logs.vue meta.status is true should match snapshot 1`] = `
 
 exports[`recent-logs.vue meta.status is true should match snapshot 2`] = `"/logs/recent"`;
 
+exports[`recent-logs.vue metaChanged meta.status is false should call event 1`] = `0`;
+
+exports[`recent-logs.vue metaChanged meta.status is false should call event 2`] = `0`;
+
+exports[`recent-logs.vue metaChanged meta.status is false should call event 3`] = `0`;
+
+exports[`recent-logs.vue metaChanged meta.status is true should call event 1`] = `null`;
+
+exports[`recent-logs.vue metaChanged meta.status is true should call event 2`] = `1`;
+
+exports[`recent-logs.vue metaChanged meta.status is true should call event 3`] = `1`;
+
 exports[`recent-logs.vue selectLog should set index when selectedIndex is different 1`] = `1`;
 
 exports[`recent-logs.vue selectLog should set index when selectedIndex is the same 1`] = `null`;
