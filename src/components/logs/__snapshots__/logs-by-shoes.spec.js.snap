@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`logs-by-shoes.vue columnDefinitions should return correct value 1`] = `
+Array [
+  Object {
+    "key": "distance",
+    "label": "Distance",
+    "sortable": true,
+  },
+  Object {
+    "key": "date",
+    "label": "Date",
+    "sortable": true,
+  },
+  Object {
+    "class": "action-column",
+    "key": "action",
+    "label": "",
+    "sortable": false,
+    "width": 100,
+  },
+]
+`;
+
 exports[`logs-by-shoes.vue deleteLog should call action 1`] = `
 Object {
   "id": 0,

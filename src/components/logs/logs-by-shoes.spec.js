@@ -364,4 +364,91 @@ describe('logs-by-shoes.vue', () => {
             expect(logsActions.deleteLog.mock.calls[0][1]).toMatchSnapshot();
         });
     });
+
+    describe('columnDefinitions', () => {
+        it('should return correct value', () => {
+            // ASSIGN
+            const logsActions = {
+                getLogs: jest.fn(),
+                deleteLog: jest.fn(),
+                resetMeta: jest.fn()
+            };
+
+            const logsState = {
+                logs: [
+                    {
+                        id: 0,
+                        product: 'Bar',
+                        brand: 'Foo',
+                        distance: 1,
+                        timestamp: 100
+                    },
+                    {
+                        id: 1,
+                        product: 'Bar',
+                        brand: 'Foo',
+                        distance: 1,
+                        timestamp: 100
+                    },
+                    {
+                        id: 2,
+                        product: 'Test',
+                        brand: 'Foo',
+                        distance: 3,
+                        timestamp: 100
+                    }
+                ]
+            };
+
+            const shoesActions = {
+                getShoes: jest.fn()
+            };
+
+            const shoesState = {
+                shoes: [
+                    {
+                        id: 0,
+                        brand: 'Foo',
+                        product: 'Bar'
+                    },
+                    {
+                        id: 1,
+                        brand: 'Foo',
+                        product: 'Test'
+                    }
+                ]
+            };
+
+            const navigationActions = {
+                setNavigation: jest.fn()
+            };
+
+            const store = new Vuex.Store({
+                modules: {
+                    logs: {
+                        namespaced: true,
+                        actions: logsActions,
+                        state: logsState
+                    },
+                    shoes: {
+                        namespaced: true,
+                        actions: shoesActions,
+                        state: shoesState
+                    },
+                    navigation: {
+                        namespaced: true,
+                        actions: navigationActions
+                    }
+                }
+            });
+
+            const wrapper = shallowMount(LogsByShoes, { store, localVue });
+
+            // ACT
+            const actual = wrapper.vm.columnDefinitions;
+
+            // ASSERT
+            expect(actual).toMatchSnapshot();
+        });
+    });
 });
