@@ -234,7 +234,7 @@ describe('new-log.vue', () => {
         wrapper.find('input').setValue(input);
 
         // ASSERT
-        const element = wrapper.element;
+        const { element } = wrapper;
         const actual = wrapper.vm.$data.distance;
         expect(element).toMatchSnapshot();
         expect(actual).toEqual(expected);
