@@ -1,4 +1,4 @@
-# shoe-log
+# shoelogger
 
 > A shoe wear management and logging tool.
 
